@@ -6,3 +6,5 @@ hi.classList.add('font-bold');
 hi.classList.add('text-2xl');
 
 round.classList.add('bgToRed');
+
+// 화이팅
