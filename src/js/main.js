@@ -1,10 +1,16 @@
-const hi = document.querySelector('#hi');
-const round = document.querySelector('#round');
+import gsap from 'gsap';
 
-hi.classList.add('font-bold');
+const logo = document.querySelector('#logo');
 
-hi.classList.add('text-2xl');
+window.addEventListener('load', () => {
+  setTimeout(() => {
+    window.location.href = '/src/pages/landingPage/';
+  }, 3000);
+});
 
-round.classList.add('bgToRed');
-
-// 화이팅
+gsap.from(logo, {
+  opacity: 0,
+  duration: 3,
+  ease: 'power1.out',
+  delay: 0.5,
+});
