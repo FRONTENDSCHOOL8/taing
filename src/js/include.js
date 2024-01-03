@@ -19,3 +19,5 @@ fetch('/components/footer.html')
   .catch((error) => {
     console.error(error);
   });
+
+// 화이팅2
