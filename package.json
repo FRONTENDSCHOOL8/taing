@@ -27,6 +27,7 @@
   },
   "dependencies": {
     "gsap": "^3.12.4",
+    "pocketbase": "^0.20.1",
     "swiper": "^11.0.5"
   }
 }
