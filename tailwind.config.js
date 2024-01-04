@@ -27,13 +27,18 @@ export default {
         ...pxToRemFunc(0, 1000),
       }, // px을 rem으로 변환
       screens: {
-        mobile: '320px',
         tablet: '768px',
-        desktop: '1920px',
+        desktop: '1280px',
       },
     },
+    backgroundImage: {
+      'header-bg':
+        'linear-gradient(180deg, rgba(0, 0, 0, 0.70) 0%, rgba(0, 0, 0, 0.00) 100%)',
+      'mainBanner-nextBtn': 'url(/src/assets/mainPage/arrow_next.svg)',
+      'mainBanner-prevBtn': 'url(/src/assets/mainPage/arrow_prev.svg)',
+    },
     fontFamily: {
-      'sans-kr': ['noto-sans-kr', 'sans-serif'],
+      sans: ['Pretendard', 'sans-serif'], // 기본 폰트를 Pretendard로 지정 (따로 건드릴 거 없이 그냥 쓰면 됨)
     },
   },
   plugins: [],
