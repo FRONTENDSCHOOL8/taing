@@ -3,12 +3,43 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>TAING - Main</title> 
+    <link rel="stylesheet" href="/src/styles/tailwind.css">
     <script type="module" src="/src/js/include.js"></script>
     <script type="module" src="/src/pages/mainPage/mainPage.js"></script>
+    <title>TAING - Main</title> 
   <body>
-    <header id="header"></header>
-    <h1>hi</h1>
+    <header id="header" class="bg-header-bg fixed z-10 header-mobile tablet:header-tablet desktop:header-desktop"></header>
+    <main>
+      <section>
+        <h2 class="sr-only">main banner</h2>
+        <div class="main-banner-swiper relative">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide">
+              <figure>
+                 <img src="/src/assets/mainPage/mainBannerImg.png" alt="test image">
+                 <figcaption class="absolute bottom-26pxr left-12pxr text-12pxr text-white font-semibold">인생 2회차를 사는 판타지 드라마</figcaption>
+              </figure>
+            </div>
+            <div class="swiper-slide">
+              <figure>
+                 <img src="/src/assets/mainPage/mainBannerImg.png" alt="test image">
+                 <figcaption class="absolute bottom-26pxr left-12pxr text-12pxr text-white font-semibold">인생 2회차를 사는 판타지 드라마</figcaption>
+              </figure>
+            </div>
+            <div class="swiper-slide">
+              <figure>
+                 <img src="/src/assets/mainPage/mainBannerImg.png" alt="test image">
+                 <figcaption class="absolute bottom-26pxr left-12pxr text-12pxr text-white font-semibold">인생 2회차를 사는 판타지 드라마</figcaption>
+              </figure>
+            </div>
+          </div>
+          <div class="button-wrapper">
+            <div class="swiper-button-prev absolute top-1/2 left-0 bg-mainBanner-prevBtn bg-no-repeat w-14pxr h-14pxr z-10 -translate-y-1/2"></div>
+            <div class="swiper-button-next absolute top-1/2 right-0 bg-mainBanner-nextBtn bg-no-repeat w-14pxr h-14pxr z-10 -translate-y-1/2"></div>
+          </div>
+        </div>
+      </section> 
+    </main>
     <footer id="footer"></footer>
   </body>
 </html>
