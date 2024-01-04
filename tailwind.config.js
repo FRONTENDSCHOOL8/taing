@@ -30,15 +30,27 @@ export default {
         tablet: '768px',
         desktop: '1280px',
       },
-    },
-    backgroundImage: {
-      'header-bg':
-        'linear-gradient(180deg, rgba(0, 0, 0, 0.70) 0%, rgba(0, 0, 0, 0.00) 100%)',
-      'mainBanner-nextBtn': 'url(/src/assets/mainPage/arrow_next.svg)',
-      'mainBanner-prevBtn': 'url(/src/assets/mainPage/arrow_prev.svg)',
+      color: {
+        primary: '#ff153c',
+        'button-default': '#ff153c',
+        'button-hover': '#cc1030',
+        'button-submit-default': '#404040',
+        'button-submit-active': '#e1e1e1',
+        'button-submit-hover': '#ffffff',
+      },
+      textColor: {
+        'taing-1': '#c4c4c4',
+        'taing-2': '#a6a6a6',
+        'taing-3': '#6b6b6b',
+      },
+      backgroundImage: {
+        'header-bg':
+          'linear-gradient(180deg, rgba(0, 0, 0, 0.70) 0%, rgba(0, 0, 0, 0.00) 100%)',
+      },
     },
     fontFamily: {
       sans: ['Pretendard', 'sans-serif'], // 기본 폰트를 Pretendard로 지정 (따로 건드릴 거 없이 그냥 쓰면 됨)
+      'noto-sans-kr': ['Noto Sans KR', 'sans-serif'],
     },
   },
   plugins: [],
