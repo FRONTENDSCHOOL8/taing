@@ -1,12 +1,75 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <script src="/src/pages/profile/profile.js" defer></script>
-  <title>Document</title>
-</head>
-<body>
-  
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/src/styles/tailwind.css" />
+    <script type="module" src="/src/js/include.js"></script>
+    <script src="/src/pages/profile/profile.js"></script>
+    <title>Taing - Profile</title>
+  </head>
+  <body>
+    <header
+      id="header"
+      class="header-mobile tablet:header-tablet desktop:header-desktop fixed z-10 bg-header-bg"
+    ></header>
+
+    <main>
+      <section>
+        <div class="content-wrap">
+          <div class="title-wrap">
+            <h2>프로필 선택</h2>
+            <p>시청할 프로필을 선택해주세요.</p>
+          </div>
+
+          <div class="profile-photo">
+            <ul class="profile-photo-container">
+              <li class="item">
+                <button>
+                  <img
+                    src="/src/assets/profile/profile_1.png"
+                    alt="프로필 사진"
+                  />
+                </button>
+                <p>슬비님</p>
+              </li>
+              <li class="item">
+                <button>
+                  <img
+                    src="/src/assets/profile/profile_1.png"
+                    alt="프로필 사진"
+                  />
+                </button>
+                <p>야무</p>
+              </li>
+              <li class="item">
+                <button>
+                  <img
+                    src="/src/assets/profile/profile_1.png"
+                    alt="프로필 사진"
+                  />
+                </button>
+                <p>범쌤</p>
+              </li>
+              <li class="item">
+                <button>
+                  <img
+                    src="/src/assets/profile/profile_1.png"
+                    alt="프로필 사진"
+                  />
+                </button>
+                <p>이듬</p>
+              </li>
+            </ul>
+          </div>
+
+          <div class="button-wrap">
+            <button>프로필 편집</button>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer id="footer"></footer>
+  </body>
 </html>
