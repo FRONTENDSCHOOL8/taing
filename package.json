@@ -27,6 +27,7 @@
   },
   "dependencies": {
     "gsap": "^3.12.4",
+    "lodash": "^4.17.21",
     "swiper": "^11.0.5"
   }
 }
