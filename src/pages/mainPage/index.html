@@ -3,12 +3,16 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="/src/styles/tailwind.css">
+    <link rel="stylesheet" href="/src/styles/tailwind.css" />
     <script type="module" src="/src/js/include.js"></script>
     <script type="module" src="/src/pages/mainPage/mainPage.js"></script>
-    <title>TAING - Main</title> 
-  <body>
-    <header id="header" class="bg-header-bg fixed z-10 header-mobile tablet:header-tablet desktop:header-desktop"></header>
+    <title>TAING - Main</title>
+  </head>
+  <body class="bg-black">
+    <header
+      id="header"
+      class="header-mobile tablet:header-tablet desktop:header-desktop fixed z-10 w-screen bg-header-bg"
+    ></header>
     <main>
       <section>
         <h2 class="sr-only">main banner</h2>
@@ -16,30 +20,666 @@
           <div class="swiper-wrapper">
             <div class="swiper-slide">
               <figure>
-                 <img src="/src/assets/mainPage/mainBannerImg.png" alt="test image">
-                 <figcaption class="absolute bottom-26pxr left-12pxr text-12pxr text-white font-semibold">인생 2회차를 사는 판타지 드라마</figcaption>
+                <img
+                  src="/src/assets/mainPage/common/mainBannerImg.png"
+                  alt="test image"
+                />
+                <figcaption
+                  class="absolute bottom-26pxr left-12pxr text-12pxr font-semibold text-white"
+                >
+                  인생 2회차를 사는 판타지 드라마
+                </figcaption>
               </figure>
+              <a
+                href="/"
+                class="absolute bottom-14pxr right-12pxr flex h-27pxr w-64pxr items-center justify-center rounded-md border border-[#a6a6a6] text-12pxr text-white"
+                >자세히보기</a
+              >
             </div>
             <div class="swiper-slide">
               <figure>
-                 <img src="/src/assets/mainPage/mainBannerImg.png" alt="test image">
-                 <figcaption class="absolute bottom-26pxr left-12pxr text-12pxr text-white font-semibold">인생 2회차를 사는 판타지 드라마</figcaption>
+                <img
+                  src="/src/assets/mainPage/common/mainBannerImg.png"
+                  alt="test image"
+                />
+                <figcaption
+                  class="absolute bottom-26pxr left-12pxr text-12pxr font-semibold text-white"
+                >
+                  인생 2회차를 사는 판타지 드라마
+                </figcaption>
               </figure>
+              <a
+                href="/"
+                class="absolute bottom-14pxr right-12pxr flex h-27pxr w-64pxr items-center justify-center rounded-md border border-[#a6a6a6] text-12pxr text-white"
+                >자세히보기</a
+              >
             </div>
             <div class="swiper-slide">
               <figure>
-                 <img src="/src/assets/mainPage/mainBannerImg.png" alt="test image">
-                 <figcaption class="absolute bottom-26pxr left-12pxr text-12pxr text-white font-semibold">인생 2회차를 사는 판타지 드라마</figcaption>
+                <img
+                  src="/src/assets/mainPage/common/mainBannerImg.png"
+                  alt="test image"
+                />
+                <figcaption
+                  class="absolute bottom-26pxr left-12pxr text-12pxr font-semibold text-white"
+                >
+                  인생 2회차를 사는 판타지 드라마
+                </figcaption>
               </figure>
+              <a
+                href="/"
+                class="absolute bottom-14pxr right-12pxr flex h-27pxr w-64pxr items-center justify-center rounded-md border border-[#a6a6a6] text-12pxr text-white"
+                >자세히보기</a
+              >
             </div>
           </div>
           <div class="button-wrapper">
-            <div class="swiper-button-prev absolute top-1/2 left-0 bg-mainBanner-prevBtn bg-no-repeat w-14pxr h-14pxr z-10 -translate-y-1/2"></div>
-            <div class="swiper-button-next absolute top-1/2 right-0 bg-mainBanner-nextBtn bg-no-repeat w-14pxr h-14pxr z-10 -translate-y-1/2"></div>
+            <div
+              class="swiper-button-prev absolute left-0 top-1/2 z-10 -translate-y-1/2"
+            >
+              <img
+                src="/src/assets/mainPage/Icon/arrow_left.png"
+                alt="arrow"
+                class="h-16pxr w-16pxr tablet:h-40pxr tablet:w-40pxr desktop:h-70pxr desktop:w-70pxr"
+              />
+            </div>
+            <div
+              class="swiper-button-next absolute right-0 top-1/2 z-10 -translate-y-1/2"
+            >
+              <img
+                src="/src/assets/mainPage/Icon/arrow_right.png"
+                alt="arrow"
+                class="h-16pxr w-16pxr tablet:h-40pxr tablet:w-40pxr desktop:h-70pxr desktop:w-70pxr"
+              />
+            </div>
+          </div>
+          <div
+            class="absolute bottom-11pxr left-12pxr z-10 flex items-center gap-6pxr"
+          >
+            <button class="autoplayButton">
+              <img
+                src="/src/assets/mainPage/Icon/pause.png"
+                alt="play"
+                class="h-8pxr w-8pxr"
+              />
+            </button>
+            <div class="main-banner-pagination flex gap-4pxr"></div>
           </div>
         </div>
-      </section> 
+      </section>
+      <section class="px-8pxr pb-16pxr">
+        <h2 class="text-12pxr font-semibold leading-32pxr text-white">
+          티빙에서 꼭 봐야하는 콘텐츠
+        </h2>
+        <div class="suggestion-content-swiper">
+          <div class="swiper-wrapper gap-12pxr">
+            <div class="swiper-slide overflow-hidden rounded-lg">
+              <img src="/src/assets/mainPage/content/suggestion-1.jpg" alt="" />
+            </div>
+            <div class="swiper-slide overflow-hidden rounded-lg">
+              <img src="/src/assets/mainPage/content/suggestion-1.jpg" alt="" />
+            </div>
+            <div class="swiper-slide overflow-hidden rounded-lg">
+              <img src="/src/assets/mainPage/content/suggestion-1.jpg" alt="" />
+            </div>
+            <div class="swiper-slide overflow-hidden rounded-lg">
+              <img src="/src/assets/mainPage/content/suggestion-1.jpg" alt="" />
+            </div>
+            <div class="swiper-slide overflow-hidden rounded-lg">
+              <img src="/src/assets/mainPage/content/suggestion-1.jpg" alt="" />
+            </div>
+            <div class="swiper-slide overflow-hidden rounded-lg">
+              <img src="/src/assets/mainPage/content/suggestion-1.jpg" alt="" />
+            </div>
+            <div class="swiper-slide overflow-hidden rounded-lg">
+              <img src="/src/assets/mainPage/content/suggestion-1.jpg" alt="" />
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="px-8pxr pb-16pxr">
+        <h2 class="text-12pxr font-semibold leading-32pxr text-white">
+          Quick VOD
+        </h2>
+        <div class="quick-vod-swiper">
+          <ul class="swiper-wrapper gap-9pxr">
+            <li class="swiper-slide relative overflow-hidden rounded-lg">
+              <img
+                src="/src/assets/mainPage/Icon/quick_vod.svg"
+                alt="quick vod"
+                class="leftop-4pxr absolute top-4pxr h-16pxr w-44pxr"
+              />
+              <figure>
+                <img
+                  src="/src/assets/mainPage/content/suggestion-2.png"
+                  alt="jtbc 뉴스룸"
+                />
+                <figcaption class="text-12pxr text-white">
+                  <h3 class="text-taing-1 font-bold">JTBC 뉴스룸</h3>
+                  <p class="text-taing-2">1화</p>
+                </figcaption>
+              </figure>
+            </li>
+            <li class="swiper-slide relative overflow-hidden rounded-lg">
+              <img
+                src="/src/assets/mainPage/Icon/quick_vod.svg"
+                alt="quick vod"
+                class="leftop-4pxr absolute top-4pxr h-16pxr w-44pxr"
+              />
+              <figure>
+                <img
+                  src="/src/assets/mainPage/content/suggestion-2.png"
+                  alt="jtbc 뉴스룸"
+                />
+                <figcaption class="text-12pxr text-white">
+                  <h3 class="text-taing-1 font-bold">JTBC 뉴스룸</h3>
+                  <p class="text-taing-2">1화</p>
+                </figcaption>
+              </figure>
+            </li>
+            <li class="swiper-slide relative overflow-hidden rounded-lg">
+              <img
+                src="/src/assets/mainPage/Icon/quick_vod.svg"
+                alt="quick vod"
+                class="leftop-4pxr absolute top-4pxr h-16pxr w-44pxr"
+              />
+              <figure>
+                <img
+                  src="/src/assets/mainPage/content/suggestion-2.png"
+                  alt="jtbc 뉴스룸"
+                />
+                <figcaption class="text-12pxr text-white">
+                  <h3 class="text-taing-1 font-bold">JTBC 뉴스룸</h3>
+                  <p class="text-taing-2">1화</p>
+                </figcaption>
+              </figure>
+            </li>
+            <li class="swiper-slide relative overflow-hidden rounded-lg">
+              <img
+                src="/src/assets/mainPage/Icon/quick_vod.svg"
+                alt="quick vod"
+                class="leftop-4pxr absolute top-4pxr h-16pxr w-44pxr"
+              />
+              <figure>
+                <img
+                  src="/src/assets/mainPage/content/suggestion-2.png"
+                  alt="jtbc 뉴스룸"
+                />
+                <figcaption class="text-12pxr text-white">
+                  <h3 class="text-taing-1 font-bold">JTBC 뉴스룸</h3>
+                  <p class="text-taing-2">1화</p>
+                </figcaption>
+              </figure>
+            </li>
+            <li class="swiper-slide relative overflow-hidden rounded-lg">
+              <img
+                src="/src/assets/mainPage/Icon/quick_vod.svg"
+                alt="quick vod"
+                class="leftop-4pxr absolute top-4pxr h-16pxr w-44pxr"
+              />
+              <figure>
+                <img
+                  src="/src/assets/mainPage/content/suggestion-2.png"
+                  alt="jtbc 뉴스룸"
+                />
+                <figcaption class="text-12pxr text-white">
+                  <h3 class="text-taing-1 font-bold">JTBC 뉴스룸</h3>
+                  <p class="text-taing-2">1화</p>
+                </figcaption>
+              </figure>
+            </li>
+            <li class="swiper-slide relative overflow-hidden rounded-lg">
+              <img
+                src="/src/assets/mainPage/Icon/quick_vod.svg"
+                alt="quick vod"
+                class="leftop-4pxr absolute top-4pxr h-16pxr w-44pxr"
+              />
+              <figure>
+                <img
+                  src="/src/assets/mainPage/content/suggestion-2.png"
+                  alt="jtbc 뉴스룸"
+                />
+                <figcaption class="text-12pxr text-white">
+                  <h3 class="text-taing-1 font-bold">JTBC 뉴스룸</h3>
+                  <p class="text-taing-2">1화</p>
+                </figcaption>
+              </figure>
+            </li>
+          </ul>
+        </div>
+      </section>
+      <section class="px-8pxr pb-16pxr">
+        <h2 class="text-12pxr font-semibold leading-32pxr text-white">
+          실시간 인기 프로그램
+        </h2>
+        <div class="popular-program-swiper">
+          <ul class="swiper-wrapper gap-8pxr">
+            <li class="swiper-slide overflow-hidden rounded-lg">
+              <figure>
+                <img
+                  src="/src/assets/mainPage/content/popular.png"
+                  alt="재벌집 막내아들"
+                />
+                <figcaption class="relative flex">
+                  <span
+                    class="font-noto-sans-kr absolute -top-18pxr rotate-3 text-34pxr font-bold text-white"
+                    >1</span
+                  >
+                  <h3 class="text-taing-1 ms-24pxr mt-8pxr text-12pxr">
+                    재벌집 막내아들
+                  </h3>
+                </figcaption>
+              </figure>
+            </li>
+            <li class="swiper-slide overflow-hidden rounded-lg">
+              <figure>
+                <img
+                  src="/src/assets/mainPage/content/popular.png"
+                  alt="재벌집 막내아들"
+                />
+                <figcaption class="relative flex">
+                  <span
+                    class="font-noto-sans-kr absolute -top-18pxr rotate-3 text-34pxr font-bold text-white"
+                    >1</span
+                  >
+                  <h3 class="text-taing-1 ms-24pxr mt-8pxr text-12pxr">
+                    재벌집 막내아들
+                  </h3>
+                </figcaption>
+              </figure>
+            </li>
+            <li class="swiper-slide overflow-hidden rounded-lg">
+              <figure>
+                <img
+                  src="/src/assets/mainPage/content/popular.png"
+                  alt="재벌집 막내아들"
+                />
+                <figcaption class="relative flex">
+                  <span
+                    class="font-noto-sans-kr absolute -top-18pxr rotate-3 text-34pxr font-bold text-white"
+                    >1</span
+                  >
+                  <h3 class="text-taing-1 ms-24pxr mt-8pxr text-12pxr">
+                    재벌집 막내아들
+                  </h3>
+                </figcaption>
+              </figure>
+            </li>
+            <li class="swiper-slide overflow-hidden rounded-lg">
+              <figure>
+                <img
+                  src="/src/assets/mainPage/content/popular.png"
+                  alt="재벌집 막내아들"
+                />
+                <figcaption class="relative flex">
+                  <span
+                    class="font-noto-sans-kr absolute -top-18pxr rotate-3 text-34pxr font-bold text-white"
+                    >1</span
+                  >
+                  <h3 class="text-taing-1 ms-24pxr mt-8pxr text-12pxr">
+                    재벌집 막내아들
+                  </h3>
+                </figcaption>
+              </figure>
+            </li>
+            <li class="swiper-slide overflow-hidden rounded-lg">
+              <figure>
+                <img
+                  src="/src/assets/mainPage/content/popular.png"
+                  alt="재벌집 막내아들"
+                />
+                <figcaption class="relative flex">
+                  <span
+                    class="font-noto-sans-kr absolute -top-18pxr rotate-3 text-34pxr font-bold text-white"
+                    >1</span
+                  >
+                  <h3 class="text-taing-1 ms-24pxr mt-8pxr text-12pxr">
+                    재벌집 막내아들
+                  </h3>
+                </figcaption>
+              </figure>
+            </li>
+            <li class="swiper-slide overflow-hidden rounded-lg">
+              <figure>
+                <img
+                  src="/src/assets/mainPage/content/popular.png"
+                  alt="재벌집 막내아들"
+                />
+                <figcaption class="relative flex">
+                  <span
+                    class="font-noto-sans-kr absolute -top-18pxr rotate-3 text-34pxr font-bold text-white"
+                    >1</span
+                  >
+                  <h3 class="text-taing-1 ms-24pxr mt-8pxr text-12pxr">
+                    재벌집 막내아들
+                  </h3>
+                </figcaption>
+              </figure>
+            </li>
+            <li class="swiper-slide overflow-hidden rounded-lg">
+              <figure>
+                <img
+                  src="/src/assets/mainPage/content/popular.png"
+                  alt="재벌집 막내아들"
+                />
+                <figcaption class="relative flex">
+                  <span
+                    class="font-noto-sans-kr absolute -top-18pxr rotate-3 text-34pxr font-bold text-white"
+                    >1</span
+                  >
+                  <h3 class="text-taing-1 ms-24pxr mt-8pxr text-12pxr">
+                    재벌집 막내아들
+                  </h3>
+                </figcaption>
+              </figure>
+            </li>
+          </ul>
+        </div>
+      </section>
+      <section class="px-8pxr pb-16pxr">
+        <h2 class="text-12pxr font-semibold leading-32pxr text-white">
+          인기 LIVE 채널
+        </h2>
+        <div class="popular-live-swiper">
+          <ul class="swiper-wrapper gap-9pxr">
+            <li class="swiper-slide relative overflow-hidden rounded-lg">
+              <figure>
+                <img
+                  src="/src/assets/mainPage/content/suggestion-2.png"
+                  alt="jtbc 뉴스룸"
+                />
+                <figcaption class="flex items-center text-12pxr text-white">
+                  <span class="font-noto-sans-kr rotate-3 text-34pxr font-bold"
+                    >1</span
+                  >
+                  <h3 class="ms-14pxr leading-18pxr">
+                    <span class="font-semibold">JTBC</span>
+                    <p class="text-taing-1">JTBC 뉴스룸</p>
+                    <p class="text-taing-2">28.8%</p>
+                  </h3>
+                </figcaption>
+              </figure>
+            </li>
+            <li class="swiper-slide relative overflow-hidden rounded-lg">
+              <figure>
+                <img
+                  src="/src/assets/mainPage/content/suggestion-2.png"
+                  alt="jtbc 뉴스룸"
+                />
+                <figcaption class="flex items-center text-12pxr text-white">
+                  <span class="font-noto-sans-kr rotate-3 text-34pxr font-bold"
+                    >1</span
+                  >
+                  <h3 class="ms-14pxr leading-18pxr">
+                    <span class="font-semibold">JTBC</span>
+                    <p class="text-taing-1">JTBC 뉴스룸</p>
+                    <p class="text-taing-2">28.8%</p>
+                  </h3>
+                </figcaption>
+              </figure>
+            </li>
+            <li class="swiper-slide relative overflow-hidden rounded-lg">
+              <figure>
+                <img
+                  src="/src/assets/mainPage/content/suggestion-2.png"
+                  alt="jtbc 뉴스룸"
+                />
+                <figcaption class="flex items-center text-12pxr text-white">
+                  <span class="font-noto-sans-kr rotate-3 text-34pxr font-bold"
+                    >1</span
+                  >
+                  <h3 class="ms-14pxr leading-18pxr">
+                    <span class="font-semibold">JTBC</span>
+                    <p class="text-taing-1">JTBC 뉴스룸</p>
+                    <p class="text-taing-2">28.8%</p>
+                  </h3>
+                </figcaption>
+              </figure>
+            </li>
+            <li class="swiper-slide relative overflow-hidden rounded-lg">
+              <figure>
+                <img
+                  src="/src/assets/mainPage/content/suggestion-2.png"
+                  alt="jtbc 뉴스룸"
+                />
+                <figcaption class="flex items-center text-12pxr text-white">
+                  <span class="font-noto-sans-kr rotate-3 text-34pxr font-bold"
+                    >1</span
+                  >
+                  <h3 class="ms-14pxr leading-18pxr">
+                    <span class="font-semibold">JTBC</span>
+                    <p class="text-taing-1">JTBC 뉴스룸</p>
+                    <p class="text-taing-2">28.8%</p>
+                  </h3>
+                </figcaption>
+              </figure>
+            </li>
+            <li class="swiper-slide relative overflow-hidden rounded-lg">
+              <figure>
+                <img
+                  src="/src/assets/mainPage/content/suggestion-2.png"
+                  alt="jtbc 뉴스룸"
+                />
+                <figcaption class="flex items-center text-12pxr text-white">
+                  <span class="font-noto-sans-kr rotate-3 text-34pxr font-bold"
+                    >1</span
+                  >
+                  <h3 class="ms-14pxr leading-18pxr">
+                    <span class="font-semibold">JTBC</span>
+                    <p class="text-taing-1">JTBC 뉴스룸</p>
+                    <p class="text-taing-2">28.8%</p>
+                  </h3>
+                </figcaption>
+              </figure>
+            </li>
+            <li class="swiper-slide relative overflow-hidden rounded-lg">
+              <figure>
+                <img
+                  src="/src/assets/mainPage/content/suggestion-2.png"
+                  alt="jtbc 뉴스룸"
+                />
+                <figcaption class="flex items-center text-12pxr text-white">
+                  <span class="font-noto-sans-kr rotate-3 text-34pxr font-bold"
+                    >1</span
+                  >
+                  <h3 class="ms-14pxr leading-18pxr">
+                    <span class="font-semibold">JTBC</span>
+                    <p class="text-taing-1">JTBC 뉴스룸</p>
+                    <p class="text-taing-2">28.8%</p>
+                  </h3>
+                </figcaption>
+              </figure>
+            </li>
+            <li class="swiper-slide relative overflow-hidden rounded-lg">
+              <figure>
+                <img
+                  src="/src/assets/mainPage/content/suggestion-2.png"
+                  alt="jtbc 뉴스룸"
+                />
+                <figcaption class="flex items-center text-12pxr text-white">
+                  <span class="font-noto-sans-kr rotate-3 text-34pxr font-bold"
+                    >1</span
+                  >
+                  <h3 class="ms-14pxr leading-18pxr">
+                    <span class="font-semibold">JTBC</span>
+                    <p class="text-taing-1">JTBC 뉴스룸</p>
+                    <p class="text-taing-2">28.8%</p>
+                  </h3>
+                </figcaption>
+              </figure>
+            </li>
+          </ul>
+        </div>
+      </section>
+      <section class="px-8pxr pb-16pxr">
+        <h2 class="text-12pxr font-semibold leading-32pxr text-white">
+          오직 티빙에만 있어요
+        </h2>
+        <div class="original-content-swiper">
+          <ul class="swiper-wrapper gap-8pxr">
+            <li class="swiper-slide overflow-hidden rounded-lg">
+              <figure>
+                <img
+                  src="/src/assets/mainPage//content/original.png"
+                  alt="전체관람가"
+                />
+                <figcaption class="sr-only">전체관람가</figcaption>
+              </figure>
+            </li>
+            <li class="swiper-slide overflow-hidden rounded-lg">
+              <figure>
+                <img
+                  src="/src/assets/mainPage//content/original.png"
+                  alt="전체관람가"
+                />
+                <figcaption class="sr-only">전체관람가</figcaption>
+              </figure>
+            </li>
+            <li class="swiper-slide overflow-hidden rounded-lg">
+              <figure>
+                <img
+                  src="/src/assets/mainPage//content/original.png"
+                  alt="전체관람가"
+                />
+                <figcaption class="sr-only">전체관람가</figcaption>
+              </figure>
+            </li>
+            <li class="swiper-slide overflow-hidden rounded-lg">
+              <figure>
+                <img
+                  src="/src/assets/mainPage//content/original.png"
+                  alt="전체관람가"
+                />
+                <figcaption class="sr-only">전체관람가</figcaption>
+              </figure>
+            </li>
+            <li class="swiper-slide overflow-hidden rounded-lg">
+              <figure>
+                <img
+                  src="/src/assets/mainPage//content/original.png"
+                  alt="전체관람가"
+                />
+                <figcaption class="sr-only">전체관람가</figcaption>
+              </figure>
+            </li>
+            <li class="swiper-slide overflow-hidden rounded-lg">
+              <figure>
+                <img
+                  src="/src/assets/mainPage//content/original.png"
+                  alt="전체관람가"
+                />
+                <figcaption class="sr-only">전체관람가</figcaption>
+              </figure>
+            </li>
+            <li class="swiper-slide overflow-hidden rounded-lg">
+              <figure>
+                <img
+                  src="/src/assets/mainPage//content/original.png"
+                  alt="전체관람가"
+                />
+                <figcaption class="sr-only">전체관람가</figcaption>
+              </figure>
+            </li>
+          </ul>
+        </div>
+      </section>
+      <section class="overflow-hidden px-8pxr py-16pxr">
+        <h2 class="sr-only">live sports banner</h2>
+        <figure class="overflow-hidden rounded-md">
+          <img
+            src="/src/assets/mainPage/content/banner.jpeg"
+            alt="taing sports 경기 생중계"
+          />
+          <figcaption class="sr-only">taing sports 경기 생중계</figcaption>
+        </figure>
+      </section>
+      <section class="px-8pxr pb-16pxr">
+        <h2 class="text-12pxr font-semibold leading-32pxr text-white">
+          이벤트
+        </h2>
+        <div class="event-swiper">
+          <ul class="swiper-wrapper gap-8pxr">
+            <li class="swiper-slide overflow-hidden rounded-lg">
+              <figure>
+                <img
+                  src="/src/assets/mainPage/content/event.png"
+                  alt="신비아파트 극장판 얘매권 증정 이벤트"
+                />
+                <figcaption class="sr-only">
+                  신비아파트 극장판 예매권 증정 이벤트
+                </figcaption>
+              </figure>
+            </li>
+            <li class="swiper-slide overflow-hidden rounded-lg">
+              <figure>
+                <img
+                  src="/src/assets/mainPage/content/event.png"
+                  alt="신비아파트 극장판 얘매권 증정 이벤트"
+                />
+                <figcaption class="sr-only">
+                  신비아파트 극장판 예매권 증정 이벤트
+                </figcaption>
+              </figure>
+            </li>
+            <li class="swiper-slide overflow-hidden rounded-lg">
+              <figure>
+                <img
+                  src="/src/assets/mainPage/content/event.png"
+                  alt="신비아파트 극장판 얘매권 증정 이벤트"
+                />
+                <figcaption class="sr-only">
+                  신비아파트 극장판 예매권 증정 이벤트
+                </figcaption>
+              </figure>
+            </li>
+            <li class="swiper-slide overflow-hidden rounded-lg">
+              <figure>
+                <img
+                  src="/src/assets/mainPage/content/event.png"
+                  alt="신비아파트 극장판 얘매권 증정 이벤트"
+                />
+                <figcaption class="sr-only">
+                  신비아파트 극장판 예매권 증정 이벤트
+                </figcaption>
+              </figure>
+            </li>
+            <li class="swiper-slide overflow-hidden rounded-lg">
+              <figure>
+                <img
+                  src="/src/assets/mainPage/content/event.png"
+                  alt="신비아파트 극장판 얘매권 증정 이벤트"
+                />
+                <figcaption class="sr-only">
+                  신비아파트 극장판 예매권 증정 이벤트
+                </figcaption>
+              </figure>
+            </li>
+            <li class="swiper-slide overflow-hidden rounded-lg">
+              <figure>
+                <img
+                  src="/src/assets/mainPage/content/event.png"
+                  alt="신비아파트 극장판 얘매권 증정 이벤트"
+                />
+                <figcaption class="sr-only">
+                  신비아파트 극장판 예매권 증정 이벤트
+                </figcaption>
+              </figure>
+            </li>
+            <li class="swiper-slide overflow-hidden rounded-lg">
+              <figure>
+                <img
+                  src="/src/assets/mainPage/content/event.png"
+                  alt="신비아파트 극장판 얘매권 증정 이벤트"
+                />
+                <figcaption class="sr-only">
+                  신비아파트 극장판 예매권 증정 이벤트
+                </figcaption>
+              </figure>
+            </li>
+          </ul>
+        </div>
+      </section>
     </main>
-    <footer id="footer"></footer>
+    <footer id="footer" class="border text-white"></footer>
   </body>
 </html>
