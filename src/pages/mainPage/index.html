@@ -8,31 +8,29 @@
     <script type="module" src="/src/pages/mainPage/mainPage.js"></script>
     <title>TAING - Main</title>
   </head>
-  <body class="bg-black">
-    <header
-      id="header"
-      class="header-mobile tablet:header-tablet desktop:header-desktop fixed z-10 w-screen bg-header-bg"
-    ></header>
+  <body class="overflow-x-hidden bg-black">
+    <header id="header" class=""></header>
     <main>
-      <section>
+      <section id="main-banner">
         <h2 class="sr-only">main banner</h2>
         <div class="main-banner-swiper relative">
           <div class="swiper-wrapper">
             <div class="swiper-slide">
-              <figure>
+              <figure class="flex justify-center">
                 <img
                   src="/src/assets/mainPage/common/mainBannerImg.png"
                   alt="test image"
+                  class="w-full"
                 />
                 <figcaption
-                  class="absolute bottom-26pxr left-12pxr text-12pxr font-semibold text-white"
+                  class="absolute left-[3%] top-[70%] text-12pxr font-semibold text-white tablet:text-16pxr desktop:text-28pxr"
                 >
                   인생 2회차를 사는 판타지 드라마
                 </figcaption>
               </figure>
               <a
                 href="/"
-                class="absolute bottom-14pxr right-12pxr flex h-27pxr w-64pxr items-center justify-center rounded-md border border-[#a6a6a6] text-12pxr text-white"
+                class="absolute bottom-[12%] right-12pxr flex h-27pxr w-64pxr items-center justify-center rounded-md border border-[#a6a6a6] text-12pxr text-white tablet:right-38pxr tablet:h-44pxr tablet:w-128pxr desktop:right-70pxr desktop:h-78pxr desktop:w-220pxr desktop:text-22pxr"
                 >자세히보기</a
               >
             </div>
@@ -41,16 +39,17 @@
                 <img
                   src="/src/assets/mainPage/common/mainBannerImg.png"
                   alt="test image"
+                  class="w-full"
                 />
                 <figcaption
-                  class="absolute bottom-26pxr left-12pxr text-12pxr font-semibold text-white"
+                  class="absolute left-[3%] top-[70%] text-12pxr font-semibold text-white tablet:text-16pxr desktop:text-28pxr"
                 >
                   인생 2회차를 사는 판타지 드라마
                 </figcaption>
               </figure>
               <a
                 href="/"
-                class="absolute bottom-14pxr right-12pxr flex h-27pxr w-64pxr items-center justify-center rounded-md border border-[#a6a6a6] text-12pxr text-white"
+                class="absolute bottom-[12%] right-12pxr flex h-27pxr w-64pxr items-center justify-center rounded-md border border-[#a6a6a6] text-12pxr text-white tablet:right-38pxr tablet:h-44pxr tablet:w-128pxr desktop:right-70pxr desktop:h-78pxr desktop:w-220pxr desktop:text-22pxr"
                 >자세히보기</a
               >
             </div>
@@ -59,22 +58,23 @@
                 <img
                   src="/src/assets/mainPage/common/mainBannerImg.png"
                   alt="test image"
+                  class="w-full"
                 />
                 <figcaption
-                  class="absolute bottom-26pxr left-12pxr text-12pxr font-semibold text-white"
+                  class="absolute left-[3%] top-[70%] text-12pxr font-semibold text-white tablet:text-16pxr desktop:text-28pxr"
                 >
                   인생 2회차를 사는 판타지 드라마
                 </figcaption>
               </figure>
               <a
                 href="/"
-                class="absolute bottom-14pxr right-12pxr flex h-27pxr w-64pxr items-center justify-center rounded-md border border-[#a6a6a6] text-12pxr text-white"
+                class="absolute bottom-[12%] right-12pxr flex h-27pxr w-64pxr items-center justify-center rounded-md border border-[#a6a6a6] text-12pxr text-white tablet:right-38pxr tablet:h-44pxr tablet:w-128pxr desktop:right-70pxr desktop:h-78pxr desktop:w-220pxr desktop:text-22pxr"
                 >자세히보기</a
               >
             </div>
           </div>
           <div class="button-wrapper">
-            <div
+            <button
               class="swiper-button-prev absolute left-0 top-1/2 z-10 -translate-y-1/2"
             >
               <img
@@ -82,8 +82,8 @@
                 alt="arrow"
                 class="h-16pxr w-16pxr tablet:h-40pxr tablet:w-40pxr desktop:h-70pxr desktop:w-70pxr"
               />
-            </div>
-            <div
+            </button>
+            <button
               class="swiper-button-next absolute right-0 top-1/2 z-10 -translate-y-1/2"
             >
               <img
@@ -91,71 +91,173 @@
                 alt="arrow"
                 class="h-16pxr w-16pxr tablet:h-40pxr tablet:w-40pxr desktop:h-70pxr desktop:w-70pxr"
               />
-            </div>
+            </button>
           </div>
           <div
-            class="absolute bottom-11pxr left-12pxr z-10 flex items-center gap-6pxr"
+            class="absolute bottom-[8%] left-[3%] z-10 flex items-center gap-6pxr desktop:gap-12pxr"
           >
             <button class="autoplayButton">
               <img
                 src="/src/assets/mainPage/Icon/pause.png"
                 alt="play"
-                class="h-8pxr w-8pxr"
+                class="h-8pxr w-8pxr desktop:h-16pxr desktop:w-16pxr"
               />
             </button>
-            <div class="main-banner-pagination flex gap-4pxr"></div>
+            <div
+              class="main-banner-pagination flex gap-4pxr desktop:gap-12pxr"
+            ></div>
           </div>
         </div>
       </section>
-      <section class="px-8pxr pb-16pxr">
-        <h2 class="text-12pxr font-semibold leading-32pxr text-white">
+      <section id="suggestion-content" class="section-padding">
+        <h2
+          class="text-12pxr font-semibold leading-32pxr text-white tablet:mb-8pxr tablet:text-16pxr tablet:font-bold desktop:mb-16pxr desktop:text-28pxr desktop:font-bold"
+        >
           티빙에서 꼭 봐야하는 콘텐츠
         </h2>
         <div class="suggestion-content-swiper">
-          <div class="swiper-wrapper gap-12pxr">
-            <div class="swiper-slide overflow-hidden rounded-lg">
-              <img src="/src/assets/mainPage/content/suggestion-1.jpg" alt="" />
-            </div>
-            <div class="swiper-slide overflow-hidden rounded-lg">
-              <img src="/src/assets/mainPage/content/suggestion-1.jpg" alt="" />
-            </div>
-            <div class="swiper-slide overflow-hidden rounded-lg">
-              <img src="/src/assets/mainPage/content/suggestion-1.jpg" alt="" />
-            </div>
-            <div class="swiper-slide overflow-hidden rounded-lg">
-              <img src="/src/assets/mainPage/content/suggestion-1.jpg" alt="" />
-            </div>
-            <div class="swiper-slide overflow-hidden rounded-lg">
-              <img src="/src/assets/mainPage/content/suggestion-1.jpg" alt="" />
-            </div>
-            <div class="swiper-slide overflow-hidden rounded-lg">
-              <img src="/src/assets/mainPage/content/suggestion-1.jpg" alt="" />
-            </div>
-            <div class="swiper-slide overflow-hidden rounded-lg">
-              <img src="/src/assets/mainPage/content/suggestion-1.jpg" alt="" />
-            </div>
-          </div>
+          <ul class="swiper-wrapper">
+            <li class="swiper-slide overflow-hidden rounded-lg">
+              <figure>
+                <img
+                  src="/src/assets/mainPage/content/suggestion-1.jpg"
+                  alt=""
+                />
+                <figcaption
+                  class="mt-4pxr hidden text-12pxr text-taing-1 tablet:block desktop:block desktop:text-21pxr"
+                >
+                  보물찾기
+                </figcaption>
+              </figure>
+            </li>
+            <li class="swiper-slide overflow-hidden rounded-lg">
+              <figure>
+                <img
+                  src="/src/assets/mainPage/content/suggestion-1.jpg"
+                  alt=""
+                />
+                <figcaption
+                  class="mt-4pxr hidden text-12pxr text-taing-1 tablet:block desktop:block desktop:text-21pxr"
+                >
+                  보물찾기
+                </figcaption>
+              </figure>
+            </li>
+            <li class="swiper-slide overflow-hidden rounded-lg">
+              <figure>
+                <img
+                  src="/src/assets/mainPage/content/suggestion-1.jpg"
+                  alt=""
+                />
+                <figcaption
+                  class="mt-4pxr hidden text-12pxr text-taing-1 tablet:block desktop:block desktop:text-21pxr"
+                >
+                  보물찾기
+                </figcaption>
+              </figure>
+            </li>
+            <li class="swiper-slide overflow-hidden rounded-lg">
+              <figure>
+                <img
+                  src="/src/assets/mainPage/content/suggestion-1.jpg"
+                  alt=""
+                />
+                <figcaption
+                  class="mt-4pxr hidden text-12pxr text-taing-1 tablet:block desktop:block desktop:text-21pxr"
+                >
+                  보물찾기
+                </figcaption>
+              </figure>
+            </li>
+            <li class="swiper-slide overflow-hidden rounded-lg">
+              <figure>
+                <img
+                  src="/src/assets/mainPage/content/suggestion-1.jpg"
+                  alt=""
+                />
+                <figcaption
+                  class="mt-4pxr hidden text-12pxr text-taing-1 tablet:block desktop:block desktop:text-21pxr"
+                >
+                  보물찾기
+                </figcaption>
+              </figure>
+            </li>
+            <li class="swiper-slide overflow-hidden rounded-lg">
+              <figure>
+                <img
+                  src="/src/assets/mainPage/content/suggestion-1.jpg"
+                  alt=""
+                />
+                <figcaption
+                  class="mt-4pxr hidden text-12pxr text-taing-1 tablet:block desktop:block desktop:text-21pxr"
+                >
+                  보물찾기
+                </figcaption>
+              </figure>
+            </li>
+            <li class="swiper-slide overflow-hidden rounded-lg">
+              <figure>
+                <img
+                  src="/src/assets/mainPage/content/suggestion-1.jpg"
+                  alt=""
+                />
+                <figcaption
+                  class="mt-4pxr hidden text-12pxr text-taing-1 tablet:block desktop:block desktop:text-21pxr"
+                >
+                  보물찾기
+                </figcaption>
+              </figure>
+            </li>
+            <li class="swiper-slide overflow-hidden rounded-lg">
+              <figure>
+                <img
+                  src="/src/assets/mainPage/content/suggestion-1.jpg"
+                  alt=""
+                />
+                <figcaption
+                  class="mt-4pxr hidden text-12pxr text-taing-1 tablet:block desktop:block desktop:text-21pxr"
+                >
+                  보물찾기
+                </figcaption>
+              </figure>
+            </li>
+            <li class="swiper-slide overflow-hidden rounded-lg">
+              <figure>
+                <img
+                  src="/src/assets/mainPage/content/suggestion-1.jpg"
+                  alt=""
+                />
+                <figcaption
+                  class="mt-4pxr hidden text-12pxr text-taing-1 tablet:block desktop:block desktop:text-21pxr"
+                >
+                  보물찾기
+                </figcaption>
+              </figure>
+            </li>
+          </ul>
         </div>
       </section>
-      <section class="px-8pxr pb-16pxr">
-        <h2 class="text-12pxr font-semibold leading-32pxr text-white">
+      <section id="quick-vod" class="section-padding">
+        <h2
+          class="text-12pxr font-semibold leading-32pxr text-white tablet:mb-8pxr tablet:text-16pxr desktop:mb-16pxr desktop:text-28pxr desktop:font-bold"
+        >
           Quick VOD
         </h2>
         <div class="quick-vod-swiper">
-          <ul class="swiper-wrapper gap-9pxr">
+          <ul class="swiper-wrapper">
             <li class="swiper-slide relative overflow-hidden rounded-lg">
               <img
                 src="/src/assets/mainPage/Icon/quick_vod.svg"
                 alt="quick vod"
-                class="leftop-4pxr absolute top-4pxr h-16pxr w-44pxr"
+                class="leftop-4pxr absolute top-4pxr h-16pxr w-56pxr"
               />
               <figure>
                 <img
                   src="/src/assets/mainPage/content/suggestion-2.png"
                   alt="jtbc 뉴스룸"
                 />
-                <figcaption class="text-12pxr text-white">
-                  <h3 class="text-taing-1 font-bold">JTBC 뉴스룸</h3>
+                <figcaption class="text-12pxr text-white tablet:text-14pxr">
+                  <h3 class="mt-4pxr font-bold text-taing-1">JTBC 뉴스룸</h3>
                   <p class="text-taing-2">1화</p>
                 </figcaption>
               </figure>
@@ -164,15 +266,15 @@
               <img
                 src="/src/assets/mainPage/Icon/quick_vod.svg"
                 alt="quick vod"
-                class="leftop-4pxr absolute top-4pxr h-16pxr w-44pxr"
+                class="leftop-4pxr absolute top-4pxr h-16pxr w-56pxr"
               />
               <figure>
                 <img
                   src="/src/assets/mainPage/content/suggestion-2.png"
                   alt="jtbc 뉴스룸"
                 />
-                <figcaption class="text-12pxr text-white">
-                  <h3 class="text-taing-1 font-bold">JTBC 뉴스룸</h3>
+                <figcaption class="text-12pxr text-white tablet:text-14pxr">
+                  <h3 class="mt-4pxr font-bold text-taing-1">JTBC 뉴스룸</h3>
                   <p class="text-taing-2">1화</p>
                 </figcaption>
               </figure>
@@ -181,15 +283,15 @@
               <img
                 src="/src/assets/mainPage/Icon/quick_vod.svg"
                 alt="quick vod"
-                class="leftop-4pxr absolute top-4pxr h-16pxr w-44pxr"
+                class="leftop-4pxr absolute top-4pxr h-16pxr w-56pxr"
               />
               <figure>
                 <img
                   src="/src/assets/mainPage/content/suggestion-2.png"
                   alt="jtbc 뉴스룸"
                 />
-                <figcaption class="text-12pxr text-white">
-                  <h3 class="text-taing-1 font-bold">JTBC 뉴스룸</h3>
+                <figcaption class="text-12pxr text-white tablet:text-14pxr">
+                  <h3 class="mt-4pxr font-bold text-taing-1">JTBC 뉴스룸</h3>
                   <p class="text-taing-2">1화</p>
                 </figcaption>
               </figure>
@@ -198,15 +300,15 @@
               <img
                 src="/src/assets/mainPage/Icon/quick_vod.svg"
                 alt="quick vod"
-                class="leftop-4pxr absolute top-4pxr h-16pxr w-44pxr"
+                class="leftop-4pxr absolute top-4pxr h-16pxr w-56pxr"
               />
               <figure>
                 <img
                   src="/src/assets/mainPage/content/suggestion-2.png"
                   alt="jtbc 뉴스룸"
                 />
-                <figcaption class="text-12pxr text-white">
-                  <h3 class="text-taing-1 font-bold">JTBC 뉴스룸</h3>
+                <figcaption class="text-12pxr text-white tablet:text-14pxr">
+                  <h3 class="mt-4pxr font-bold text-taing-1">JTBC 뉴스룸</h3>
                   <p class="text-taing-2">1화</p>
                 </figcaption>
               </figure>
@@ -215,15 +317,15 @@
               <img
                 src="/src/assets/mainPage/Icon/quick_vod.svg"
                 alt="quick vod"
-                class="leftop-4pxr absolute top-4pxr h-16pxr w-44pxr"
+                class="leftop-4pxr absolute top-4pxr h-16pxr w-56pxr"
               />
               <figure>
                 <img
                   src="/src/assets/mainPage/content/suggestion-2.png"
                   alt="jtbc 뉴스룸"
                 />
-                <figcaption class="text-12pxr text-white">
-                  <h3 class="text-taing-1 font-bold">JTBC 뉴스룸</h3>
+                <figcaption class="text-12pxr text-white tablet:text-14pxr">
+                  <h3 class="mt-4pxr font-bold text-taing-1">JTBC 뉴스룸</h3>
                   <p class="text-taing-2">1화</p>
                 </figcaption>
               </figure>
@@ -232,15 +334,15 @@
               <img
                 src="/src/assets/mainPage/Icon/quick_vod.svg"
                 alt="quick vod"
-                class="leftop-4pxr absolute top-4pxr h-16pxr w-44pxr"
+                class="leftop-4pxr absolute top-4pxr h-16pxr w-56pxr"
               />
               <figure>
                 <img
                   src="/src/assets/mainPage/content/suggestion-2.png"
                   alt="jtbc 뉴스룸"
                 />
-                <figcaption class="text-12pxr text-white">
-                  <h3 class="text-taing-1 font-bold">JTBC 뉴스룸</h3>
+                <figcaption class="text-12pxr text-white tablet:text-14pxr">
+                  <h3 class="mt-4pxr font-bold text-taing-1">JTBC 뉴스룸</h3>
                   <p class="text-taing-2">1화</p>
                 </figcaption>
               </figure>
@@ -248,12 +350,14 @@
           </ul>
         </div>
       </section>
-      <section class="px-8pxr pb-16pxr">
-        <h2 class="text-12pxr font-semibold leading-32pxr text-white">
+      <section id="popular-program" class="section-padding">
+        <h2
+          class="text-12pxr font-semibold leading-32pxr text-white tablet:mb-8pxr tablet:text-16pxr desktop:mb-16pxr desktop:text-28pxr desktop:font-bold"
+        >
           실시간 인기 프로그램
         </h2>
         <div class="popular-program-swiper">
-          <ul class="swiper-wrapper gap-8pxr">
+          <ul class="swiper-wrapper">
             <li class="swiper-slide overflow-hidden rounded-lg">
               <figure>
                 <img
@@ -262,10 +366,10 @@
                 />
                 <figcaption class="relative flex">
                   <span
-                    class="font-noto-sans-kr absolute -top-18pxr rotate-3 text-34pxr font-bold text-white"
+                    class="absolute -top-18pxr rotate-3 font-noto-sans-kr text-34pxr font-bold text-white"
                     >1</span
                   >
-                  <h3 class="text-taing-1 ms-24pxr mt-8pxr text-12pxr">
+                  <h3 class="ms-24pxr mt-8pxr text-12pxr text-taing-1">
                     재벌집 막내아들
                   </h3>
                 </figcaption>
@@ -279,10 +383,10 @@
                 />
                 <figcaption class="relative flex">
                   <span
-                    class="font-noto-sans-kr absolute -top-18pxr rotate-3 text-34pxr font-bold text-white"
+                    class="absolute -top-18pxr rotate-3 font-noto-sans-kr text-34pxr font-bold text-white"
                     >1</span
                   >
-                  <h3 class="text-taing-1 ms-24pxr mt-8pxr text-12pxr">
+                  <h3 class="ms-24pxr mt-8pxr text-12pxr text-taing-1">
                     재벌집 막내아들
                   </h3>
                 </figcaption>
@@ -296,10 +400,10 @@
                 />
                 <figcaption class="relative flex">
                   <span
-                    class="font-noto-sans-kr absolute -top-18pxr rotate-3 text-34pxr font-bold text-white"
+                    class="absolute -top-18pxr rotate-3 font-noto-sans-kr text-34pxr font-bold text-white"
                     >1</span
                   >
-                  <h3 class="text-taing-1 ms-24pxr mt-8pxr text-12pxr">
+                  <h3 class="ms-24pxr mt-8pxr text-12pxr text-taing-1">
                     재벌집 막내아들
                   </h3>
                 </figcaption>
@@ -313,10 +417,10 @@
                 />
                 <figcaption class="relative flex">
                   <span
-                    class="font-noto-sans-kr absolute -top-18pxr rotate-3 text-34pxr font-bold text-white"
+                    class="absolute -top-18pxr rotate-3 font-noto-sans-kr text-34pxr font-bold text-white"
                     >1</span
                   >
-                  <h3 class="text-taing-1 ms-24pxr mt-8pxr text-12pxr">
+                  <h3 class="ms-24pxr mt-8pxr text-12pxr text-taing-1">
                     재벌집 막내아들
                   </h3>
                 </figcaption>
@@ -330,10 +434,10 @@
                 />
                 <figcaption class="relative flex">
                   <span
-                    class="font-noto-sans-kr absolute -top-18pxr rotate-3 text-34pxr font-bold text-white"
+                    class="absolute -top-18pxr rotate-3 font-noto-sans-kr text-34pxr font-bold text-white"
                     >1</span
                   >
-                  <h3 class="text-taing-1 ms-24pxr mt-8pxr text-12pxr">
+                  <h3 class="ms-24pxr mt-8pxr text-12pxr text-taing-1">
                     재벌집 막내아들
                   </h3>
                 </figcaption>
@@ -347,10 +451,10 @@
                 />
                 <figcaption class="relative flex">
                   <span
-                    class="font-noto-sans-kr absolute -top-18pxr rotate-3 text-34pxr font-bold text-white"
+                    class="absolute -top-18pxr rotate-3 font-noto-sans-kr text-34pxr font-bold text-white"
                     >1</span
                   >
-                  <h3 class="text-taing-1 ms-24pxr mt-8pxr text-12pxr">
+                  <h3 class="ms-24pxr mt-8pxr text-12pxr text-taing-1">
                     재벌집 막내아들
                   </h3>
                 </figcaption>
@@ -364,10 +468,10 @@
                 />
                 <figcaption class="relative flex">
                   <span
-                    class="font-noto-sans-kr absolute -top-18pxr rotate-3 text-34pxr font-bold text-white"
+                    class="absolute -top-18pxr rotate-3 font-noto-sans-kr text-34pxr font-bold text-white"
                     >1</span
                   >
-                  <h3 class="text-taing-1 ms-24pxr mt-8pxr text-12pxr">
+                  <h3 class="ms-24pxr mt-8pxr text-12pxr text-taing-1">
                     재벌집 막내아들
                   </h3>
                 </figcaption>
@@ -376,12 +480,14 @@
           </ul>
         </div>
       </section>
-      <section class="px-8pxr pb-16pxr">
-        <h2 class="text-12pxr font-semibold leading-32pxr text-white">
+      <section id="popular-live" class="section-padding">
+        <h2
+          class="text-12pxr font-semibold leading-32pxr text-white tablet:mb-8pxr tablet:text-16pxr desktop:mb-16pxr desktop:text-28pxr desktop:font-bold"
+        >
           인기 LIVE 채널
         </h2>
         <div class="popular-live-swiper">
-          <ul class="swiper-wrapper gap-9pxr">
+          <ul class="swiper-wrapper">
             <li class="swiper-slide relative overflow-hidden rounded-lg">
               <figure>
                 <img
@@ -389,7 +495,7 @@
                   alt="jtbc 뉴스룸"
                 />
                 <figcaption class="flex items-center text-12pxr text-white">
-                  <span class="font-noto-sans-kr rotate-3 text-34pxr font-bold"
+                  <span class="rotate-3 font-noto-sans-kr text-34pxr font-bold"
                     >1</span
                   >
                   <h3 class="ms-14pxr leading-18pxr">
@@ -407,7 +513,7 @@
                   alt="jtbc 뉴스룸"
                 />
                 <figcaption class="flex items-center text-12pxr text-white">
-                  <span class="font-noto-sans-kr rotate-3 text-34pxr font-bold"
+                  <span class="rotate-3 font-noto-sans-kr text-34pxr font-bold"
                     >1</span
                   >
                   <h3 class="ms-14pxr leading-18pxr">
@@ -425,7 +531,7 @@
                   alt="jtbc 뉴스룸"
                 />
                 <figcaption class="flex items-center text-12pxr text-white">
-                  <span class="font-noto-sans-kr rotate-3 text-34pxr font-bold"
+                  <span class="rotate-3 font-noto-sans-kr text-34pxr font-bold"
                     >1</span
                   >
                   <h3 class="ms-14pxr leading-18pxr">
@@ -443,7 +549,7 @@
                   alt="jtbc 뉴스룸"
                 />
                 <figcaption class="flex items-center text-12pxr text-white">
-                  <span class="font-noto-sans-kr rotate-3 text-34pxr font-bold"
+                  <span class="rotate-3 font-noto-sans-kr text-34pxr font-bold"
                     >1</span
                   >
                   <h3 class="ms-14pxr leading-18pxr">
@@ -461,7 +567,7 @@
                   alt="jtbc 뉴스룸"
                 />
                 <figcaption class="flex items-center text-12pxr text-white">
-                  <span class="font-noto-sans-kr rotate-3 text-34pxr font-bold"
+                  <span class="rotate-3 font-noto-sans-kr text-34pxr font-bold"
                     >1</span
                   >
                   <h3 class="ms-14pxr leading-18pxr">
@@ -479,7 +585,7 @@
                   alt="jtbc 뉴스룸"
                 />
                 <figcaption class="flex items-center text-12pxr text-white">
-                  <span class="font-noto-sans-kr rotate-3 text-34pxr font-bold"
+                  <span class="rotate-3 font-noto-sans-kr text-34pxr font-bold"
                     >1</span
                   >
                   <h3 class="ms-14pxr leading-18pxr">
@@ -497,7 +603,7 @@
                   alt="jtbc 뉴스룸"
                 />
                 <figcaption class="flex items-center text-12pxr text-white">
-                  <span class="font-noto-sans-kr rotate-3 text-34pxr font-bold"
+                  <span class="rotate-3 font-noto-sans-kr text-34pxr font-bold"
                     >1</span
                   >
                   <h3 class="ms-14pxr leading-18pxr">
@@ -511,12 +617,14 @@
           </ul>
         </div>
       </section>
-      <section class="px-8pxr pb-16pxr">
-        <h2 class="text-12pxr font-semibold leading-32pxr text-white">
+      <section id="original-content" class="section-padding">
+        <h2
+          class="text-12pxr font-semibold leading-32pxr text-white tablet:mb-8pxr tablet:text-16pxr desktop:mb-16pxr desktop:text-28pxr desktop:font-bold"
+        >
           오직 티빙에만 있어요
         </h2>
         <div class="original-content-swiper">
-          <ul class="swiper-wrapper gap-8pxr">
+          <ul class="swiper-wrapper">
             <li class="swiper-slide overflow-hidden rounded-lg">
               <figure>
                 <img
@@ -583,7 +691,7 @@
           </ul>
         </div>
       </section>
-      <section class="overflow-hidden px-8pxr py-16pxr">
+      <section id="add-banner" class="section-padding overflow-hidden">
         <h2 class="sr-only">live sports banner</h2>
         <figure class="overflow-hidden rounded-md">
           <img
@@ -593,12 +701,14 @@
           <figcaption class="sr-only">taing sports 경기 생중계</figcaption>
         </figure>
       </section>
-      <section class="px-8pxr pb-16pxr">
-        <h2 class="text-12pxr font-semibold leading-32pxr text-white">
+      <section id="event" class="section-padding">
+        <h2
+          class="text-12pxr font-semibold leading-32pxr text-white tablet:mb-8pxr tablet:text-16pxr desktop:mb-16pxr desktop:text-28pxr desktop:font-bold"
+        >
           이벤트
         </h2>
         <div class="event-swiper">
-          <ul class="swiper-wrapper gap-8pxr">
+          <ul class="swiper-wrapper">
             <li class="swiper-slide overflow-hidden rounded-lg">
               <figure>
                 <img
