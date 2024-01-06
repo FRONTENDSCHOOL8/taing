@@ -8,68 +8,79 @@
     <script src="/src/pages/selectProfile/selectProfile.js"></script>
     <title>프로필선택</title>
   </head>
-  <body>
-    <header
-      id="header"
-      class="header-mobile tablet:header-tablet desktop:header-desktop fixed z-10 bg-header-bg"
-    ></header>
-
-    <main>
-      <section>
-        <div class="content-wrap">
-          <div class="title-wrap">
-            <h2>프로필 선택</h2>
-            <p>시청할 프로필을 선택해주세요.</p>
+  <body class="bg-black">
+    <div class="wrap flex flex-col">
+      <!-- <header id="header" class="relative"></header> -->
+      <main>
+        <section class="flex items-center justify-center">
+          <div class="content-wrap">
+            <div class="title-wrap pt-72pxr">
+              <h2
+                class="text-center text-base font-bold leading-[140%] text-white"
+              >
+                프로필 선택
+              </h2>
+              <p
+                class="pt-16pxr text-center text-[12.003px] font-semibold leading-[150%] text-[#c4c4c4]"
+              >
+                시청할 프로필을 선택해주세요.
+              </p>
+            </div>
+            <div class="profile-photo my-32pxr">
+              <ul
+                class="profile-photo-container grid grid-cols-2 grid-rows-2 gap-6"
+              >
+                <li class="profile">
+                  <button class="max-w-[114px] pb-12pxr">
+                    <img
+                      src="/src/assets/profile/content/profile_1.png"
+                      alt="프로필 사진"
+                    />
+                  </button>
+                  <p class="text-center text-[12.003px] text-[#a6a6a6]">
+                    슬비님
+                  </p>
+                </li>
+                <li class="profile">
+                  <button class="max-w-[114px] pb-12pxr">
+                    <img
+                      src="/src/assets/profile/content/profile_1.png"
+                      alt="프로필 사진"
+                    />
+                  </button>
+                  <p class="text-center text-[12.003px] text-[#a6a6a6]">야무</p>
+                </li>
+                <li class="profile">
+                  <button class="max-w-[114px] pb-12pxr">
+                    <img
+                      src="/src/assets/profile/content/profile_1.png"
+                      alt="프로필 사진"
+                    />
+                  </button>
+                  <p class="text-center text-[12.003px] text-[#a6a6a6]">범쌤</p>
+                </li>
+                <li class="profile">
+                  <button class="max-w-[114px] pb-12pxr">
+                    <img
+                      src="/src/assets/profile/content/profile_1.png"
+                      alt="프로필 사진"
+                    />
+                  </button>
+                  <p class="text-center text-[12.003px] text-[#a6a6a6]">이듬</p>
+                </li>
+              </ul>
+            </div>
+            <div class="button-wrap flex items-center justify-center">
+              <button
+                class="flex w-135pxr items-center justify-center rounded border border-solid border-[#565656] py-3 text-[12.003px] font-semibold leading-[150%] text-[#a6a6a6]"
+              >
+                프로필 편집
+              </button>
+            </div>
           </div>
-
-          <div class="profile-photo">
-            <ul class="profile-photo-container">
-              <li class="item">
-                <button>
-                  <img
-                    src="/src/assets/profile/content/profile_1.png"
-                    alt="프로필 사진"
-                  />
-                </button>
-                <p>슬비님</p>
-              </li>
-              <li class="item">
-                <button>
-                  <img
-                    src="/src/assets/profile/content/profile_1.png"
-                    alt="프로필 사진"
-                  />
-                </button>
-                <p>야무</p>
-              </li>
-              <li class="item">
-                <button>
-                  <img
-                    src="/src/assets/profile/content/profile_1.png"
-                    alt="프로필 사진"
-                  />
-                </button>
-                <p>범쌤</p>
-              </li>
-              <li class="item">
-                <button>
-                  <img
-                    src="/src/assets/profile/content/profile_1.png"
-                    alt="프로필 사진"
-                  />
-                </button>
-                <p>이듬</p>
-              </li>
-            </ul>
-          </div>
-
-          <div class="button-wrap">
-            <button>프로필 편집</button>
-          </div>
-        </div>
-      </section>
-    </main>
-
-    <footer id="footer"></footer>
+        </section>
+      </main>
+      <footer id="footer" class="flex"></footer>
+    </div>
   </body>
 </html>
