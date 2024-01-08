@@ -4,16 +4,10 @@
 @tailwind components;
 @tailwind utilities;
 
-@layer components {
-  .header-mobile {
-    @apply flex h-38pxr px-16pxr;
-  }
+.header {
+  @apply fixed z-10 flex h-38pxr w-screen items-center  bg-header-bg px-16pxr tablet:h-56pxr tablet:px-40pxr desktop:h-100pxr desktop:px-70pxr;
+}
 
-  .header-tablet {
-    @apply flex h-56pxr px-40pxr;
-  }
-
-  .header-desktop {
-    @apply flex h-100pxr px-70pxr;
-  }
+.section-padding {
+  @apply px-8pxr pb-16pxr tablet:px-40pxr tablet:py-28pxr desktop:px-70pxr desktop:py-36pxr;
 }
