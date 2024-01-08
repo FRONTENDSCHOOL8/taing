@@ -1,6 +1,9 @@
+import Swiper from 'swiper';
 import 'swiper/bundle';
 import 'swiper/css';
-import Swiper from 'swiper';
+import { crud } from '/src/util/crud';
+import { getImageURL } from '/src/util/getImageURL';
+import { insertTemplate } from '/src/util/insertTemplate';
 
 // main banner swiper slide
 const mainBannerSwiper = new Swiper('.main-banner-swiper', {
@@ -19,6 +22,27 @@ const mainBannerSwiper = new Swiper('.main-banner-swiper', {
   autoplay: {
     delay: 3000,
     disableOnInteraction: false,
+  },
+  on: {
+    slideChange() {
+      const mainBannerPaginationImg = document.querySelectorAll(
+        '.main-banner-pagination > .swiper-pagination-bullet > img'
+      );
+
+      mainBannerPaginationImg.forEach((pagination) => {
+        pagination.src =
+          '/src/assets/mainPage/Icon/swiper_pagination_bullet.svg';
+
+        if (
+          pagination.parentElement.classList.contains(
+            'swiper-pagination-bullet-active'
+          )
+        ) {
+          pagination.src =
+            '/src/assets/mainPage/Icon/swiper_pagination_bullet_active.svg';
+        }
+      });
+    },
   },
 });
 
@@ -118,25 +142,6 @@ new Swiper('.event-swiper', {
   },
 });
 
-const mainBannerPaginationImg = document.querySelectorAll(
-  '.main-banner-pagination > .swiper-pagination-bullet > img'
-);
-
-// 슬라이드 변경 시 pagination 이미지 변경
-mainBannerSwiper.on('slideChange', () => {
-  mainBannerPaginationImg.forEach((pagination) => {
-    pagination.src = '/src/assets/mainPage/Icon/swiper_pagination_bullet.svg';
-    if (
-      pagination.parentElement.classList.contains(
-        'swiper-pagination-bullet-active'
-      )
-    ) {
-      pagination.src =
-        '/src/assets/mainPage/Icon/swiper_pagination_bullet_active.svg';
-    }
-  });
-});
-
 const autoplayButton = document.querySelector('.autoplayButton > img');
 
 // 오토 슬라이드 버튼 클릭 시 슬라이드 정지/재생, 버튼 이미지 변경
@@ -149,3 +154,36 @@ autoplayButton.addEventListener('click', () => {
     autoplayButton.src = '/src/assets/mainPage/Icon/pause.png';
   }
 });
+
+// 추천 콘텐츠 데이터 가져오기
+const suggestionContents = await getContentData('suggestion_contents');
+
+// 오리지널 콘텐츠 데이터 가져오기
+const originalContents = await getContentData('original_contents');
+
+console.log(originalContents);
+
+originalContents.forEach((item) => {
+  const originalContentTemplate = /* html */ `
+    <li class="swiper-slide overflow-hidden rounded-lg">
+      <figure>
+        <img
+          src="${getImageURL(item)}"
+          alt="${item.name}"
+          />
+        <figcaption class="sr-only">${item.name}</figcaption>
+      </figure>
+    </li>
+  `;
+
+  insertTemplate(originalContentTemplate, '.original-content-swiper > ul');
+});
+
+// 콜렉션의 테이터를 가져오는 함수
+async function getContentData(collection) {
+  const response = await crud.get(
+    `${import.meta.env.VITE_PB_URL}/api/collections/${collection}/records`
+  );
+
+  return response.data.items;
+}
