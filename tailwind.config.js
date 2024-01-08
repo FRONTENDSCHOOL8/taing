@@ -30,7 +30,7 @@ export default {
         tablet: '768px',
         desktop: '1280px',
       },
-      color: {
+      colors: {
         primary: '#ff153c',
         'button-default': '#ff153c',
         'button-hover': '#cc1030',

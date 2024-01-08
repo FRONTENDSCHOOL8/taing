@@ -158,13 +158,58 @@ autoplayButton.addEventListener('click', () => {
 // 추천 콘텐츠 데이터 가져오기
 const suggestionContents = await getContentData('suggestion_contents');
 
+suggestionContents.forEach((item) => {
+  const template = /* html */ `
+  <li class="swiper-slide overflow-hidden rounded-lg">
+    <figure>
+      <img
+        src="${getImageURL(item)}"
+        alt="${item.name}"
+      />
+      <figcaption
+        class="mt-4pxr hidden text-12pxr text-taing-1 tablet:block desktop:block desktop:text-21pxr"
+      >
+        ${item.name}
+      </figcaption>
+    </figure>
+  </li>
+  `;
+
+  insertTemplate(template, '.suggestion-content-swiper > ul');
+});
+
+// quick vod 데이터 가져오기
+const quickVod = await getContentData('quick_vod');
+
+quickVod.forEach((item) => {
+  const template = /* html */ `
+    <li class="swiper-slide relative overflow-hidden rounded-lg">
+      <img
+        src="/src/assets/mainPage/Icon/quick_vod.svg"
+        alt="quick vod"
+        class="leftop-4pxr absolute top-4pxr h-16pxr w-56pxr"
+      />
+      <figure>
+        <img
+          src="/src/assets/mainPage/content/suggestion-2.png"
+          alt="jtbc 뉴스룸"
+        />
+        <figcaption class="text-12pxr text-white tablet:text-14pxr">
+          <h3 class="mt-4pxr font-bold text-taing-1">JTBC 뉴스룸</h3>
+          <p class="text-taing-2">1화</p>
+        </figcaption>
+      </figure>
+    </li>
+  `;
+
+  insertTemplate(template, '.quick-vod-swiper > ul');
+});
+
 // 오리지널 콘텐츠 데이터 가져오기
 const originalContents = await getContentData('original_contents');
 
-console.log(originalContents);
-
 originalContents.forEach((item) => {
-  const originalContentTemplate = /* html */ `
+  const template = /* html */ `
     <li class="swiper-slide overflow-hidden rounded-lg">
       <figure>
         <img
@@ -176,10 +221,10 @@ originalContents.forEach((item) => {
     </li>
   `;
 
-  insertTemplate(originalContentTemplate, '.original-content-swiper > ul');
+  insertTemplate(template, '.original-content-swiper > ul');
 });
 
-// 콜렉션의 테이터를 가져오는 함수
+//* 콜렉션의 테이터를 가져오는 함수
 async function getContentData(collection) {
   const response = await crud.get(
     `${import.meta.env.VITE_PB_URL}/api/collections/${collection}/records`
