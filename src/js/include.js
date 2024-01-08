@@ -1,3 +1,5 @@
+import footer from '/src/js/footer';
+
 // header.html 파일을 가져와서 header 요소에 삽입
 fetch('/components/header.html')
   .then((response) => response.text())
@@ -12,12 +14,12 @@ fetch('/components/header.html')
 // footer.html 파일을 가져와서 footer 요소에 삽입
 fetch('/components/footer.html')
   .then((response) => response.text())
-  .then((html) => {
+  .then(async (html) => {
     const footerElement = document.querySelector('#footer');
     footerElement.innerHTML = html;
+
+    footer();
   })
   .catch((error) => {
     console.error(error);
   });
-
-// 화이팅2
