@@ -224,6 +224,7 @@ originalContents.forEach((item) => {
   insertTemplate(template, '.original-content-swiper > ul');
 });
 
+// test
 //* 콜렉션의 테이터를 가져오는 함수
 async function getContentData(collection) {
   const response = await crud.get(
