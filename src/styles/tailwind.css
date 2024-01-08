@@ -5,9 +5,28 @@
 @tailwind utilities;
 
 .header {
-  @apply fixed z-10 flex h-38pxr w-screen items-center  bg-header-bg px-16pxr tablet:h-56pxr tablet:px-40pxr desktop:h-100pxr desktop:px-70pxr;
+  @apply flex h-38pxr w-screen items-center  bg-header-bg px-16pxr tablet:h-56pxr tablet:px-40pxr desktop:h-100pxr desktop:px-70pxr;
+}
+
+.footer {
+  @apply px-16pxr pb-82pxr pt-50pxr;
 }
 
 .section-padding {
   @apply px-8pxr pb-16pxr tablet:px-40pxr tablet:py-28pxr desktop:px-70pxr desktop:py-36pxr;
+}
+
+.footer-section {
+  @apply flex items-center gap-8pxr text-12pxr;
+}
+
+.whitespace-nowrap {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.text-taing-3 {
+  color: #6b6b6b;
+  white-space: nowrap;
 }
