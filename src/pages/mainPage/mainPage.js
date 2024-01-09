@@ -2,8 +2,10 @@ import Swiper from 'swiper';
 import 'swiper/bundle';
 import 'swiper/css';
 import { crud } from '/src/util/crud';
+import { pb } from '/src/api/pocketBase';
 import { getImageURL } from '/src/util/getImageURL';
 import { insertTemplate } from '/src/util/insertTemplate';
+import { getContentData, getContentDataByRank } from '/src/util/getContentData';
 
 // main banner swiper slide
 const mainBannerSwiper = new Swiper('.main-banner-swiper', {
@@ -155,16 +157,22 @@ autoplayButton.addEventListener('click', () => {
   }
 });
 
+//! 메인 페이지 데이터 가져오기
 // 추천 콘텐츠 데이터 가져오기
-const suggestionContents = await getContentData('suggestion_contents');
+const suggestionContents = await pb
+  .collection('suggestion_contents')
+  .getFullList();
+
+const suggestionContentsArray = [];
 
 suggestionContents.forEach((item) => {
   const template = /* html */ `
-  <li class="swiper-slide overflow-hidden rounded-lg">
+  <li class="swiper-slide">
     <figure>
       <img
         src="${getImageURL(item)}"
         alt="${item.name}"
+        class="rounded-sm"
       />
       <figcaption
         class="mt-4pxr hidden text-12pxr text-taing-1 tablet:block desktop:block desktop:text-21pxr"
@@ -175,34 +183,107 @@ suggestionContents.forEach((item) => {
   </li>
   `;
 
-  insertTemplate(template, '.suggestion-content-swiper > ul');
+  suggestionContentsArray.push(template);
 });
+
+insertTemplate(suggestionContentsArray, '.suggestion-content-swiper > ul');
+
+// const suggestionContentsHtml = suggestionContentsArray.join('');
 
 // quick vod 데이터 가져오기
 const quickVod = await getContentData('quick_vod');
 
+let quickVodArray = [];
+
 quickVod.forEach((item) => {
   const template = /* html */ `
-    <li class="swiper-slide relative overflow-hidden rounded-lg">
+    <li class="swiper-slide relative">
       <img
         src="/src/assets/mainPage/Icon/quick_vod.svg"
         alt="quick vod"
-        class="leftop-4pxr absolute top-4pxr h-16pxr w-56pxr"
+        class="left-4pxr absolute top-4pxr h-16pxr w-56pxr rounded-sm"
       />
       <figure>
         <img
-          src="/src/assets/mainPage/content/suggestion-2.png"
-          alt="jtbc 뉴스룸"
+          src="${getImageURL(item)}"
+          alt="${item.name}"
         />
         <figcaption class="text-12pxr text-white tablet:text-14pxr">
-          <h3 class="mt-4pxr font-bold text-taing-1">JTBC 뉴스룸</h3>
-          <p class="text-taing-2">1화</p>
+          <h3 class="mt-4pxr font-bold text-taing-1">${item.name}</h3>
+          <p class="text-taing-2">${item.episode}화</p>
         </figcaption>
       </figure>
     </li>
   `;
 
-  insertTemplate(template, '.quick-vod-swiper > ul');
+  quickVodArray.push(template);
+});
+
+const quickVodHtml = quickVodArray.join('');
+
+insertTemplate(quickVodHtml, '.quick-vod-swiper > ul');
+
+// 실시간 인기 프로그램 가져오기
+const popularProgram = await getContentDataByRank('popular_program');
+
+const popularProgramArray = [];
+
+popularProgram.forEach((item) => {
+  const template = /* html */ `
+    <li class="swiper-slide">
+      <figure>
+        <img
+          src="${getImageURL(item)}"
+          alt="${item.name}"
+          class="rounded-sm"
+        />
+        <figcaption class="relative flex">
+          <span
+            class="absolute -top-18pxr rotate-3 font-noto-sans-kr text-34pxr font-bold text-white"
+            >${item.rank}</span
+          >
+          <h3 class="ms-24pxr mt-8pxr text-12pxr text-taing-1">
+            ${item.name}
+          </h3>
+        </figcaption>
+      </figure>
+    </li> 
+  `;
+
+  popularProgramArray.push(template);
+});
+
+const popularProgramHtml = popularProgramArray.join('');
+
+insertTemplate(popularProgramHtml, '.popular-program-swiper > ul');
+
+// 실시간 인기 라이브 채널 가져오기
+const popularLive = await getContentDataByRank('popular_live');
+
+popularLive.forEach((item) => {
+  const template = /* html */ `
+  <li class="swiper-slide relative">
+    <figure>
+      <img
+        src="${getImageURL(item)}"
+        alt="${item.name}"
+        class="rounded-sm"
+      />
+      <figcaption class="flex items-center text-12pxr text-white">
+        <span class="rotate-3 font-noto-sans-kr text-34pxr font-bold"
+          >${item.rank}</span
+        >
+        <h3 class="ms-14pxr leading-18pxr">
+          <span class="font-semibold">${item.channelName}</span>
+          <p class="text-taing-1">${item.name}</p>
+          <p class="text-taing-2">${item.rating}%</p>
+        </h3>
+      </figcaption>
+    </figure>
+  </li>
+  `;
+
+  insertTemplate(template, '.popular-live-swiper > ul');
 });
 
 // 오리지널 콘텐츠 데이터 가져오기
@@ -210,11 +291,12 @@ const originalContents = await getContentData('original_contents');
 
 originalContents.forEach((item) => {
   const template = /* html */ `
-    <li class="swiper-slide overflow-hidden rounded-lg">
+    <li class="swiper-slide">
       <figure>
         <img
           src="${getImageURL(item)}"
           alt="${item.name}"
+          class="rounded-sm"
           />
         <figcaption class="sr-only">${item.name}</figcaption>
       </figure>
@@ -224,12 +306,41 @@ originalContents.forEach((item) => {
   insertTemplate(template, '.original-content-swiper > ul');
 });
 
-// test
-//* 콜렉션의 테이터를 가져오는 함수
-async function getContentData(collection) {
-  const response = await crud.get(
-    `${import.meta.env.VITE_PB_URL}/api/collections/${collection}/records`
-  );
+// 이벤트 데이터 가져오기
+const eventContents = await getContentData('event');
 
-  return response.data.items;
-}
+eventContents.forEach((item) => {
+  const template = /* html */ `
+  <li class="swiper-slide">
+    <figure>
+      <img
+        src="${getImageURL(item)}"
+        alt="${item.name}"
+        class="rounded-sm"
+      />
+      <figcaption class="sr-only">
+        ${item.name}
+      </figcaption>
+    </figure>
+  </li> 
+  `;
+
+  insertTemplate(template, '.event-swiper > ul');
+});
+
+//* 콜렉션의 테이터를 가져오는 함수
+
+const userEmail = document.querySelector('#user-email').value;
+
+console.log(userEmail);
+
+const data = {
+  username: JSON.stringify(userEmail),
+};
+
+const buttonSubmit = document.querySelector('.button-submit');
+
+buttonSubmit.addEventListener('click', (e) => {
+  e.preventDefault();
+  crud.post(`${import.meta.env.VITE_PB_API}/collections/users/records`, data);
+});
