@@ -158,9 +158,7 @@ autoplayButton.addEventListener('click', () => {
 
 //! 메인 페이지 데이터 가져오기
 // 추천 콘텐츠 데이터 가져오기
-const suggestionContents = await pb
-  .collection('suggestion_contents')
-  .getFullList();
+const suggestionContents = await getContentData('suggestion_contents');
 
 const suggestionContentsArray = [];
 
