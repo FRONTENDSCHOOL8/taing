@@ -7,7 +7,7 @@ export default defineConfig({
     outDir: 'docs',
     rollupOptions: {
       input: {
-        main: resolve(__dirname, 'index.html'),
+        welcome: resolve(__dirname, 'index.html'),
         landingPage: resolve(__dirname, 'src/pages/landingPage/index.html'),
         mainPage: resolve(__dirname, 'src/pages/mainPage/index.html'),
         header: resolve(__dirname, 'src/components/header.html'),
