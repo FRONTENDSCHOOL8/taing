@@ -188,8 +188,6 @@ suggestionContents.forEach((item) => {
 
 insertTemplate(suggestionContentsArray, '.suggestion-content-swiper > ul');
 
-// const suggestionContentsHtml = suggestionContentsArray.join('');
-
 // quick vod 데이터 가져오기
 const quickVod = await getContentData('quick_vod');
 
