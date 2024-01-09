@@ -18,7 +18,7 @@ const mainBannerSwiper = new Swiper('.main-banner-swiper', {
     el: '.main-banner-pagination',
     clickable: true,
     renderBullet(index, className) {
-      return `<button class="${className}"><img src="/src/assets/mainPage/Icon/swiper_pagination_bullet.svg" class="w-6pxr h-6pxr gap-4pxr tablet:w-8pxr tablet:h-8pxr desktop:w-12pxr desktop:h-12pxr"/></button>`;
+      return `<button class="${className}"><img src="/assets/mainPage/Icon/swiper_pagination_bullet.svg" class="w-6pxr h-6pxr gap-4pxr tablet:w-8pxr tablet:h-8pxr desktop:w-12pxr desktop:h-12pxr"/></button>`;
     },
   },
   autoplay: {
@@ -32,8 +32,7 @@ const mainBannerSwiper = new Swiper('.main-banner-swiper', {
       );
 
       mainBannerPaginationImg.forEach((pagination) => {
-        pagination.src =
-          '/src/assets/mainPage/Icon/swiper_pagination_bullet.svg';
+        pagination.src = '/assets/mainPage/Icon/swiper_pagination_bullet.svg';
 
         if (
           pagination.parentElement.classList.contains(
@@ -41,7 +40,7 @@ const mainBannerSwiper = new Swiper('.main-banner-swiper', {
           )
         ) {
           pagination.src =
-            '/src/assets/mainPage/Icon/swiper_pagination_bullet_active.svg';
+            '/assets/mainPage/Icon/swiper_pagination_bullet_active.svg';
         }
       });
     },
@@ -150,10 +149,10 @@ const autoplayButton = document.querySelector('.autoplayButton > img');
 autoplayButton.addEventListener('click', () => {
   if (mainBannerSwiper.autoplay.running) {
     mainBannerSwiper.autoplay.stop();
-    autoplayButton.src = '/src/assets/mainPage/Icon/play.png';
+    autoplayButton.src = '/assets/mainPage/Icon/play.png';
   } else {
     mainBannerSwiper.autoplay.start();
-    autoplayButton.src = '/src/assets/mainPage/Icon/pause.png';
+    autoplayButton.src = '/assets/mainPage/Icon/pause.png';
   }
 });
 
@@ -188,8 +187,6 @@ suggestionContents.forEach((item) => {
 
 insertTemplate(suggestionContentsArray, '.suggestion-content-swiper > ul');
 
-// const suggestionContentsHtml = suggestionContentsArray.join('');
-
 // quick vod 데이터 가져오기
 const quickVod = await getContentData('quick_vod');
 
@@ -199,7 +196,7 @@ quickVod.forEach((item) => {
   const template = /* html */ `
     <li class="swiper-slide relative">
       <img
-        src="/src/assets/mainPage/Icon/quick_vod.svg"
+        src="/assets/mainPage/Icon/quick_vod.svg"
         alt="quick vod"
         class="left-4pxr absolute top-4pxr h-16pxr w-56pxr rounded-sm"
       />
