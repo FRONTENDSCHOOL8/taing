@@ -16,16 +16,16 @@ export default {
     extend: {
       spacing: {
         ...pxToRemFunc(0, 1000),
-      }, // px을 rem으로 변환
+      },
       inset: {
         ...pxToRemFunc(0, 1000),
       },
       fontSize: {
         ...pxToRemFunc(0, 1000),
-      }, // px을 rem으로 변환
+      },
       lineHeight: {
         ...pxToRemFunc(0, 1000),
-      }, // px을 rem으로 변환
+      },
       screens: {
         tablet: '768px',
         desktop: '1280px',
@@ -37,14 +37,19 @@ export default {
         'button-submit-default': '#404040',
         'button-submit-active': '#e1e1e1',
         'button-submit-hover': '#ffffff',
+        input: '#212121',
+        line: '#404040',
       },
       textColor: {
         'taing-1': '#c4c4c4',
         'taing-2': '#a6a6a6',
-        'taing-3': '#6b6b6b',
+        'taing-3': '#898989',
+        'taing-4': '#6b6b6b',
+        'taing-5': '#565656',
+        'taing-6': '#404040',
       },
       backgroundImage: {
-        'header-bg':
+        header:
           'linear-gradient(180deg, rgba(0, 0, 0, 0.70) 0%, rgba(0, 0, 0, 0.00) 100%)',
       },
       keyframes: {

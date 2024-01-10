@@ -10,11 +10,11 @@
   </head>
   <body class="bg-black">
     <div class="wrap flex flex-col">
-      <!-- <header id="header" class="relative"></header> -->
+      <header id="header" class=""></header>
       <main>
-        <section class="flex items-center justify-center">
-          <div class="content-wrap desktop:my-130pxr">
-            <div class="title-wrap pt-72pxr tablet:mt-74pxr">
+        <section class="relative flex items-center justify-center">
+          <div class="content-wrap pt-72pxr tablet:pt-74pxr desktop:py-130pxr">
+            <div class="title-wrap">
               <h2
                 class="text-center text-base font-bold leading-[140%] text-white tablet:text-28pxr desktop:text-50pxr"
               >
@@ -90,12 +90,7 @@
                     <img
                       src="/public/assets/profile/content/profile_1.png"
                       alt="프로필 사진"
-                      class="rounded opacity-50 desktop:opacity-100"
-                    />
-                    <img
-                      src="/public/assets/profile/Icon/lock.svg"
-                      alt="lock"
-                      class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 transform desktop:w-60pxr"
+                      class="rounded opacity-100"
                     />
                   </button>
                   <p class="text-center text-12pxr text-taing-2">이듬</p>
@@ -103,16 +98,17 @@
               </ul>
             </div>
             <div class="button-wrap flex items-center justify-center">
-              <button
+              <a
                 class="flex w-135pxr items-center justify-center rounded border border-solid border-[#565656] py-3 text-12pxr font-semibold leading-[150%] text-taing-2 hover:border-[#a3a3a3] hover:text-[#dedede] tablet:w-156pxr tablet:p-16pxr desktop:w-272pxr desktop:p-22pxr desktop:text-28pxr"
+                href="/src/pages/editProfile/index.html"
               >
                 프로필 편집
-              </button>
+              </a>
             </div>
           </div>
         </section>
       </main>
-      <footer id="footer" class="flex"></footer>
+      <footer id="footer" class=""></footer>
     </div>
   </body>
 </html>

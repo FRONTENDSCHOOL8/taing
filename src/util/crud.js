@@ -1,61 +1,27 @@
-const defaultOptions = {
-  method: 'GET',
-  headers: {
-    'Content-Type': 'application/json',
-  },
-};
+import { pb } from '/src/api/pocketbase';
 
-async function crud(options) {
-  try {
-    const { url, ...customOptions } = {
-      ...defaultOptions,
-      ...options,
-      headers: {
-        ...defaultOptions.headers,
-        ...options.headers,
-      },
-    };
-    const response = await fetch(url, customOptions);
+// 데이터를 가져오는 함수
+async function getData(collectionName, options = {}) {
+  const response = await pb.collection(collectionName).getFullList({
+    ...options,
+  });
 
-    response.data = await response.json();
-
-    return response;
-  } catch (error) {
-    console.error(error);
-  }
+  return response;
 }
 
-crud.get = function (url, options) {
-  return crud({
-    url,
-    ...options,
-  });
-};
+// 데이터를 생성하는 함수
+async function postData(collectionName, data) {
+  await pb.collection(collectionName).create(data);
+}
 
-crud.post = function (url, body, options) {
-  return crud({
-    method: 'POST',
-    url,
-    body: JSON.stringify(body),
-    ...options,
-  });
-};
+// 데이터를 수정하는 함수
+async function patchData(collectionName, id, data) {
+  await pb.collection(collectionName).update(id, data);
+}
 
-crud.delete = function (url, options) {
-  return crud({
-    method: 'DELETE',
-    url,
-    ...options,
-  });
-};
+// 데이터를 삭제하는 함수
+async function deleteData(collectionName, id) {
+  await pb.collection(collectionName).delete(id);
+}
 
-crud.put = function (url, body, options) {
-  return crud({
-    method: 'PUT',
-    url,
-    body: JSON.stringify(body),
-    ...options,
-  });
-};
-
-export { crud };
+export { getData, postData, patchData, deleteData };

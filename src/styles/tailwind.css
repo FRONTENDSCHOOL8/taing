@@ -1,12 +1,9 @@
 @import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/variable/pretendardvariable.css');
+@import '/src/pages/mainPage/mainPage.css';
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-.header {
-  @apply flex h-38pxr w-screen items-center  bg-header-bg px-16pxr tablet:h-56pxr tablet:px-40pxr desktop:h-100pxr desktop:px-70pxr;
-}
 
 .footer {
   @apply px-16pxr pb-82pxr pt-50pxr;
