@@ -9,7 +9,7 @@ new Swiper('.swiper-container-1', {
   breakpoints: {
     768: {
       slidesPerView: 1,
-      spaceBetween: 8,
+      spaceBetween: 10,
     },
     1280: {
       slidesPerView: 1.2,
