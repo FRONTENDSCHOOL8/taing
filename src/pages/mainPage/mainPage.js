@@ -35,8 +35,23 @@ mainBannerArr.forEach(() => {
   insertTemplate(template, '.main-banner-swiper > ul');
 });
 
-const isLoading = state(false);
+let [isLoading, setIsLoading, onChangeIsLoading] = await state(true);
+const loadingSpinner = document.querySelectorAll('.loading');
 
+//! 로딩 상태변화 감지
+onChangeIsLoading((newState) => {
+  if (newState) {
+    loadingSpinner.forEach((spinner) => {
+      spinner.classList.remove('hidden');
+    });
+  } else {
+    loadingSpinner.forEach((spinner) => {
+      spinner.classList.add('hidden');
+    });
+  }
+});
+
+//! DB데이터 가져오기
 const suggestionContents = await getData('suggestion_contents');
 const quickVod = await getData('quick_vod');
 const popularLive = await getData('popular_live', {
@@ -48,24 +63,32 @@ const popularProgram = await getData('popular_program', {
   sort: 'rank',
 });
 
-isLoading.setState(true);
-
-const swiper = document.querySelectorAll('.swiper-wrapper');
+setIsLoading(!isLoading);
 
 // isLoading.getState().addEventListener('change', () => {});
 
 suggestionContents.forEach((item) => {
   const template = /* html */ `
   <li class="swiper-slide">
+    
+    
     <figure>
-      <img
-        src="${getImageURL(item)}"
-        alt="${item.name} 포스터"
-        class="rounded-sm"
-      />
-      <figcaption
-        class="mt-4pxr hidden text-12pxr text-taing-1 tablet:block desktop:block desktop:text-21pxr"
-      >
+      <div class="relative">
+        <img src="${getImageURL(item)}" alt="${
+          item.name
+        } 포스터" class="rounded-sm" />
+        ${
+          item.isAdultContent
+            ? '<img src="/assets/mainPage/icon/adult.svg" alt="adult content badge" class="right-8pxr absolute top-8pxr w-[20%]" />'
+            : ''
+        }
+        ${
+          item.isOriginalContent
+            ? '<img src="/assets/mainPage/icon/taing_original.svg" alt="original content badge" class="absolute left-1/2 bottom-16pxr w-1/2 -translate-x-1/2" />'
+            : ''
+        }
+      </div>
+      <figcaption class="mt-4pxr hidden text-12pxr text-taing-1 tablet:block desktop:block desktop:text-21pxr" >
         ${item.name}
       </figcaption>
     </figure>
@@ -79,7 +102,7 @@ quickVod.forEach((item) => {
   const template = /* html */ `
     <li class="swiper-slide relative">
       <img
-        src="/assets/mainPage/Icon/quick_vod.svg"
+        src="/assets/mainPage/icon/quick_vod.svg"
         alt="quick vod"
         class="left-4pxr absolute top-4pxr h-16pxr w-56pxr rounded-sm"
       />
@@ -102,6 +125,11 @@ quickVod.forEach((item) => {
 popularProgram.forEach((item) => {
   const template = /* html */ `
     <li class="swiper-slide">
+      ${
+        item.isAdultContent
+          ? '<img src="/assets/mainPage/icon/adult.svg" alt="19" class="right-8pxr absolute top-8pxr h-16pxr w-16pxr tablet:h-24pxr tablet:w-24pxr desktop:h-32pxr desktop:w-32pxr" />'
+          : ''
+      }
       <figure>
         <img
           src="${getImageURL(item)}"
@@ -210,7 +238,7 @@ const mainBannerSwiper = new Swiper('.main-banner-swiper', {
     el: '.main-banner-pagination',
     clickable: true,
     renderBullet(index, className) {
-      return `<button class="${className}"><img src="/assets/mainPage/Icon/swiper_pagination_bullet.svg" alt="pagination button" class="w-6pxr h-6pxr gap-4pxr tablet:w-8pxr tablet:h-8pxr desktop:w-12pxr desktop:h-12pxr"/></button>`;
+      return `<button class="${className}"><img src="/assets/mainPage/icon/swiper_pagination_bullet.svg" alt="pagination button" class="w-6pxr h-6pxr gap-4pxr tablet:w-8pxr tablet:h-8pxr desktop:w-12pxr desktop:h-12pxr"/></button>`;
     },
   },
   autoplay: {
@@ -224,7 +252,7 @@ const mainBannerSwiper = new Swiper('.main-banner-swiper', {
       );
 
       mainBannerPaginationImg.forEach((pagination) => {
-        pagination.src = '/assets/mainPage/Icon/swiper_pagination_bullet.svg';
+        pagination.src = '/assets/mainPage/icon/swiper_pagination_bullet.svg';
 
         if (
           pagination.parentElement.classList.contains(
@@ -232,13 +260,14 @@ const mainBannerSwiper = new Swiper('.main-banner-swiper', {
           )
         ) {
           pagination.src =
-            '/assets/mainPage/Icon/swiper_pagination_bullet_active.svg';
+            '/assets/mainPage/icon/swiper_pagination_bullet_active.svg';
         }
       });
     },
   },
 });
 
+//! 슬라이드 생성
 // suggestion swiper slide
 new Swiper('.suggestion-content-swiper', {
   slidesPerView: 3.3,
@@ -246,10 +275,12 @@ new Swiper('.suggestion-content-swiper', {
   breakpoints: {
     768: {
       slidesPerView: 5.3,
+      slidesPerGroup: 5,
       spaceBetween: 8,
     },
     1280: {
       slidesPerView: 7.3,
+      slidesPerGroup: 7,
       spaceBetween: 16,
     },
   },
@@ -266,10 +297,12 @@ new Swiper('.quick-vod-swiper', {
   breakpoints: {
     768: {
       slidesPerView: 3.3,
+      slidesPerGroup: 3,
       spaceBetween: 8,
     },
     1280: {
       slidesPerView: 5.3,
+      slidesPerGroup: 5,
       spaceBetween: 16,
     },
   },
@@ -282,10 +315,12 @@ new Swiper('.popular-program-swiper', {
   breakpoints: {
     768: {
       slidesPerView: 5.3,
+      slidesPerGroup: 5,
       spaceBetween: 8,
     },
     1280: {
       slidesPerView: 7.3,
+      slidesPerGroup: 7,
       spaceBetween: 16,
     },
   },
@@ -298,10 +333,12 @@ new Swiper('.popular-live-swiper', {
   breakpoints: {
     768: {
       slidesPerView: 3.3,
+      slidesPerGroup: 3,
       spaceBetween: 8,
     },
     1280: {
       slidesPerView: 5.3,
+      slidesPerGroup: 5,
       spaceBetween: 16,
     },
   },
@@ -314,10 +351,12 @@ new Swiper('.original-content-swiper', {
   breakpoints: {
     768: {
       slidesPerView: 3.3,
+      slidesPerGroup: 3,
       spaceBetween: 8,
     },
     1280: {
       slidesPerView: 5.3,
+      slidesPerGroup: 5,
       spaceBetween: 16,
     },
   },
@@ -330,10 +369,12 @@ new Swiper('.event-swiper', {
   breakpoints: {
     768: {
       slidesPerView: 3.3,
+      slidesPerGroup: 3,
       spaceBetween: 8,
     },
     1280: {
       slidesPerView: 5.2,
+      slidesPerGroup: 5,
       spaceBetween: 16,
     },
   },
