@@ -1,10 +1,47 @@
-<div class="header">
-  <h1 class="logo">
-    <picture>
-      <source srcset="/logo_mobile.svg" media="(max-width: 767px)" />
-      <source srcset="/logo_tablet.svg" media="(max-width: 1279px)" />
-      <source srcset="/logo_desktop.svg" media="(max-width: 1919px)" />
-      <img src="/logo_desktop.svg" alt="TAING logo" />
-    </picture>
-  </h1>
+<div
+  class="flex items-center px-12pxr tablet:h-56pxr tablet:px-40pxr desktop:h-100pxr desktop:px-70pxr"
+>
+  <div class="flex h-38pxr w-screen items-center">
+    <a href="/" class="me-28pxr desktop:me-52pxr">
+      <h1 class="logo">
+        <picture>
+          <source srcset="/logo_desktop.svg" media="(min-width: 1280px)" />
+          <source srcset="/logo_tablet.svg" media="(min-width: 768px)" />
+          <img src="/logo_mobile.svg" alt="TAING logo" />
+        </picture>
+      </h1>
+    </a>
+    <nav
+      class="hidden text-12pxr text-taing-1 tablet:block desktop:block desktop:text-21pxr"
+    >
+      <ul class="flex gap-28pxr desktop:gap-52pxr">
+        <li>
+          <a href="/pages/login/index.html">
+            <figure class="flex items-center gap-4pxr desktop:gap-10pxr">
+              <img
+                src="/assets/header/navbar_live.svg"
+                alt=""
+                class="h-20pxr w-20pxr desktop:h-34pxr desktop:w-34pxr"
+              />
+              <figcaption>실시간</figcaption>
+            </figure>
+          </a>
+        </li>
+        <li><a href="/">TV프로그램</a></li>
+        <li><a href="/">영화</a></li>
+        <li>
+          <a href="/">
+            <figure>
+              <img
+                src="/assets/header/paramount_logo.svg"
+                alt="파라마운트 로고"
+                class="h-15pxr desktop:h-26pxr"
+              />
+              <figcaption class="sr-only">파라마운트 플러스</figcaption>
+            </figure>
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </div>
 </div>
