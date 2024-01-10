@@ -1,42 +1,26 @@
-<!doctype html>
-<html lang="ko">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="/src/styles/tailwind.css" />
-    <script
-      type="module"
-      src="/src/pages/modal/mainPageModal/mainPageModal.js"
-    ></script>
-    <title>Taing - Main Page Modal</title>
-  </head>
-  <body class="bg-[rgba(0,0,0,80)]">
-    <!-- 모달창 -->
-    <div
-      class="modal-container absolute left-0 top-0 flex h-full w-full flex-col items-center justify-center"
+<div
+  class="modal-container fixed left-0 top-0 z-20 flex h-full w-full flex-col items-center justify-center"
+>
+  <div class="modal-content">
+    <img
+      src="/assets/modal/image_modal.png"
+      alt="모달 이미지"
+      class="h-283pxr w-252pxr tablet:h-370pxr tablet:w-328pxr desktop:h-662pxr desktop:w-586pxr"
+    />
+  </div>
+  <div class="close-area relative flex flex-row">
+    <button
+      class="button_today_close px-25pxr py-10pxr text-12pxr leading-[160%] text-[white] tablet:px-45pxr desktop:px-81pxr desktop:py-16pxr desktop:text-21pxr"
     >
-      <div class="modal-content">
-        <img
-          src="/assets/modal/image_modal.png"
-          alt="모달 이미지"
-          class="h-283pxr w-252pxr tablet:h-370pxr tablet:w-328pxr desktop:h-662pxr desktop:w-586pxr"
-        />
-      </div>
-      <div class="close-area relative flex flex-row">
-        <button
-          class="button_today_close px-25pxr py-10pxr text-12pxr leading-[160%] text-[white] tablet:px-45pxr desktop:px-81pxr desktop:py-16pxr desktop:text-21pxr"
-        >
-          오늘 하루 보지 않기
-        </button>
-        <div
-          class="divider right-0 mr-10pxr h-16pxr w-1pxr translate-y-[50%] bg-white py-10pxr desktop:h-26pxr desktop:py-16pxr"
-        ></div>
-        <button
-          class="button_close px-25pxr py-10pxr text-12pxr leading-[160%] text-[white] tablet:px-45pxr desktop:px-81pxr desktop:py-16pxr desktop:text-21pxr"
-        >
-          닫기
-        </button>
-      </div>
-    </div>
-  </body>
-</html>
+      오늘 하루 보지 않기
+    </button>
+    <div
+      class="divider right-0 mr-10pxr h-16pxr w-1pxr translate-y-[50%] bg-white py-10pxr desktop:h-26pxr desktop:py-16pxr"
+    ></div>
+    <button
+      class="button_close px-25pxr py-10pxr text-12pxr leading-[160%] text-[white] tablet:px-45pxr desktop:px-81pxr desktop:py-16pxr desktop:text-21pxr"
+    >
+      닫기
+    </button>
+  </div>
+</div>

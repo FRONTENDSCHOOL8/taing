@@ -3,7 +3,60 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Taing - Logout Modal</title>
+    <link rel="stylesheet" href="/src/styles/tailwind.css" />
+    <script src="/src/pages/modal/logoutModal/logoutModal.js"></script>
+    <title>Tailwind CSS Modal with Grid</title>
   </head>
-  <body></body>
+  <body class="bg-gray-200 p-8">
+    <!-- 버튼을 클릭하면 모달을 열기 -->
+    <button
+      onclick="openModal()"
+      class="rounded bg-gray-400 px-4 py-2 text-white"
+    >
+      로그아웃
+    </button>
+
+    <!-- 모달 창 요소 -->
+    <div
+      id="myModal"
+      class="modal grid grid-cols-1 items-center justify-items-center"
+    >
+      <div
+        class="modal-overlay absolute h-full w-full bg-gray-800 opacity-50"
+      ></div>
+
+      <div
+        class="modal-container z-50 grid w-11/12 grid-cols-1 gap-4 overflow-y-auto rounded bg-white p-4 shadow-lg md:max-w-md"
+      >
+        <span
+          onclick="closeModal()"
+          class="modal-close cursor-pointer self-end text-sm text-white"
+          >&times; 닫기</span
+        >
+
+        <div class="modal-header col-span-1">
+          <h2 class="text-2xl font-bold">로그아웃 하시겠습니까?</h2>
+        </div>
+
+        <div class="modal-body col-span-1">
+          <!-- 모달 본문 내용 -->
+        </div>
+
+        <div class="modal-footer col-span-1 grid grid-cols-2 gap-4">
+          <button
+            onclick="confirmLogout()"
+            class="rounded bg-blue-500 px-4 py-2 font-bold text-white hover:bg-blue-700"
+          >
+            확인
+          </button>
+          <button
+            onclick="closeModal()"
+            class="rounded bg-gray-500 px-4 py-2 font-bold text-white hover:bg-gray-700"
+          >
+            취소
+          </button>
+        </div>
+      </div>
+    </div>
+  </body>
 </html>
