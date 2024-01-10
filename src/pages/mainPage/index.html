@@ -8,79 +8,21 @@
     <script type="module" src="/src/pages/mainPage/mainPage.js"></script>
     <title>TAING - Main</title>
   </head>
-  <body class="bg-black">
-    <div class="overflow-x-hidden">
-      <header id="header" class="fixed z-10"></header>
+  <body class="overflow-x-hidden bg-black">
+    <div>
+      <header id="header" class="fixed z-10 desktop:static"></header>
       <main>
         <section id="main-banner">
           <h2 class="sr-only">main banner</h2>
           <div class="main-banner-swiper relative">
-            <div class="swiper-wrapper">
-              <div class="swiper-slide">
-                <figure class="flex justify-center">
-                  <img
-                    src="/assets/mainPage/common/mainBannerImg.png"
-                    alt="test image"
-                    class="w-full"
-                  />
-                  <figcaption
-                    class="absolute left-[3%] top-[70%] text-12pxr font-semibold text-white tablet:text-16pxr desktop:text-28pxr"
-                  >
-                    인생 2회차를 사는 판타지 드라마
-                  </figcaption>
-                </figure>
-                <a
-                  href="/"
-                  class="absolute bottom-[12%] right-12pxr flex h-27pxr w-64pxr items-center justify-center rounded-md border border-[#a6a6a6] text-12pxr text-white tablet:right-38pxr tablet:h-44pxr tablet:w-128pxr desktop:right-70pxr desktop:h-78pxr desktop:w-220pxr desktop:text-22pxr"
-                  >자세히보기</a
-                >
-              </div>
-              <div class="swiper-slide">
-                <figure>
-                  <img
-                    src="/assets/mainPage/common/mainBannerImg.png"
-                    alt="test image"
-                    class="w-full"
-                  />
-                  <figcaption
-                    class="absolute left-[3%] top-[70%] text-12pxr font-semibold text-white tablet:text-16pxr desktop:text-28pxr"
-                  >
-                    인생 2회차를 사는 판타지 드라마
-                  </figcaption>
-                </figure>
-                <a
-                  href="/"
-                  class="absolute bottom-[12%] right-12pxr flex h-27pxr w-64pxr items-center justify-center rounded-md border border-[#a6a6a6] text-12pxr text-white tablet:right-38pxr tablet:h-44pxr tablet:w-128pxr desktop:right-70pxr desktop:h-78pxr desktop:w-220pxr desktop:text-22pxr"
-                  >자세히보기</a
-                >
-              </div>
-              <div class="swiper-slide">
-                <figure>
-                  <img
-                    src="/assets/mainPage/common/mainBannerImg.png"
-                    alt="test image"
-                    class="w-full"
-                  />
-                  <figcaption
-                    class="absolute left-[3%] top-[70%] text-12pxr font-semibold text-white tablet:text-16pxr desktop:text-28pxr"
-                  >
-                    인생 2회차를 사는 판타지 드라마
-                  </figcaption>
-                </figure>
-                <a
-                  href="/"
-                  class="absolute bottom-[12%] right-12pxr flex h-27pxr w-64pxr items-center justify-center rounded-md border border-[#a6a6a6] text-12pxr text-white tablet:right-38pxr tablet:h-44pxr tablet:w-128pxr desktop:right-70pxr desktop:h-78pxr desktop:w-220pxr desktop:text-22pxr"
-                  >자세히보기</a
-                >
-              </div>
-            </div>
+            <ul class="swiper-wrapper"></ul>
             <div class="button-wrapper">
               <button
                 class="swiper-button-prev absolute left-0 top-1/2 z-10 -translate-y-1/2"
               >
                 <img
                   src="/assets/mainPage/Icon/arrow_left.png"
-                  alt="arrow"
+                  alt="이전 버튼"
                   class="h-16pxr w-16pxr tablet:h-40pxr tablet:w-40pxr desktop:h-70pxr desktop:w-70pxr"
                 />
               </button>
@@ -89,7 +31,7 @@
               >
                 <img
                   src="/assets/mainPage/Icon/arrow_right.png"
-                  alt="arrow"
+                  alt="다음 버튼"
                   class="h-16pxr w-16pxr tablet:h-40pxr tablet:w-40pxr desktop:h-70pxr desktop:w-70pxr"
                 />
               </button>
@@ -100,7 +42,7 @@
               <button class="autoplayButton">
                 <img
                   src="/assets/mainPage/Icon/pause.png"
-                  alt="play"
+                  alt="슬라이드 재생 버튼"
                   class="h-8pxr w-8pxr desktop:h-16pxr desktop:w-16pxr"
                 />
               </button>
@@ -119,6 +61,26 @@
           </h2>
           <div class="suggestion-content-swiper">
             <ul class="swiper-wrapper"></ul>
+          </div>
+          <div>
+            <button
+              class="suggestion-content-prev absolute left-0 top-1/2 z-10 -translate-y-1/2"
+            >
+              <img
+                src="/assets/mainPage/Icon/arrow_left.png"
+                alt="이전 버튼"
+                class="h-16pxr w-16pxr tablet:h-40pxr tablet:w-40pxr desktop:h-70pxr desktop:w-70pxr"
+              />
+            </button>
+            <button
+              class="suggestoin-content-next absolute right-0 top-1/2 z-10 -translate-y-1/2"
+            >
+              <img
+                src="/assets/mainPage/Icon/arrow_right.png"
+                alt="다음 버튼"
+                class="h-16pxr w-16pxr tablet:h-40pxr tablet:w-40pxr desktop:h-70pxr desktop:w-70pxr"
+              />
+            </button>
           </div>
         </section>
         <section id="quick-vod" class="section-padding">
@@ -163,10 +125,11 @@
         </section>
         <section id="add-banner" class="section-padding overflow-hidden">
           <h2 class="sr-only">live sports banner</h2>
-          <figure class="overflow-hidden rounded-md">
+          <figure>
             <img
               src="/assets/mainPage/content/banner.jpeg"
               alt="taing sports 경기 생중계"
+              class="mx-auto rounded-sm"
             />
             <figcaption class="sr-only">taing sports 경기 생중계</figcaption>
           </figure>
