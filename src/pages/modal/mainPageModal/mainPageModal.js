@@ -19,7 +19,7 @@ function closeFor24Hours() {
 
   // 24시간 동안 모달 창이 열리지 않도록 localStorage에 저장
   localStorage.setItem('modalClosed', 'true');
-  localStorage.setItem('modalClosedUntil', tomorrow.toISOString());
+  localStorage.setItem('modalClosedUntil', JSON.stringify(tomorrow));
 }
 
 // 페이지 로드 시 모달 창 상태 초기화
