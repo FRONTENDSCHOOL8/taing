@@ -5,6 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="/src/styles/tailwind.css" />
     <script type="module" src="/src/js/include.js"></script>
+    <script
+      type="module"
+      src="/src/pages/findPassword/findPassword.js"
+    ></script>
     <title>TAING - find Password</title>
   </head>
   <body class="bg-black">
@@ -29,10 +33,10 @@
           완료해주세요.
         </p>
         <form class="mt-16pxr">
-          <label for="userId" class="sr-only">이메일</label>
+          <label for="userId" class="peer">아이디</label>
           <input
             type="text"
-            class="h-46pxr w-full rounded bg-input px-16pxr text-12pxr text-white placeholder:text-taing-5 tablet:h-54pxr tablet:text-16pxr desktop:h-96pxr desktop:text-28pxr"
+            class="h-46pxr w-full rounded bg-input px-16pxr text-12pxr text-white placeholder:text-taing-5 peer-focus:text-red-500 tablet:h-54pxr tablet:text-16pxr desktop:h-96pxr desktop:text-28pxr"
             name="userId"
             id="userId"
             placeholder="아이디"
