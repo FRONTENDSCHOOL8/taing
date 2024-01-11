@@ -294,120 +294,61 @@ const mainBannerSwiper = new Swiper('.main-banner-swiper', {
   },
 });
 
-//! 슬라이드 생성
-// suggestion swiper slide
-new Swiper('.suggestion-content-swiper', {
+//! 슬라이드 생성 함수
+function createSwiper(containerSelector, options) {
+  return new Swiper(containerSelector, options);
+}
+
+// 슬라이더 옵션 정의
+const commonOptions = {
   slidesPerView: 3.3,
   slidesPerGroup: 3,
   spaceBetween: 8,
   breakpoints: {
     768: {
-      slidesPerView: 5.3,
-      slidesPerGroup: 5,
-      spaceBetween: 8,
+      slidesPerView: 3.3,
+      slidesPerGroup: 3,
     },
     1280: {
-      slidesPerView: 7.3,
-      slidesPerGroup: 7,
+      slidesPerView: 5.3,
+      slidesPerGroup: 5,
       spaceBetween: 16,
     },
   },
+};
+
+// 각 슬라이더 생성 및 설정
+createSwiper('.suggestion-content-swiper', {
+  ...commonOptions,
 });
 
-// suggestion2 swiper slide
-new Swiper('.quick-vod-swiper', {
+createSwiper('.quick-vod-swiper', {
+  ...commonOptions,
   slidesPerView: 2.2,
   slidesPerGroup: 2,
-  spaceBetween: 8,
   navigation: {
     nextEl: '.quick-vod-next',
     prevEl: '.quick-vod-prev',
   },
-  breakpoints: {
-    768: {
-      slidesPerView: 3.3,
-      slidesPerGroup: 3,
-      spaceBetween: 8,
-    },
-    1280: {
-      slidesPerView: 5.3,
-      slidesPerGroup: 5,
-      spaceBetween: 16,
-    },
-  },
 });
 
-// popular program swiper slide
-new Swiper('.popular-program-swiper', {
-  slidesPerView: 3.3,
-  slidesPerGroup: 3,
-  spaceBetween: 8,
-  breakpoints: {
-    768: {
-      slidesPerView: 5.3,
-      slidesPerGroup: 5,
-      spaceBetween: 8,
-    },
-    1280: {
-      slidesPerView: 7.3,
-      slidesPerGroup: 7,
-      spaceBetween: 16,
-    },
-  },
+createSwiper('.popular-program-swiper', {
+  ...commonOptions,
 });
 
-// popular live channel swiper slide
-new Swiper('.popular-live-swiper', {
+createSwiper('.popular-live-swiper', {
+  ...commonOptions,
   slidesPerView: 2.2,
   slidesPerGroup: 2,
-  spaceBetween: 8,
-  breakpoints: {
-    768: {
-      slidesPerView: 3.3,
-      slidesPerGroup: 3,
-      spaceBetween: 8,
-    },
-    1280: {
-      slidesPerView: 5.3,
-      slidesPerGroup: 5,
-      spaceBetween: 16,
-    },
-  },
 });
 
-// original content swiper slide
-new Swiper('.original-content-swiper', {
+createSwiper('.original-content-swiper', {
+  ...commonOptions,
   slidesPerView: 2.2,
   slidesPerGroup: 2,
-  spaceBetween: 8,
-  breakpoints: {
-    768: {
-      slidesPerView: 3.3,
-      slidesPerGroup: 3,
-      spaceBetween: 8,
-    },
-    1280: {
-      slidesPerView: 5.3,
-      slidesPerGroup: 5,
-      spaceBetween: 16,
-    },
-  },
 });
 
-//event swiper slide
-new Swiper('.event-swiper', {
+createSwiper('.event-swiper', {
+  ...commonOptions,
   slidesPerView: 2.2,
-  spaceBetween: 8,
-  breakpoints: {
-    768: {
-      slidesPerView: 3.3,
-      slidesPerGroup: 3,
-      spaceBetween: 8,
-    },
-    1280: {
-      slidesPerView: 5.2,
-      slidesPerGroup: 5,
-      spaceBetween: 16,
-    },
-  },
 });
