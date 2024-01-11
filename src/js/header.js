@@ -1,4 +1,5 @@
 import { insertTemplate } from '/src/util/insertTemplate';
+import { getImageURL } from '/src/util/getImageURL';
 // import getAuthDataFromPb from '/src/util/getAuthDataFromPb';
 
 export default async function header() {
