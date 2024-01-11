@@ -1,14 +1,16 @@
 import { getData } from '/src/util/crud';
 
 const inputEmail = document.querySelector('#email');
-const findIdButton = document.querySelector('.findIdButton');
-// const emailForm = document.querySelector('form');
+const submitButton = document.querySelector('button[type="submit"]');
+const emailForm = document.querySelector('form');
 const emailErrorNotice = document.querySelector('.notice');
 
 inputEmail.addEventListener('input', validationEmail);
-findIdButton.addEventListener('click', findId);
+emailForm.addEventListener('submit', findId);
 
-async function findId() {
+async function findId(e) {
+  e.preventDefault();
+
   const emailValue = inputEmail.value;
 
   try {
@@ -33,11 +35,15 @@ function validationEmail() {
   const regexEmail = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
   const emailValue = inputEmail.value;
 
-  if (regexEmail.test(emailValue) || emailValue === '') {
-    emailErrorNotice.classList.remove('block');
-    emailErrorNotice.classList.add('hidden');
-  } else {
+  if (!regexEmail.test(emailValue) || emailValue === '') {
     emailErrorNotice.classList.remove('hidden');
     emailErrorNotice.classList.add('block');
+    submitButton.classList.remove('bg-button-submit-active');
+    submitButton.classList.add('bg-button-submit-default');
+  } else {
+    emailErrorNotice.classList.remove('block');
+    emailErrorNotice.classList.add('hidden');
+    submitButton.classList.remove('bg-button-submit-default');
+    submitButton.classList.add('bg-button-submit-active');
   }
 }
