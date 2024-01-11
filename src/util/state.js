@@ -1,13 +1,20 @@
 export default function state(initialState) {
   let state = initialState;
 
-  function getState() {
-    return state;
-  }
+  const callbacks = [];
 
   function setState(newState) {
+    if (state === newState) {
+      return;
+    }
+
     state = newState;
+    callbacks.forEach((callback) => callback(state));
   }
 
-  return { getState, setState };
+  function onChange(callback) {
+    callbacks.push(callback);
+  }
+
+  return [state, setState, onChange];
 }

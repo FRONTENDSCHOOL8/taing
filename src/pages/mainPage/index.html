@@ -3,149 +3,141 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="/public/favicon.ico" type="image/x-icon" />
     <link rel="stylesheet" href="/src/styles/tailwind.css" />
     <script type="module" src="/src/js/include.js"></script>
     <script type="module" src="/src/pages/mainPage/mainPage.js"></script>
     <title>TAING - Main</title>
   </head>
-  <body class="overflow-x-hidden bg-black">
-    <div>
-      <header id="header" class="fixed z-10 desktop:static"></header>
-      <main>
-        <section id="main-banner">
-          <h2 class="sr-only">main banner</h2>
-          <div class="main-banner-swiper relative">
-            <ul class="swiper-wrapper"></ul>
-            <div class="button-wrapper">
-              <button
-                class="swiper-button-prev absolute left-0 top-1/2 z-10 -translate-y-1/2"
-              >
-                <img
-                  src="/assets/mainPage/Icon/arrow_left.png"
-                  alt="이전 버튼"
-                  class="h-16pxr w-16pxr tablet:h-40pxr tablet:w-40pxr desktop:h-70pxr desktop:w-70pxr"
-                />
-              </button>
-              <button
-                class="swiper-button-next absolute right-0 top-1/2 z-10 -translate-y-1/2"
-              >
-                <img
-                  src="/assets/mainPage/Icon/arrow_right.png"
-                  alt="다음 버튼"
-                  class="h-16pxr w-16pxr tablet:h-40pxr tablet:w-40pxr desktop:h-70pxr desktop:w-70pxr"
-                />
-              </button>
-            </div>
-            <div
-              class="absolute bottom-[8%] left-[3%] z-10 flex items-center gap-6pxr desktop:gap-12pxr"
-            >
-              <button class="autoplayButton">
-                <img
-                  src="/assets/mainPage/Icon/pause.png"
-                  alt="슬라이드 재생 버튼"
-                  class="h-8pxr w-8pxr desktop:h-16pxr desktop:w-16pxr"
-                />
-              </button>
-              <div
-                class="main-banner-pagination flex gap-4pxr desktop:gap-12pxr"
-              ></div>
-            </div>
-          </div>
-        </section>
-
-        <section id="suggestion-content" class="section-padding">
-          <h2
-            class="text-12pxr font-semibold leading-32pxr text-white tablet:mb-8pxr tablet:text-16pxr tablet:font-bold desktop:mb-16pxr desktop:text-28pxr desktop:font-bold"
-          >
-            티빙에서 꼭 봐야하는 콘텐츠
-          </h2>
-          <div class="suggestion-content-swiper">
-            <ul class="swiper-wrapper"></ul>
-          </div>
-          <div>
-            <button
-              class="suggestion-content-prev absolute left-0 top-1/2 z-10 -translate-y-1/2"
-            >
-              <img
-                src="/assets/mainPage/Icon/arrow_left.png"
-                alt="이전 버튼"
-                class="h-16pxr w-16pxr tablet:h-40pxr tablet:w-40pxr desktop:h-70pxr desktop:w-70pxr"
-              />
-            </button>
-            <button
-              class="suggestoin-content-next absolute right-0 top-1/2 z-10 -translate-y-1/2"
-            >
-              <img
-                src="/assets/mainPage/Icon/arrow_right.png"
-                alt="다음 버튼"
-                class="h-16pxr w-16pxr tablet:h-40pxr tablet:w-40pxr desktop:h-70pxr desktop:w-70pxr"
-              />
-            </button>
-          </div>
-        </section>
-        <section id="quick-vod" class="section-padding">
-          <h2
-            class="text-12pxr font-semibold leading-32pxr text-white tablet:mb-8pxr tablet:text-16pxr desktop:mb-16pxr desktop:text-28pxr desktop:font-bold"
-          >
-            Quick VOD
-          </h2>
-          <div class="quick-vod-swiper">
-            <ul class="swiper-wrapper"></ul>
-          </div>
-        </section>
-        <section id="popular-program" class="section-padding">
-          <h2
-            class="text-12pxr font-semibold leading-32pxr text-white tablet:mb-8pxr tablet:text-16pxr desktop:mb-16pxr desktop:text-28pxr desktop:font-bold"
-          >
-            실시간 인기 프로그램
-          </h2>
-          <div class="popular-program-swiper">
-            <ul class="swiper-wrapper"></ul>
-          </div>
-        </section>
-        <section id="popular-live" class="section-padding">
-          <h2
-            class="text-12pxr font-semibold leading-32pxr text-white tablet:mb-8pxr tablet:text-16pxr desktop:mb-16pxr desktop:text-28pxr desktop:font-bold"
-          >
-            인기 LIVE 채널
-          </h2>
-          <div class="popular-live-swiper">
-            <ul class="swiper-wrapper"></ul>
-          </div>
-        </section>
-        <section id="original-content" class="section-padding">
-          <h2
-            class="text-12pxr font-semibold leading-32pxr text-white tablet:mb-8pxr tablet:text-16pxr desktop:mb-16pxr desktop:text-28pxr desktop:font-bold"
-          >
-            오직 티빙에만 있어요
-          </h2>
-          <div class="original-content-swiper">
-            <ul class="swiper-wrapper"></ul>
-          </div>
-        </section>
-        <section id="add-banner" class="section-padding overflow-hidden">
-          <h2 class="sr-only">live sports banner</h2>
-          <figure>
-            <img
-              src="/assets/mainPage/content/banner.jpeg"
-              alt="taing sports 경기 생중계"
-              class="mx-auto rounded-sm"
-            />
-            <figcaption class="sr-only">taing sports 경기 생중계</figcaption>
-          </figure>
-        </section>
-        <section id="event" class="section-padding">
-          <h2
-            class="text-12pxr font-semibold leading-32pxr text-white tablet:mb-8pxr tablet:text-16pxr desktop:mb-16pxr desktop:text-28pxr desktop:font-bold"
-          >
-            이벤트
-          </h2>
-          <div class="event-swiper">
-            <ul class="swiper-wrapper"></ul>
-          </div>
-        </section>
-      </main>
-      <footer id="footer"></footer>
+  <body class="flow-root overflow-x-hidden bg-black">
+    <header id="header" class="fixed z-10 desktop:static"></header>
+    <div
+      class="loading fixed z-20 flex h-screen w-screen items-center justify-center bg-black/[0.64]"
+    >
+      <img
+        src="/assets/mainPage/loading.svg"
+        alt="로딩 아이콘"
+        class="pb-250pxr"
+      />
     </div>
+    <main>
+      <section id="main-banner">
+        <h2 class="sr-only">main banner</h2>
+        <div class="main-banner-swiper relative">
+          <ul class="swiper-wrapper"></ul>
+          <div class="button-wrapper">
+            <button
+              class="mainBanner-prev absolute left-0 top-1/2 z-10 -translate-y-1/2"
+            >
+              <img
+                src="/assets/mainPage/icon/arrow_left.png"
+                alt="이전 버튼"
+                class="h-24pxr w-24pxr tablet:h-40pxr tablet:w-40pxr desktop:h-70pxr desktop:w-70pxr"
+              />
+            </button>
+            <button
+              class="mainBanner-next absolute right-0 top-1/2 z-10 -translate-y-1/2"
+            >
+              <img
+                src="/assets/mainPage/icon/arrow_right.png"
+                alt="다음 버튼"
+                class="h-24pxr w-24pxr tablet:h-40pxr tablet:w-40pxr desktop:h-70pxr desktop:w-70pxr"
+              />
+            </button>
+          </div>
+          <div
+            class="absolute bottom-[8%] left-[3%] z-10 flex items-center gap-6pxr desktop:gap-12pxr"
+          >
+            <button class="autoplayButton">
+              <img
+                src="/assets/mainPage/icon/pause.png"
+                alt="슬라이드 재생 버튼"
+                class="h-8pxr w-8pxr desktop:h-16pxr desktop:w-16pxr"
+              />
+            </button>
+            <div
+              class="main-banner-pagination flex gap-4pxr desktop:gap-12pxr"
+            ></div>
+          </div>
+        </div>
+      </section>
+
+      <section id="suggestion-content" class="section-padding">
+        <h2
+          class="text-12pxr font-semibold leading-32pxr text-white tablet:mb-8pxr tablet:text-16pxr tablet:font-bold desktop:mb-16pxr desktop:text-28pxr desktop:font-bold"
+        >
+          티빙에서 꼭 봐야하는 콘텐츠
+        </h2>
+        <div class="suggestion-content-swiper relative">
+          <ul class="swiper-wrapper"></ul>
+        </div>
+      </section>
+      <section id="quick-vod" class="section-padding">
+        <h2
+          class="text-12pxr font-semibold leading-32pxr text-white tablet:mb-8pxr tablet:text-16pxr desktop:mb-16pxr desktop:text-28pxr desktop:font-bold"
+        >
+          Quick VOD
+        </h2>
+        <div class="quick-vod-swiper">
+          <ul class="swiper-wrapper"></ul>
+          <div>
+            <button class="quick-vod-prev"></button>
+            <button class="quick-vod-next"></button>
+          </div>
+        </div>
+      </section>
+      <section id="popular-program" class="section-padding">
+        <h2
+          class="text-12pxr font-semibold leading-32pxr text-white tablet:mb-8pxr tablet:text-16pxr desktop:mb-16pxr desktop:text-28pxr desktop:font-bold"
+        >
+          실시간 인기 프로그램
+        </h2>
+        <div class="popular-program-swiper">
+          <ul class="swiper-wrapper"></ul>
+        </div>
+      </section>
+      <section id="popular-live" class="section-padding">
+        <h2
+          class="text-12pxr font-semibold leading-32pxr text-white tablet:mb-8pxr tablet:text-16pxr desktop:mb-16pxr desktop:text-28pxr desktop:font-bold"
+        >
+          인기 LIVE 채널
+        </h2>
+        <div class="popular-live-swiper">
+          <ul class="swiper-wrapper"></ul>
+        </div>
+      </section>
+      <section id="original-content" class="section-padding">
+        <h2
+          class="text-12pxr font-semibold leading-32pxr text-white tablet:mb-8pxr tablet:text-16pxr desktop:mb-16pxr desktop:text-28pxr desktop:font-bold"
+        >
+          오직 티빙에만 있어요
+        </h2>
+        <div class="original-content-swiper">
+          <ul class="swiper-wrapper"></ul>
+        </div>
+      </section>
+      <section id="add-banner" class="section-padding overflow-hidden">
+        <h2 class="sr-only">live sports banner</h2>
+        <figure>
+          <img
+            src="/assets/mainPage/content/banner.jpeg"
+            alt="taing sports 경기 생중계"
+            class="mx-auto rounded-sm"
+          />
+          <figcaption class="sr-only">taing sports 경기 생중계</figcaption>
+        </figure>
+      </section>
+      <section id="event-banner" class="section-padding">
+        <h2
+          class="text-12pxr font-semibold leading-32pxr text-white tablet:mb-8pxr tablet:text-16pxr desktop:mb-16pxr desktop:text-28pxr desktop:font-bold"
+        >
+          이벤트
+        </h2>
+        <div class="event-swiper">
+          <ul class="swiper-wrapper"></ul>
+        </div>
+      </section>
+    </main>
+    <footer id="footer"></footer>
   </body>
 </html>
