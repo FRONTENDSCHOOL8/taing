@@ -241,9 +241,9 @@ contentCard.forEach((card) => {
   });
 });
 
+//! 오토 슬라이드 버튼 클릭 시 슬라이드 정지/재생, 버튼 이미지 변경
 const autoplayButton = document.querySelector('.autoplayButton');
 
-//! 오토 슬라이드 버튼 클릭 시 슬라이드 정지/재생, 버튼 이미지 변경
 autoplayButton.addEventListener('click', () => {
   if (mainBannerSwiper.autoplay.running) {
     mainBannerSwiper.autoplay.stop();
