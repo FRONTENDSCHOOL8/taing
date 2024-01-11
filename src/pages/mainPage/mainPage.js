@@ -38,7 +38,7 @@ mainBannerArr.forEach(() => {
 let [isLoading, setIsLoading, onChangeIsLoading] = await state(true);
 const loadingSpinner = document.querySelectorAll('.loading');
 
-//! 로딩 상태변화 감지
+//! 로딩 상태변화가 감지됐을 때 실행 되는 함수
 onChangeIsLoading((newState) => {
   if (newState) {
     loadingSpinner.forEach((spinner) => {
@@ -220,7 +220,7 @@ eventContents.forEach((item) => {
   insertTemplate('.event-swiper > ul', template);
 });
 
-// hover 애니메이션(gsap)
+//! hover 애니메이션(gsap)
 const contentCard = document.querySelectorAll(
   'li.swiper-slide:not(.main-banner-swiper li.swiper-slide, .notification-swiper li.swiper-slide, .event-swiper li.swiper-slide)'
 );
@@ -243,7 +243,7 @@ contentCard.forEach((card) => {
 
 const autoplayButton = document.querySelector('.autoplayButton');
 
-// 오토 슬라이드 버튼 클릭 시 슬라이드 정지/재생, 버튼 이미지 변경
+//! 오토 슬라이드 버튼 클릭 시 슬라이드 정지/재생, 버튼 이미지 변경
 autoplayButton.addEventListener('click', () => {
   if (mainBannerSwiper.autoplay.running) {
     mainBannerSwiper.autoplay.stop();
@@ -254,7 +254,7 @@ autoplayButton.addEventListener('click', () => {
   }
 });
 
-// main banner swiper slide
+//! main banner swiper slide
 const mainBannerSwiper = new Swiper('.main-banner-swiper', {
   loop: true,
   navigation: {
@@ -294,12 +294,7 @@ const mainBannerSwiper = new Swiper('.main-banner-swiper', {
   },
 });
 
-//! 슬라이드 생성 함수
-function createSwiper(containerSelector, options) {
-  return new Swiper(containerSelector, options);
-}
-
-// 슬라이더 옵션 정의
+//! 슬라이더 기본 옵션
 const commonOptions = {
   slidesPerView: 3.3,
   slidesPerGroup: 3,
@@ -317,7 +312,7 @@ const commonOptions = {
   },
 };
 
-// 각 슬라이더 생성 및 설정
+//! 각 슬라이더 생성 및 설정
 createSwiper('.suggestion-content-swiper', {
   ...commonOptions,
 });
@@ -352,3 +347,8 @@ createSwiper('.event-swiper', {
   ...commonOptions,
   slidesPerView: 2.2,
 });
+
+//! 슬라이드 생성 함수
+function createSwiper(containerSelector, options) {
+  return new Swiper(containerSelector, options);
+}
