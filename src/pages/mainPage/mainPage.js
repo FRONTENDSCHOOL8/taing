@@ -1,6 +1,5 @@
 import Swiper from 'swiper';
 import 'swiper/bundle';
-import 'swiper/css';
 import { getImageURL } from '/src/util/getImageURL';
 import { insertTemplate } from '/src/util/insertTemplate';
 import { getData } from '/src/util/crud';
@@ -65,153 +64,165 @@ const popularProgram = await getData('popular_program', {
 
 setIsLoading(!isLoading);
 
-// isLoading.getState().addEventListener('change', () => {});
-
 suggestionContents.forEach((item) => {
   const template = /* html */ `
   <li class="swiper-slide">
-    
-    
-    <figure>
-      <div class="relative">
-        <img src="${getImageURL(item)}" alt="${
-          item.name
-        } 포스터" class="rounded-sm" />
-        ${
-          item.isAdultContent
-            ? '<img src="/assets/mainPage/icon/adult.svg" alt="adult content badge" class="right-8pxr absolute top-8pxr w-[20%]" />'
-            : ''
-        }
-        ${
-          item.isOriginalContent
-            ? '<img src="/assets/mainPage/icon/taing_original.svg" alt="original content badge" class="absolute left-1/2 bottom-16pxr w-1/2 -translate-x-1/2" />'
-            : ''
-        }
-      </div>
-      <figcaption class="mt-4pxr hidden text-12pxr text-taing-1 tablet:block desktop:block desktop:text-21pxr" >
-        ${item.name}
-      </figcaption>
-    </figure>
+    <a href="/">
+      <figure>
+        <div class="relative">
+          <img src="${getImageURL(item)}" alt="${
+            item.name
+          } 포스터" class="rounded-sm" />
+          ${
+            item.isAdultContent
+              ? '<img src="/assets/mainPage/icon/adult.svg" alt="adult content badge" class="right-8pxr absolute top-8pxr w-[20%]" />'
+              : ''
+          }
+          ${
+            item.isOriginalContent
+              ? '<img src="/assets/mainPage/icon/taing_original.svg" alt="original content badge" class="absolute left-1/2 bottom-16pxr w-1/2 -translate-x-1/2" />'
+              : ''
+          }
+        </div>
+        <figcaption class="mt-4pxr hidden text-12pxr text-taing-1 tablet:block desktop:block desktop:text-21pxr" >
+          ${item.name}
+        </figcaption>
+      </figure>
+    </a>
   </li>
   `;
 
-  insertTemplate(template, '.suggestion-content-swiper > ul');
+  insertTemplate('.suggestion-content-swiper > ul', template);
 });
 
 quickVod.forEach((item) => {
   const template = /* html */ `
-    <li class="swiper-slide relative">
-      <img
-        src="/assets/mainPage/icon/quick_vod.svg"
-        alt="quick vod"
-        class="left-4pxr absolute top-4pxr h-16pxr w-56pxr rounded-sm"
-      />
-      <figure>
-        <img
-          src="${getImageURL(item)}"
-          alt="${item.name} 포스터"
-        />
-        <figcaption class="text-12pxr text-white tablet:text-14pxr">
-          <h3 class="mt-4pxr font-bold text-taing-1">${item.name}</h3>
-          <p class="text-taing-2">${item.episode}화</p>
-        </figcaption>
-      </figure>
+    <li class="swiper-slide">
+      <a href="/">
+        <figure>
+          <div relative>
+            <img
+              src="/assets/mainPage/icon/quick_vod.svg"
+              alt="quick vod"
+              class="left-4pxr absolute top-4pxr h-16pxr w-56pxr rounded-sm"
+            />
+            <img
+              src="${getImageURL(item)}"
+              alt="${item.name} 포스터"
+            />
+          </div>
+          <figcaption class="text-12pxr text-white tablet:text-14pxr">
+            <h3 class="mt-4pxr font-bold text-taing-1">${item.name}</h3>
+            <p class="text-taing-2">${item.episode}화</p>
+          </figcaption>
+        </figure>
+      </a>
     </li>
   `;
 
-  insertTemplate(template, '.quick-vod-swiper > ul');
+  insertTemplate('.quick-vod-swiper > ul', template);
 });
 
 popularProgram.forEach((item) => {
   const template = /* html */ `
     <li class="swiper-slide">
-      ${
-        item.isAdultContent
-          ? '<img src="/assets/mainPage/icon/adult.svg" alt="19" class="right-8pxr absolute top-8pxr h-16pxr w-16pxr tablet:h-24pxr tablet:w-24pxr desktop:h-32pxr desktop:w-32pxr" />'
-          : ''
-      }
+      <a href="/">
+        <figure>
+          <div class="relative">
+            ${
+              item.isAdultContent
+                ? '<img src="/assets/mainPage/icon/adult.svg" alt="19" class="right-8pxr absolute top-8pxr h-16pxr w-16pxr tablet:h-24pxr tablet:w-24pxr desktop:h-32pxr desktop:w-32pxr" />'
+                : ''
+            }
+            <img
+              src="${getImageURL(item)}"
+              alt="${item.name} 포스터"
+              class="rounded-sm"
+            />
+          </div>
+            <figcaption class="relative flex">
+              <span
+                class="absolute -top-18pxr rotate-3 font-noto-sans-kr text-34pxr font-bold text-white"
+                >${item.rank}</span
+              >
+              <h3 class="ms-24pxr mt-8pxr text-12pxr text-taing-1">
+                ${item.name}
+              </h3>
+            </figcaption>
+          </figure>
+      </a>
+    </li> 
+  `;
+
+  insertTemplate('.popular-program-swiper > ul', template);
+});
+
+popularLive.forEach((item) => {
+  const template = /* html */ `
+  <li class="swiper-slide relative">
+    <a href="/">
       <figure>
         <img
           src="${getImageURL(item)}"
           alt="${item.name} 포스터"
           class="rounded-sm"
         />
-        <figcaption class="relative flex">
-          <span
-            class="absolute -top-18pxr rotate-3 font-noto-sans-kr text-34pxr font-bold text-white"
+        <figcaption class="flex items-center text-12pxr text-white">
+          <span class="rotate-3 font-noto-sans-kr text-34pxr font-bold"
             >${item.rank}</span
           >
-          <h3 class="ms-24pxr mt-8pxr text-12pxr text-taing-1">
-            ${item.name}
+          <h3 class="ms-14pxr leading-18pxr">
+            <span class="font-semibold">${item.channelName}</span>
+            <p class="text-taing-1">${item.name}</p>
+            <p class="text-taing-2">${item.rating}%</p>
           </h3>
         </figcaption>
       </figure>
-    </li> 
-  `;
-
-  insertTemplate(template, '.popular-program-swiper > ul');
-});
-
-popularLive.forEach((item) => {
-  const template = /* html */ `
-  <li class="swiper-slide relative">
-    <figure>
-      <img
-        src="${getImageURL(item)}"
-        alt="${item.name} 포스터"
-        class="rounded-sm"
-      />
-      <figcaption class="flex items-center text-12pxr text-white">
-        <span class="rotate-3 font-noto-sans-kr text-34pxr font-bold"
-          >${item.rank}</span
-        >
-        <h3 class="ms-14pxr leading-18pxr">
-          <span class="font-semibold">${item.channelName}</span>
-          <p class="text-taing-1">${item.name}</p>
-          <p class="text-taing-2">${item.rating}%</p>
-        </h3>
-      </figcaption>
-    </figure>
+    </a>
   </li>
   `;
 
-  insertTemplate(template, '.popular-live-swiper > ul');
+  insertTemplate('.popular-live-swiper > ul', template);
 });
 
 originalContents.forEach((item) => {
   const template = /* html */ `
     <li class="swiper-slide">
-      <figure>
-        <img
-          src="${getImageURL(item)}"
-          alt="${item.name} 포스터"
-          class="rounded-sm"
-          />
-        <figcaption class="sr-only">${item.name}</figcaption>
-      </figure>
+      <a href="/">
+        <figure>
+          <img
+            src="${getImageURL(item)}"
+            alt="${item.name} 포스터"
+            class="rounded-sm"
+            />
+          <figcaption class="sr-only">${item.name}</figcaption>
+        </figure>
+      </a>
     </li>
   `;
 
-  insertTemplate(template, '.original-content-swiper > ul');
+  insertTemplate('.original-content-swiper > ul', template);
 });
 
 eventContents.forEach((item) => {
   const template = /* html */ `
   <li class="swiper-slide">
-    <figure>
-      <img
-        src="${getImageURL(item)}"
-        alt="${item.name} 포스터"
-        class="rounded-sm"
-      />
-      <figcaption class="sr-only">
-        ${item.name}
-      </figcaption>
-    </figure>
+    <a href="/">
+      <figure>
+        <img
+          src="${getImageURL(item)}"
+          alt="${item.name} 포스터"
+          class="rounded-sm"
+        />
+        <figcaption class="sr-only">
+          ${item.name}
+        </figcaption>
+      </figure>
+    </a>
   </li> 
   `;
 
-  insertTemplate(template, '.event-swiper > ul');
+  insertTemplate('.event-swiper > ul', template);
 });
 
 const autoplayButton = document.querySelector('.autoplayButton');
@@ -231,8 +242,8 @@ autoplayButton.addEventListener('click', () => {
 const mainBannerSwiper = new Swiper('.main-banner-swiper', {
   loop: true,
   navigation: {
-    nextEl: '.swiper-button-next',
-    prevEl: '.swiper-button-prev',
+    nextEl: '.mainBanner-next',
+    prevEl: '.mainBanner-prev',
   },
   pagination: {
     el: '.main-banner-pagination',
@@ -271,6 +282,7 @@ const mainBannerSwiper = new Swiper('.main-banner-swiper', {
 // suggestion swiper slide
 new Swiper('.suggestion-content-swiper', {
   slidesPerView: 3.3,
+  slidesPerGroup: 3,
   spaceBetween: 8,
   breakpoints: {
     768: {
@@ -284,16 +296,17 @@ new Swiper('.suggestion-content-swiper', {
       spaceBetween: 16,
     },
   },
-  navigation: {
-    nextEl: '.suggestion-content-next',
-    prevEl: '.suggestion-content-prev',
-  },
 });
 
 // suggestion2 swiper slide
 new Swiper('.quick-vod-swiper', {
   slidesPerView: 2.2,
+  slidesPerGroup: 2,
   spaceBetween: 8,
+  navigation: {
+    nextEl: '.quick-vod-next',
+    prevEl: '.quick-vod-prev',
+  },
   breakpoints: {
     768: {
       slidesPerView: 3.3,
@@ -311,6 +324,7 @@ new Swiper('.quick-vod-swiper', {
 // popular program swiper slide
 new Swiper('.popular-program-swiper', {
   slidesPerView: 3.3,
+  slidesPerGroup: 3,
   spaceBetween: 8,
   breakpoints: {
     768: {
@@ -329,6 +343,7 @@ new Swiper('.popular-program-swiper', {
 // popular live channel swiper slide
 new Swiper('.popular-live-swiper', {
   slidesPerView: 2.2,
+  slidesPerGroup: 2,
   spaceBetween: 8,
   breakpoints: {
     768: {
@@ -347,6 +362,7 @@ new Swiper('.popular-live-swiper', {
 // original content swiper slide
 new Swiper('.original-content-swiper', {
   slidesPerView: 2.2,
+  slidesPerGroup: 2,
   spaceBetween: 8,
   breakpoints: {
     768: {
