@@ -30,6 +30,9 @@ export default async function header() {
 
     const template = /* html */ `
       <div>
+        <button type="button">
+          <img src="/assets/header/search_icon.svg" alt="검색 버튼" class="w-18pxr tablet:w-24pxr desktop:w-40pxr"/>
+        </button>
         <a href="/src/pages/selectProfile/">
           <img src="${getImageURL(
             model,
