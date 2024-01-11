@@ -1,31 +1,41 @@
 import { insertTemplate } from '/src/util/insertTemplate';
-// import getAuthDataFromPb from '/src/util/getAuthDataFromPb';
+import { getImageURL } from '/src/util/getImageURL';
+/*  
+? login 상황 테스트용
+import getAuthDataFromPb from '/src/util/getAuthDataFromPb';
+*/
 
 export default async function header() {
-  // const userData = await getAuthDataFromPb(
-  //   'users',
-  //   'email@email.com',
-  //   'qwert12345!'
-  // );
+  /* 
+  ? login 상황 테스트용
+  await getAuthDataFromPb('users', 'email@email.com', 'qwert12345!');
 
-  // localStorage.setItem(
-  //   'auth',
-  //   JSON.stringify({
-  //     isAuth: !!userData.token,
-  //     username: userData.record.username,
-  //   })
-  // );
+  const userData = await JSON.parse(localStorage.getItem('pocketbase_auth'));
 
-  // console.log(userData);
+  localStorage.setItem(
+    'auth',
+    JSON.stringify({
+      isAuth: !!userData.token,
+      model: userData.model,
+      token: userData.token,
+    })
+  ); */
 
   if (!localStorage.getItem('auth')) {
     return;
   } else {
-    const { isAuth, username } = await JSON.parse(localStorage.getItem('auth'));
+    const auth = await JSON.parse(localStorage.getItem('auth'));
+
+    const { isAuth, model } = auth;
 
     const template = /* html */ `
       <div>
-        <span class="text-white">${username}</span>
+        <a href="/src/pages/selectProfile/">
+          <img src="${getImageURL(
+            model,
+            'profile'
+          )}" alt="사용자 프로필 이미지" class="w-18pxr rounded-sm tablet:w-24pxr desktop:w-40pxr" />
+        </a>
       </div>
     `;
 
