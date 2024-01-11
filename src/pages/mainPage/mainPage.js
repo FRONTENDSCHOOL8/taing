@@ -4,6 +4,7 @@ import { getImageURL } from '/src/util/getImageURL';
 import { insertTemplate } from '/src/util/insertTemplate';
 import { getData } from '/src/util/crud';
 import state from '/src/util/state';
+import gsap from 'gsap';
 
 //! 메인 페이지 데이터 가져오기
 const mainBannerArr = [1, 1, 1, 1]; // 메인 배너 임시 데이터
@@ -31,7 +32,7 @@ mainBannerArr.forEach(() => {
     </li>
   `;
 
-  insertTemplate(template, '.main-banner-swiper > ul');
+  insertTemplate('.main-banner-swiper > ul', template);
 });
 
 let [isLoading, setIsLoading, onChangeIsLoading] = await state(true);
@@ -89,8 +90,7 @@ suggestionContents.forEach((item) => {
         </figcaption>
       </figure>
     </a>
-  </li>
-  `;
+  </li>`;
 
   insertTemplate('.suggestion-content-swiper > ul', template);
 });
@@ -117,8 +117,7 @@ quickVod.forEach((item) => {
           </figcaption>
         </figure>
       </a>
-    </li>
-  `;
+    </li>`;
 
   insertTemplate('.quick-vod-swiper > ul', template);
 });
@@ -131,7 +130,7 @@ popularProgram.forEach((item) => {
           <div class="relative">
             ${
               item.isAdultContent
-                ? '<img src="/assets/mainPage/icon/adult.svg" alt="19" class="right-8pxr absolute top-8pxr h-16pxr w-16pxr tablet:h-24pxr tablet:w-24pxr desktop:h-32pxr desktop:w-32pxr" />'
+                ? '<img src="/assets/mainPage/icon/adult.svg" alt="adult content badge" class="right-8pxr absolute top-8pxr w-[20%]" />'
                 : ''
             }
             <img
@@ -151,8 +150,7 @@ popularProgram.forEach((item) => {
             </figcaption>
           </figure>
       </a>
-    </li> 
-  `;
+    </li>`;
 
   insertTemplate('.popular-program-swiper > ul', template);
 });
@@ -179,8 +177,7 @@ popularLive.forEach((item) => {
         </figcaption>
       </figure>
     </a>
-  </li>
-  `;
+  </li>`;
 
   insertTemplate('.popular-live-swiper > ul', template);
 });
@@ -198,8 +195,7 @@ originalContents.forEach((item) => {
           <figcaption class="sr-only">${item.name}</figcaption>
         </figure>
       </a>
-    </li>
-  `;
+    </li>`;
 
   insertTemplate('.original-content-swiper > ul', template);
 });
@@ -219,10 +215,30 @@ eventContents.forEach((item) => {
         </figcaption>
       </figure>
     </a>
-  </li> 
-  `;
+  </li>`;
 
   insertTemplate('.event-swiper > ul', template);
+});
+
+// hover 애니메이션(gsap)
+const contentCard = document.querySelectorAll(
+  'li.swiper-slide:not(.main-banner-swiper li.swiper-slide, .notification-swiper li.swiper-slide, .event-swiper li.swiper-slide)'
+);
+
+contentCard.forEach((card) => {
+  card.addEventListener('mouseenter', () => {
+    gsap.to(card, {
+      y: -10,
+      duration: 0.2,
+    });
+  });
+
+  card.addEventListener('mouseleave', () => {
+    gsap.to(card, {
+      y: 0,
+      duration: 0.2,
+    });
+  });
 });
 
 const autoplayButton = document.querySelector('.autoplayButton');
@@ -231,10 +247,10 @@ const autoplayButton = document.querySelector('.autoplayButton');
 autoplayButton.addEventListener('click', () => {
   if (mainBannerSwiper.autoplay.running) {
     mainBannerSwiper.autoplay.stop();
-    autoplayButton.children[0].src = '/assets/mainPage/Icon/play.png';
+    autoplayButton.children[0].src = '/assets/mainPage/icon/play.png';
   } else {
     mainBannerSwiper.autoplay.start();
-    autoplayButton.children[0].src = '/assets/mainPage/Icon/pause.png';
+    autoplayButton.children[0].src = '/assets/mainPage/icon/pause.png';
   }
 });
 
