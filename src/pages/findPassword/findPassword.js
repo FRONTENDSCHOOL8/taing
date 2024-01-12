@@ -1,4 +1,5 @@
 import { getData } from '/src/util/crud';
+
 import { pb } from '/src/api/pocketBase';
 
 const inputUserId = document.querySelector('#userId');
@@ -29,6 +30,7 @@ async function findId(e) {
       filter: `userId='${userIdValue}'`,
     });
 
+
     if (res.length > 0) {
       console.log(res[0].email);
       await pb.collection('users').requestPasswordReset(res[0].email);
@@ -37,6 +39,7 @@ async function findId(e) {
       location.href = '/src/pages/login/';
     } else {
       alert('일치하는 아이디가 없습니다.');
+
     }
   } catch (error) {
     console.error(error);
