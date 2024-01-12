@@ -20,7 +20,6 @@ export default async function header() {
       token: userData.token,
     })
   ); */
-
   if (!localStorage.getItem('auth')) {
     return;
   } else {
