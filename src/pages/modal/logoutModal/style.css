@@ -1,0 +1,3 @@
+.button-space {
+  @apply px-26pxr py-[10.5px] tablet:m-4pxr tablet:px-[34.5px] tablet:py-10pxr desktop:m-8pxr desktop:px-60pxr desktop:py-16pxr;
+}
