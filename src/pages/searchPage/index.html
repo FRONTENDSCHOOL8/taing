@@ -12,183 +12,173 @@
   <body class="flow-root bg-[#191919]">
     <header
       id="header"
-      class="header-mobile tablet:header-tablet desktop:header-desktop relative z-10 bg-header-bg"
+      class="header-mobile tablet:header-tablet desktop:header-desktop bg-header-bg relative z-10"
     ></header>
 
     <section class="search-section mx-auto mt-20pxr w-4/5 tablet:mt-28pxr">
-      <form
-        action=""
-        class="search-form border-b-[2px] border-solid border-white"
-      >
-        <fieldset class="search-field w-full">
-          <legend class="sr-only">검색</legend>
+      <form class="search-form border-b-[2px] border-solid border-white">
+        <div class="search-field w-full">
+          <label class="sr-only">검색</label>
           <div class="search-content flex items-center">
             <input
-              type="text"
-              class="search-text placeholder:text-button-submit-default h-40pxr w-full bg-transparent text-16pxr font-semibold text-white outline-none tablet:h-56pxr tablet:text-21pxr desktop:h-90pxr desktop:text-38pxr"
+              type="search"
+              class="search-text h-40pxr w-full bg-transparent text-16pxr font-semibold text-white outline-none placeholder:text-button-submit-default tablet:h-56pxr tablet:text-21pxr desktop:h-90pxr desktop:text-38pxr"
               placeholder="TV 프로그램, 영화 제목 및 출연진으로 검색해보세요"
             />
-
             <button
+              type="submit"
               class="search-button h-20pxr w-20pxr bg-[url('/assets/searchPage/Search.png')] bg-contain bg-center tablet:h-28pxr tablet:w-28pxr desktop:h-50pxr desktop:w-50pxr"
             ></button>
           </div>
-        </fieldset>
+        </div>
       </form>
 
       <div
         class="search-list mt-40pxr flex pb-20pxr tablet:mt-48pxr tablet:pb-52pxr desktop:mt-98pxr"
       >
-        <div
+        <section
           class="search-history hidden w-1/2 border-r border-solid border-[#2B2B2B] text-taing-1 tablet:flex tablet:flex-col tablet:text-16pxr desktop:flex desktop:text-28pxr"
         >
-          <div class="flex items-center gap-24pxr">
-            <h3 class="font-semibold">최근 검색어</h3>
-            <button
-              class="button-delete text-[#565656] tablet:text-12pxr desktop:text-21pxr"
-            >
-              모두 지우기
-              <span
-                class="ml-8pxr inline-block h-12pxr w-12pxr bg-[url('/assets/searchPage/Delete.png')] bg-contain bg-center desktop:h-20pxr desktop:w-20pxr"
-              ></span>
-            </button>
+          <div class="search-history-list flex items-center gap-24pxr">
+            <h2 class="search-history-title font-semibold">최근 검색어</h2>
           </div>
-          <p class="my-12pxr text-taing-2 tablet:text-12pxr desktop:text-21pxr">
-            검색 내역이 없습니다.
-          </p>
-        </div>
-        <div
+
+          <ul
+            class="history-list my-12pxr text-taing-2 tablet:text-15pxr desktop:text-21pxr"
+          ></ul>
+        </section>
+        <section
           class="search-realtime w-full text-16pxr text-taing-1 tablet:w-1/2 tablet:pl-35pxr desktop:w-1/2 desktop:pl-60pxr desktop:text-28pxr"
         >
-          <h3 class="mb-20pxr font-semibold desktop:mb-36pxr">
+          <h2 class="mb-20pxr font-semibold desktop:mb-36pxr">
             실시간 인기 검색어
-          </h3>
-          <ol class="text-12pxr desktop:text-21pxr">
+          </h2>
+          <ol class="text-15pxr desktop:text-21pxr">
             <li class="realtime-list my-12pxr">
               <a href="/">
                 <span
-                  class="text-button-default inline-block w-20pxr font-semibold desktop:w-30pxr"
+                  class="inline-block w-20pxr font-semibold text-button-default desktop:w-30pxr"
                 >
                   1
                 </span>
                 <span class="hover:white text-taing-2 hover:text-white"
-                  >재벌집 막내아들</span
+                  >나는 SOLO</span
                 >
               </a>
             </li>
             <li class="realtime-list my-12pxr">
               <a href="/">
                 <span
-                  class="text-button-default inline-block w-20pxr font-semibold desktop:w-30pxr"
+                  class="inline-block w-20pxr font-semibold text-button-default desktop:w-30pxr"
                 >
                   2
                 </span>
                 <span class="hover:white text-taing-2 hover:text-white"
-                  >재벌집 막내아들</span
+                  >내 남편과 결혼해줘</span
                 >
               </a>
             </li>
             <li class="realtime-list my-12pxr">
               <a href="/">
                 <span
-                  class="text-button-default inline-block w-20pxr font-semibold desktop:w-30pxr"
+                  class="inline-block w-20pxr font-semibold text-button-default desktop:w-30pxr"
                 >
                   3
                 </span>
                 <span class="hover:white text-taing-2 hover:text-white"
-                  >재벌집 막내아들</span
+                  >나나투어 with 세븐틴</span
                 >
               </a>
             </li>
             <li class="realtime-list my-12pxr">
               <a href="/">
                 <span
-                  class="text-button-default inline-block w-20pxr font-semibold desktop:w-30pxr"
+                  class="inline-block w-20pxr font-semibold text-button-default desktop:w-30pxr"
                 >
                   4
                 </span>
                 <span class="hover:white text-taing-2 hover:text-white"
-                  >재벌집 막내아들</span
+                  >이재, 곧 죽습니다</span
                 >
               </a>
             </li>
             <li class="realtime-list my-12pxr">
               <a href="/">
                 <span
-                  class="text-button-default inline-block w-20pxr font-semibold desktop:w-30pxr"
+                  class="inline-block w-20pxr font-semibold text-button-default desktop:w-30pxr"
                 >
                   5
                 </span>
                 <span class="hover:white text-taing-2 hover:text-white"
-                  >재벌집 막내아들</span
+                  >유 퀴즈 온 더 블럭</span
                 >
               </a>
             </li>
             <li class="realtime-list my-12pxr">
               <a href="/">
                 <span
-                  class="text-button-default inline-block w-20pxr font-semibold desktop:w-30pxr"
+                  class="inline-block w-20pxr font-semibold text-button-default desktop:w-30pxr"
                 >
                   6
                 </span>
                 <span class="hover:white text-taing-2 hover:text-white"
-                  >재벌집 막내아들</span
+                  >환승연애3</span
                 >
               </a>
             </li>
             <li class="realtime-list my-12pxr">
               <a href="/">
                 <span
-                  class="text-button-default inline-block w-20pxr font-semibold desktop:w-30pxr"
+                  class="inline-block w-20pxr font-semibold text-button-default desktop:w-30pxr"
                 >
                   7
                 </span>
                 <span class="hover:white text-taing-2 hover:text-white"
-                  >재벌집 막내아들</span
+                  >모래에도 꽃이 핀다</span
                 >
               </a>
             </li>
             <li class="realtime-list my-12pxr">
               <a href="/">
                 <span
-                  class="text-button-default inline-block w-20pxr font-semibold desktop:w-30pxr"
+                  class="inline-block w-20pxr font-semibold text-button-default desktop:w-30pxr"
                 >
                   8
                 </span>
                 <span class="hover:white text-taing-2 hover:text-white"
-                  >재벌집 막내아들</span
+                  >신비아파트 고스트볼 ZERO: 두 번째 이야기</span
                 >
               </a>
             </li>
             <li class="realtime-list my-12pxr">
               <a href="/">
                 <span
-                  class="text-button-default inline-block w-20pxr font-semibold desktop:w-30pxr"
+                  class="inline-block w-20pxr font-semibold text-button-default desktop:w-30pxr"
                 >
                   9
                 </span>
                 <span class="hover:white text-taing-2 hover:text-white"
-                  >재벌집 막내아들</span
+                  >짱구는못말려23</span
                 >
               </a>
             </li>
             <li class="realtime-list my-12pxr">
               <a href="/">
                 <span
-                  class="text-button-default inline-block w-20pxr font-semibold desktop:w-30pxr"
+                  class="inline-block w-20pxr font-semibold text-button-default desktop:w-30pxr"
                 >
                   10
                 </span>
                 <span class="hover:white text-taing-2 hover:text-white"
-                  >재벌집 막내아들</span
+                  >벌거벗은 세계사</span
                 >
               </a>
             </li>
           </ol>
-          <span
+          <time
             class="time mt-16pxr text-12pxr text-taing-3 desktop:text-21pxr"
-          ></span>
-        </div>
+          ></time>
+        </section>
       </div>
     </section>
   </body>
