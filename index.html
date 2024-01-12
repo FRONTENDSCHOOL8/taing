@@ -12,32 +12,33 @@
   <body class="overflow-x-hidden bg-black text-white">
     <header
       id="header"
-      class="header-mobile tablet:header-tablet desktop:header-desktop fixed z-10 bg-header-bg"
+      class="header-mobile tablet:header-tablet desktop:header-desktop bg-header-bg fixed z-10"
     ></header>
 
     <main>
       <section
         id="content-section"
-        class="animate-fade-up flex h-380pxr w-full flex-col items-center justify-center bg-[url('/assets/landingPage/backgorund.png')] bg-cover bg-bottom tablet:h-550pxr desktop:h-[1000px]"
+        class="flex h-380pxr w-full flex-col items-center justify-center bg-[url('/assets/landingPage/backgorund.png')] bg-cover bg-bottom tablet:h-500pxr desktop:h-[800px]"
       >
+        <h2 class="sr-only">content-section</h2>
         <div
-          class="message-container mb-100pxr flex flex-col items-center justify-center pt-50pxr text-center desktop:pt-10pxr"
+          class="message-container mb-100pxr flex flex-col items-center justify-center pt-50pxr text-center"
         >
-          <h2
-            class="animate-fade-up message-title text-16pxr font-bold tablet:text-21pxr desktop:text-50pxr"
+          <div
+            class="message-title animate-fade-up-1 text-16pxr font-bold tablet:text-21pxr desktop:text-50pxr"
           >
             <p>타잉 오리지널 콘텐츠,</p>
             <p>방송, 영화, 해외시리즈까지!</p>
             <p>재미를 플레이해보세요.</p>
-          </h2>
+          </div>
           <p
-            class="animate-fade-up messgae-sub mb-16pxr text-12pxr font-normal text-gray-400 tablet:mb-20pxr tablet:font-semibold desktop:mb-60pxr desktop:mt-20pxr desktop:text-28pxr desktop:font-semibold"
+            class="messgae-sub animate-fade-up-2 mb-16pxr text-12pxr font-normal text-gray-400 tablet:mb-20pxr tablet:font-semibold desktop:mb-50pxr desktop:mt-20pxr desktop:text-20pxr desktop:font-semibold"
           >
             간편하게 가입하고, 원하실 때 해지할 수 있어요.
           </p>
 
           <a
-            class="animate-fade-up flex h-34pxr w-190pxr items-center justify-center rounded bg-[#E93945] bg-[url('/assets/landingPage/icon.svg')] bg-[length:26px_26px] bg-no-repeat p-19pxr pl-34pxr text-12pxr text-white tablet:h-48pxr tablet:w-284pxr tablet:bg-[length:36px_36px] tablet:pl-35pxr tablet:text-16pxr desktop:h-80pxr desktop:w-500pxr desktop:bg-[length:64px_64px] desktop:pl-45pxr desktop:text-28pxr"
+            class="animate-fade-up-1 flex h-34pxr w-190pxr items-center justify-center rounded bg-[#E93945] bg-[url('/assets/landingPage/icon.svg')] bg-[length:26px_26px] bg-no-repeat p-19pxr pl-34pxr text-12pxr text-white tablet:h-48pxr tablet:w-284pxr tablet:bg-[length:36px_36px] tablet:pl-35pxr tablet:text-16pxr desktop:h-80pxr desktop:w-500pxr desktop:bg-[length:64px_64px] desktop:pl-45pxr desktop:text-28pxr"
             href="/src/pages/login/index.html"
           >
             새로워진 타잉을 만나보세요!
@@ -47,23 +48,25 @@
 
       <section
         id="original-content-section"
-        class="relative mt-48pxr flex min-h-full w-full flex-col items-center justify-center tablet:mt-40pxr desktop:mt-100pxr"
+        class="relative mt-48pxr flex min-h-full w-full flex-col tablet:mt-40pxr desktop:mt-100pxr"
       >
+        <h2 class="sr-only">taing-original-content</h2>
+
         <div
-          class="message-container animate-fade-up mt-48pxr text-center tablet:mt-40pxr desktop:mt-160pxr"
+          class="message-container mt-48pxr text-center tablet:mt-40pxr desktop:mt-160pxr"
         >
           <h2
-            class="message-title text-21pxr font-bold tablet:text-28pxr desktop:text-50pxr"
+            class="message-title animate-fade-up-1 text-21pxr font-bold delay-[2000ms] tablet:text-28pxr desktop:text-50pxr"
           >
             타잉에만 있는 재미
           </h2>
           <p
-            class="message-sub text-12pxr font-normal text-gray-300 tablet:text-16pxr tablet:font-semibold desktop:mt-14pxr desktop:text-28pxr desktop:font-semibold"
+            class="message-sub animate-fade-up-2 text-12pxr font-normal text-gray-300 delay-[5000ms] tablet:text-16pxr tablet:font-semibold desktop:mt-14pxr desktop:text-28pxr desktop:font-semibold"
           >
             오리지널 컨텐츠를 만나보세요!
           </p>
           <p
-            class="message-sum desktop:21pxr text-12pxr font-normal leading-7 text-gray-300 tablet:font-semibold desktop:text-21pxr"
+            class="message-sum animate-fade-up-3 desktop:21pxr text-12pxr font-normal leading-7 text-gray-300 delay-[7000ms] tablet:font-semibold desktop:text-21pxr"
           >
             차별화된 웰메이드 오리지널 컨텐츠
           </p>
@@ -78,12 +81,27 @@
               <figure>
                 <img
                   class="hidden rounded-md desktop:block"
-                  src="/assets/landingPage/desktop/findingtreasure.png"
+                  src="/assets/landingPage/desktop/image_1.png"
+                  alt="러브캐처"
+                />
+                <img
+                  class="block rounded-md desktop:hidden"
+                  src="/assets/landingPage/mobile/image_40.png"
+                  alt="러브캐처"
+                />
+                <figcaption class="sr-only">러브캐처</figcaption>
+              </figure>
+            </li>
+            <li class="swiper-slide">
+              <figure>
+                <img
+                  class="hidden rounded-md desktop:block"
+                  src="/assets/landingPage/desktop/image_2.png"
                   alt="보물찾기"
                 />
                 <img
                   class="block rounded-md desktop:hidden"
-                  src="/assets/landingPage/mobile/image42.png"
+                  src="/assets/landingPage/mobile/image_41.png"
                   alt="보물찾기"
                 />
                 <figcaption class="sr-only">보물찾기</figcaption>
@@ -93,45 +111,32 @@
               <figure>
                 <img
                   class="hidden rounded-md desktop:block"
-                  src="/assets/landingPage/desktop/findingtreasure.png"
-                  alt="보물찾기"
+                  src="/assets/landingPage/desktop/image_3.png"
+                  alt="몸값"
                 />
                 <img
                   class="block rounded-md desktop:hidden"
-                  src="/assets/landingPage/mobile/image42.png"
-                  alt="보물찾기"
+                  src="/assets/landingPage/mobile/image_42.png"
+                  alt="아일랜드"
                 />
-                <figcaption class="sr-only">보물찾기</figcaption>
-              </figure>
-            </li>
-            <li class="swiper-slide">
-              <figure>
-                <img
-                  class="hidden rounded-md desktop:block"
-                  src="/assets/landingPage/desktop/findingtreasure.png"
-                  alt="보물찾기"
-                />
-                <img
-                  class="block rounded-md desktop:hidden"
-                  src="/assets/landingPage/mobile/image42.png"
-                  alt="보물찾기"
-                />
-                <figcaption class="sr-only">보물찾기</figcaption>
+                <figcaption class="sr-only">몸값</figcaption>
+                <!-- <figcaption class="sr-only">아일랜드</figcaption> -->
               </figure>
             </li>
             <li class="swiper-slide">
               <figure>
                 <img
                   class="hidden desktop:block"
-                  src="/assets/landingPage/desktop/findingtreasure.png"
-                  alt="보물찾기"
+                  src="/assets/landingPage/desktop/image_4.png"
+                  alt="푸드 크로니클"
                 />
                 <img
                   class="block desktop:hidden"
-                  src="/assets/landingPage/mobile/image42.png"
-                  alt="보물찾기"
+                  src="/assets/landingPage/mobile/image_43.png"
+                  alt="술꾼도시여자들 2"
                 />
-                <figcaption class="sr-only">보물찾기</figcaption>
+                <figcaption class="sr-only">푸드 크로나클</figcaption>
+                <!-- <figcaption class="sr-only">술꾼도시여자들 2</figcaption> -->
               </figure>
             </li>
           </ul>
@@ -142,19 +147,21 @@
         id="recommended-content-section"
         class="mb-10pxr mt-58pxr flex w-full flex-col items-center justify-center tablet:mt-40pxr"
       >
-        <div class="message-container animate-fade-up text-center">
+        <h2 class="sr-only">recommended-content</h2>
+
+        <div class="message-container animate-fade-up-1 text-center">
           <h2
-            class="message-title text-21pxr font-bold tablet:text-28pxr desktop:text-50pxr"
+            class="message-title animate-fade-up-1 text-21pxr font-bold tablet:text-28pxr desktop:text-50pxr"
           >
             내가 찾던 재미
           </h2>
           <p
-            class="message-sub text-12pxr text-gray-300 tablet:text-16pxr tablet:font-semibold desktop:mt-14pxr desktop:text-28pxr desktop:font-semibold"
+            class="message-sub animate-fade-up-2 text-12pxr text-gray-300 tablet:text-16pxr tablet:font-semibold desktop:mt-14pxr desktop:text-28pxr desktop:font-semibold"
           >
             보고 싶은 콘텐츠를 발견하세요!
           </p>
           <p
-            class="message-sum hidden text-12pxr font-semibold text-gray-300 tablet:block desktop:block desktop:text-21pxr"
+            class="message-sum animate-fade-up-3 hidden text-12pxr font-semibold text-gray-300 tablet:block desktop:block desktop:text-21pxr"
           >
             최신, 인기 TV 프로그램, 영화, 해외시리즈, 파라마운트+ 오리지널 및
             독점
@@ -170,7 +177,7 @@
                 <figure>
                   <img
                     class="rounded-lg"
-                    src="/assets/landingPage/desktop/tbfnq_4.png"
+                    src="/assets/landingPage/swiper/image_10.png"
                     alt="슈룹"
                   />
                   <figcaption class="sr-only">슈룹</figcaption>
@@ -180,50 +187,42 @@
                 <figure>
                   <img
                     class="rounded-lg"
-                    src="/assets/landingPage/desktop/tbfnq_4.png"
-                    alt="슈룹"
+                    src="/assets/landingPage/swiper/image_11.png"
+                    alt="연예인 매니저로 살아남기"
                   />
-                  <figcaption class="sr-only">슈룹</figcaption>
+                  <figcaption class="sr-only">
+                    연예인 매니저로 살아남기
+                  </figcaption>
                 </figure>
               </li>
               <li class="swiper-slide">
                 <figure>
                   <img
                     class="rounded-lg"
-                    src="/assets/landingPage/desktop/tbfnq_4.png"
-                    alt="슈룹"
+                    src="/assets/landingPage/swiper/image_12.png"
+                    alt="렛미인"
                   />
-                  <figcaption class="sr-only">슈룹</figcaption>
+                  <figcaption class="sr-only">렛미인</figcaption>
                 </figure>
               </li>
               <li class="swiper-slide">
                 <figure>
                   <img
                     class="rounded-lg"
-                    src="/assets/landingPage/desktop/tbfnq_4.png"
-                    alt="슈룹"
+                    src="/assets/landingPage/swiper/image_13.png"
+                    alt="유 퀴즈 온 더 블럭"
                   />
-                  <figcaption class="sr-only">슈룹</figcaption>
+                  <figcaption class="sr-only">유 퀴즈 온 더 블럭</figcaption>
                 </figure>
               </li>
               <li class="swiper-slide">
                 <figure>
                   <img
                     class="rounded-lg"
-                    src="/assets/landingPage/desktop/tbfnq_4.png"
-                    alt="슈룹"
+                    src="/assets/landingPage/swiper/image_14.png"
+                    alt="푸드 크로나클"
                   />
-                  <figcaption class="sr-only">슈룹</figcaption>
-                </figure>
-              </li>
-              <li class="swiper-slide">
-                <figure>
-                  <img
-                    class="rounded-lg"
-                    src="/assets/landingPage/desktop/tbfnq_4.png"
-                    alt="슈룹"
-                  />
-                  <figcaption class="sr-only">슈룹</figcaption>
+                  <figcaption class="sr-only">푸드 크로나클</figcaption>
                 </figure>
               </li>
             </ul>
@@ -235,7 +234,7 @@
                 <figure>
                   <img
                     class="rounded-lg"
-                    src="/assets/landingPage/desktop/tbfnq_4.png"
+                    src="/assets/landingPage/swiper/image_10.png"
                     alt="슈룹"
                   />
                   <figcaption class="sr-only">슈룹</figcaption>
@@ -245,50 +244,42 @@
                 <figure>
                   <img
                     class="rounded-lg"
-                    src="/assets/landingPage/desktop/tbfnq_4.png"
-                    alt="슈룹"
+                    src="/assets/landingPage/swiper/image_11.png"
+                    alt="연예인 매니저로 살아남기"
                   />
-                  <figcaption class="sr-only">슈룹</figcaption>
+                  <figcaption class="sr-only">
+                    연예인 매니저로 살아남기
+                  </figcaption>
                 </figure>
               </li>
               <li class="swiper-slide">
                 <figure>
                   <img
                     class="rounded-lg"
-                    src="/assets/landingPage/desktop/tbfnq_4.png"
-                    alt="슈룹"
+                    src="/assets/landingPage/swiper/image_12.png"
+                    alt="렛미인"
                   />
-                  <figcaption class="sr-only">슈룹</figcaption>
+                  <figcaption class="sr-only">렛미인</figcaption>
                 </figure>
               </li>
               <li class="swiper-slide">
                 <figure>
                   <img
                     class="rounded-lg"
-                    src="/assets/landingPage/desktop/tbfnq_4.png"
-                    alt="슈룹"
+                    src="/assets/landingPage/swiper/image_13.png"
+                    alt="유 퀴즈 온 더 블럭"
                   />
-                  <figcaption class="sr-only">슈룹</figcaption>
+                  <figcaption class="sr-only">유 퀴즈 온 더 블럭</figcaption>
                 </figure>
               </li>
               <li class="swiper-slide">
                 <figure>
                   <img
                     class="rounded-lg"
-                    src="/assets/landingPage/desktop/tbfnq_4.png"
-                    alt="슈룹"
+                    src="/assets/landingPage/swiper/image_14.png"
+                    alt="푸드 크로나클"
                   />
-                  <figcaption class="sr-only">슈룹</figcaption>
-                </figure>
-              </li>
-              <li class="swiper-slide">
-                <figure>
-                  <img
-                    class="rounded-lg"
-                    src="/assets/landingPage/desktop/tbfnq_4.png"
-                    alt="슈룹"
-                  />
-                  <figcaption class="sr-only">슈룹</figcaption>
+                  <figcaption class="sr-only">푸드 크로나클</figcaption>
                 </figure>
               </li>
             </ul>
@@ -300,13 +291,15 @@
         id="branding-section"
         class="mb-150pxr flex min-h-full w-full flex-col items-center justify-center"
       >
+        <h2 class="sr-only">taing-brand</h2>
+
         <div
           class="message-container desktop:250pxr mt-100pxr text-center tablet:mt-180pxr"
         >
           <figure
             class="logo mx-auto mb-20pxr block w-110pxr tablet:w-136pxr desktop:w-280pxr"
           >
-            <img src="/assets/landingPage/Property 1=New_tving.png" alt="" />
+            <img src="/assets/landingPage/New_tving.png" alt="" />
           </figure>
           <h2
             class="message-title mb-20pxr text-16pxr font-bold tablet:text-28pxr desktop:text-50pxr"
@@ -314,7 +307,7 @@
             지금 시작해보세요
           </h2>
           <a
-            class="animate-fade-up flex h-34pxr w-190pxr items-center justify-center rounded bg-[#E93945] bg-[url('/assets/landingPage/icon.svg')] bg-[length:26px_26px] bg-no-repeat p-19pxr pl-34pxr text-12pxr text-white tablet:h-48pxr tablet:w-284pxr tablet:bg-[length:36px_36px] tablet:pl-35pxr tablet:text-16pxr desktop:h-80pxr desktop:w-500pxr desktop:bg-[length:64px_64px] desktop:pl-45pxr desktop:text-28pxr"
+            class="animate-fade-up-1 flex h-34pxr w-190pxr items-center justify-center rounded bg-[#E93945] bg-[url('/assets/landingPage/icon.svg')] bg-[length:26px_26px] bg-no-repeat p-19pxr pl-34pxr text-12pxr text-white tablet:h-48pxr tablet:w-284pxr tablet:bg-[length:36px_36px] tablet:pl-35pxr tablet:text-16pxr desktop:h-80pxr desktop:w-500pxr desktop:bg-[length:64px_64px] desktop:pl-45pxr desktop:text-28pxr"
             href="/src/pages/login/index.html"
           >
             새로워진 타잉을 만나보세요!
