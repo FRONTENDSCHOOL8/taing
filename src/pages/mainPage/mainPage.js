@@ -4,6 +4,7 @@ import { getImageURL } from '/src/util/getImageURL';
 import { insertTemplate } from '/src/util/insertTemplate';
 import { getData } from '/src/util/crud';
 import state from '/src/util/state';
+import gsap from 'gsap';
 
 //! 메인 페이지 데이터 가져오기
 const mainBannerArr = [1, 1, 1, 1]; // 메인 배너 임시 데이터
@@ -31,13 +32,13 @@ mainBannerArr.forEach(() => {
     </li>
   `;
 
-  insertTemplate(template, '.main-banner-swiper > ul');
+  insertTemplate('.main-banner-swiper > ul', template);
 });
 
 let [isLoading, setIsLoading, onChangeIsLoading] = await state(true);
 const loadingSpinner = document.querySelectorAll('.loading');
 
-//! 로딩 상태변화 감지
+//! 로딩 상태변화가 감지됐을 때 실행 되는 함수
 onChangeIsLoading((newState) => {
   if (newState) {
     loadingSpinner.forEach((spinner) => {
@@ -89,8 +90,7 @@ suggestionContents.forEach((item) => {
         </figcaption>
       </figure>
     </a>
-  </li>
-  `;
+  </li>`;
 
   insertTemplate('.suggestion-content-swiper > ul', template);
 });
@@ -117,8 +117,7 @@ quickVod.forEach((item) => {
           </figcaption>
         </figure>
       </a>
-    </li>
-  `;
+    </li>`;
 
   insertTemplate('.quick-vod-swiper > ul', template);
 });
@@ -131,7 +130,7 @@ popularProgram.forEach((item) => {
           <div class="relative">
             ${
               item.isAdultContent
-                ? '<img src="/assets/mainPage/icon/adult.svg" alt="19" class="right-8pxr absolute top-8pxr h-16pxr w-16pxr tablet:h-24pxr tablet:w-24pxr desktop:h-32pxr desktop:w-32pxr" />'
+                ? '<img src="/assets/mainPage/icon/adult.svg" alt="adult content badge" class="right-8pxr absolute top-8pxr w-[20%]" />'
                 : ''
             }
             <img
@@ -151,8 +150,7 @@ popularProgram.forEach((item) => {
             </figcaption>
           </figure>
       </a>
-    </li> 
-  `;
+    </li>`;
 
   insertTemplate('.popular-program-swiper > ul', template);
 });
@@ -179,8 +177,7 @@ popularLive.forEach((item) => {
         </figcaption>
       </figure>
     </a>
-  </li>
-  `;
+  </li>`;
 
   insertTemplate('.popular-live-swiper > ul', template);
 });
@@ -198,8 +195,7 @@ originalContents.forEach((item) => {
           <figcaption class="sr-only">${item.name}</figcaption>
         </figure>
       </a>
-    </li>
-  `;
+    </li>`;
 
   insertTemplate('.original-content-swiper > ul', template);
 });
@@ -219,26 +215,46 @@ eventContents.forEach((item) => {
         </figcaption>
       </figure>
     </a>
-  </li> 
-  `;
+  </li>`;
 
   insertTemplate('.event-swiper > ul', template);
 });
 
+//! hover 애니메이션(gsap)
+const contentCard = document.querySelectorAll(
+  'li.swiper-slide:not(.main-banner-swiper li.swiper-slide, .notification-swiper li.swiper-slide, .event-swiper li.swiper-slide)'
+);
+
+contentCard.forEach((card) => {
+  card.addEventListener('mouseenter', () => {
+    gsap.to(card, {
+      y: -10,
+      duration: 0.2,
+    });
+  });
+
+  card.addEventListener('mouseleave', () => {
+    gsap.to(card, {
+      y: 0,
+      duration: 0.2,
+    });
+  });
+});
+
+//! 오토 슬라이드 버튼 클릭 시 슬라이드 정지/재생, 버튼 이미지 변경
 const autoplayButton = document.querySelector('.autoplayButton');
 
-// 오토 슬라이드 버튼 클릭 시 슬라이드 정지/재생, 버튼 이미지 변경
 autoplayButton.addEventListener('click', () => {
   if (mainBannerSwiper.autoplay.running) {
     mainBannerSwiper.autoplay.stop();
-    autoplayButton.children[0].src = '/assets/mainPage/Icon/play.png';
+    autoplayButton.children[0].src = '/assets/mainPage/icon/play.png';
   } else {
     mainBannerSwiper.autoplay.start();
-    autoplayButton.children[0].src = '/assets/mainPage/Icon/pause.png';
+    autoplayButton.children[0].src = '/assets/mainPage/icon/pause.png';
   }
 });
 
-// main banner swiper slide
+//! main banner swiper slide
 const mainBannerSwiper = new Swiper('.main-banner-swiper', {
   loop: true,
   navigation: {
@@ -278,120 +294,61 @@ const mainBannerSwiper = new Swiper('.main-banner-swiper', {
   },
 });
 
-//! 슬라이드 생성
-// suggestion swiper slide
-new Swiper('.suggestion-content-swiper', {
+//! 슬라이더 기본 옵션
+const commonOptions = {
   slidesPerView: 3.3,
   slidesPerGroup: 3,
   spaceBetween: 8,
   breakpoints: {
     768: {
-      slidesPerView: 5.3,
-      slidesPerGroup: 5,
-      spaceBetween: 8,
+      slidesPerView: 3.3,
+      slidesPerGroup: 3,
     },
     1280: {
-      slidesPerView: 7.3,
-      slidesPerGroup: 7,
+      slidesPerView: 5.3,
+      slidesPerGroup: 5,
       spaceBetween: 16,
     },
   },
+};
+
+//! 각 슬라이더 생성 및 설정
+createSwiper('.suggestion-content-swiper', {
+  ...commonOptions,
 });
 
-// suggestion2 swiper slide
-new Swiper('.quick-vod-swiper', {
+createSwiper('.quick-vod-swiper', {
+  ...commonOptions,
   slidesPerView: 2.2,
   slidesPerGroup: 2,
-  spaceBetween: 8,
   navigation: {
     nextEl: '.quick-vod-next',
     prevEl: '.quick-vod-prev',
   },
-  breakpoints: {
-    768: {
-      slidesPerView: 3.3,
-      slidesPerGroup: 3,
-      spaceBetween: 8,
-    },
-    1280: {
-      slidesPerView: 5.3,
-      slidesPerGroup: 5,
-      spaceBetween: 16,
-    },
-  },
 });
 
-// popular program swiper slide
-new Swiper('.popular-program-swiper', {
-  slidesPerView: 3.3,
-  slidesPerGroup: 3,
-  spaceBetween: 8,
-  breakpoints: {
-    768: {
-      slidesPerView: 5.3,
-      slidesPerGroup: 5,
-      spaceBetween: 8,
-    },
-    1280: {
-      slidesPerView: 7.3,
-      slidesPerGroup: 7,
-      spaceBetween: 16,
-    },
-  },
+createSwiper('.popular-program-swiper', {
+  ...commonOptions,
 });
 
-// popular live channel swiper slide
-new Swiper('.popular-live-swiper', {
+createSwiper('.popular-live-swiper', {
+  ...commonOptions,
   slidesPerView: 2.2,
   slidesPerGroup: 2,
-  spaceBetween: 8,
-  breakpoints: {
-    768: {
-      slidesPerView: 3.3,
-      slidesPerGroup: 3,
-      spaceBetween: 8,
-    },
-    1280: {
-      slidesPerView: 5.3,
-      slidesPerGroup: 5,
-      spaceBetween: 16,
-    },
-  },
 });
 
-// original content swiper slide
-new Swiper('.original-content-swiper', {
+createSwiper('.original-content-swiper', {
+  ...commonOptions,
   slidesPerView: 2.2,
   slidesPerGroup: 2,
-  spaceBetween: 8,
-  breakpoints: {
-    768: {
-      slidesPerView: 3.3,
-      slidesPerGroup: 3,
-      spaceBetween: 8,
-    },
-    1280: {
-      slidesPerView: 5.3,
-      slidesPerGroup: 5,
-      spaceBetween: 16,
-    },
-  },
 });
 
-//event swiper slide
-new Swiper('.event-swiper', {
+createSwiper('.event-swiper', {
+  ...commonOptions,
   slidesPerView: 2.2,
-  spaceBetween: 8,
-  breakpoints: {
-    768: {
-      slidesPerView: 3.3,
-      slidesPerGroup: 3,
-      spaceBetween: 8,
-    },
-    1280: {
-      slidesPerView: 5.2,
-      slidesPerGroup: 5,
-      spaceBetween: 16,
-    },
-  },
 });
+
+//! 슬라이드 생성 함수
+function createSwiper(containerSelector, options) {
+  return new Swiper(containerSelector, options);
+}
