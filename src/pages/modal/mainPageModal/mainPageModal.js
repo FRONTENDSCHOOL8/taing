@@ -1,13 +1,16 @@
-const modal = document.querySelector('.modal-container');
+const modalContainer = document.querySelector('.modal-container');
+const buttonTodayClose = document.querySelector('.button_today_close');
 
 // 모달 창 열기
 function openModal() {
-  // modal.style.display = 'block';
+  modalContainer.classList.remove('hidden');
+  modalContainer.classList.add('flex');
 }
 
 // 모달 창 닫기
 function closeModal() {
-  modal.style.display = 'none';
+  modalContainer.classList.remove('flex');
+  modalContainer.classList.add('hidden');
 }
 
 // 모달 창 닫기 (24시간 동안 열리지 않음)
@@ -42,3 +45,33 @@ document
   .querySelector('.button_today_close')
   .addEventListener('click', closeFor24Hours);
 document.querySelector('.button_close').addEventListener('click', closeModal);
+
+/* 
+  1. 오늘 안보기 누른 시점의 날짜 받아와서 저장, 모달에 hidden 클래스 추가, 모달 상태 변수에 false 저장(상태변수가 false면 모달 안보이게)
+  2. load 이벤트 발생하면 현재 날짜 받아와서 저장된 날짜와 비교
+  3. 저장된 날짜가 현재 날짜보다 작으면 상태변수 true로 바꾸고 모달 보이게 하기
+*/
+
+//! 내가 쓴 코드
+let closeToday = false;
+
+buttonTodayClose.addEventListener('click', () => {
+  const closeDay = new Date().getDate(); // 11
+  localStorage.setItem('closeDay', JSON.stringify(closeDay));
+  closeToday = true;
+});
+
+window.addEventListener('load', () => {
+  const now = new Date().getDate(); // 12
+  const closeDayFromStorage = JSON.parse(localStorage.getItem('closeDay'));
+
+  if (now !== Number(closeDayFromStorage)) {
+    closeToday = false;
+  }
+
+  if (closeToday) {
+    closeModal();
+  } else {
+    openModal();
+  }
+});
