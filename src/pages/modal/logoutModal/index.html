@@ -1,16 +1,20 @@
 <!doctype html>
-<html lang="en">
+<html lang="ko">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="/src/styles/tailwind.css" />
     <link rel="stylesheet" href="/src/pages/modal/logoutModal/style.css" />
-    <script src="/src/pages/modal/logoutModal/logoutModal.js"></script>
+    <script
+      type="module"
+      src="/src/pages/modal/logoutModal/logoutModal.js"
+    ></script>
     <title>Taing - Logout Modal</title>
   </head>
-  <body class="bg-black">
+  <body>
+    <button class="open-button">열기</button>
     <div
-      class="modal-container fixed left-0 top-0 z-20 flex h-full w-full items-center justify-center"
+      class="modal-container fixed left-1/2 top-1/2 z-20 hidden -translate-x-1/2 -translate-y-1/2 items-center justify-center"
     >
       <div
         class="modal-content bg-taing-2 relative flex h-91pxr w-196pxr flex-col items-center rounded bg-[#212121] tablet:h-110pxr tablet:w-295pxr desktop:h-192pxr desktop:w-526pxr"
@@ -22,7 +26,7 @@
         </h2>
         <div class="button-area relative flex flex-row text-taing-2">
           <button
-            class="confirmation-button button-space text-12pxr leading-[160%] desktop:text-21pxr"
+            class="confirm-button button-space text-12pxr leading-[160%] desktop:text-21pxr"
           >
             확인
           </button>
