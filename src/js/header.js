@@ -1,31 +1,25 @@
 import { insertTemplate } from '/src/util/insertTemplate';
-// import getAuthDataFromPb from '/src/util/getAuthDataFromPb';
+import { getImageURL } from '/src/util/getImageURL';
 
 export default async function header() {
-  // const userData = await getAuthDataFromPb(
-  //   'users',
-  //   'email@email.com',
-  //   'qwert12345!'
-  // );
-
-  // localStorage.setItem(
-  //   'auth',
-  //   JSON.stringify({
-  //     isAuth: !!userData.token,
-  //     username: userData.record.username,
-  //   })
-  // );
-
-  // console.log(userData);
-
   if (!localStorage.getItem('auth')) {
     return;
   } else {
-    const { isAuth, username } = await JSON.parse(localStorage.getItem('auth'));
+    const auth = await JSON.parse(localStorage.getItem('auth'));
+
+    const { isAuth, model } = auth;
 
     const template = /* html */ `
       <div>
-        <span class="text-white">${username}</span>
+        <button type="button">
+          <img src="/assets/header/search_icon.svg" alt="검색 버튼" class="w-18pxr tablet:w-24pxr desktop:w-40pxr"/>
+        </button>
+        <a href="/src/pages/selectProfile/">
+          <img src="${getImageURL(
+            model,
+            'profile'
+          )}" alt="사용자 프로필 이미지" class="w-18pxr rounded-sm tablet:w-24pxr desktop:w-40pxr" />
+        </a>
       </div>
     `;
 
