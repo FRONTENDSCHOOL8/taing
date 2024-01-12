@@ -65,7 +65,9 @@ export default {
         },
       },
       animation: {
-        'fade-up': 'fade-up 1.2s ease-out',
+        'fade-up-1': 'fade-up 1s ease-in',
+        'fade-up-2': 'fade-up 1s ease-in 0.2s',
+        'fade-up-3': 'fade-up 1s ease-in 0.3s',
       },
     },
     fontFamily: {
