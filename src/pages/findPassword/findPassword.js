@@ -1,12 +1,28 @@
 import { getData } from '/src/util/crud';
 
+import { pb } from '/src/api/pocketBase';
+
 const inputUserId = document.querySelector('#userId');
-const findIdButton = document.querySelector('.findIdButton');
+const form = document.querySelector('form');
+const submitButton = document.querySelector('button[type="submit"]');
 
-// inputUserId.addEventListener('input', validationEmail);
-findIdButton.addEventListener('click', findId);
+inputUserId.addEventListener('input', (e) => {
+  const input = e.target;
 
-async function findId() {
+  if (input.value.length > 2) {
+    submitButton.classList.remove('bg-button-submit-default');
+    submitButton.classList.add('bg-button-submit-active');
+  } else {
+    submitButton.classList.remove('bg-button-submit-active');
+    submitButton.classList.add('bg-button-submit-default');
+  }
+});
+
+form.addEventListener('submit', findId);
+
+async function findId(e) {
+  e.preventDefault();
+
   const userIdValue = inputUserId.value;
 
   try {
@@ -14,28 +30,18 @@ async function findId() {
       filter: `userId='${userIdValue}'`,
     });
 
-    console.log(res);
 
     if (res.length > 0) {
-      alert(`아이디는 ${res[0].userId} 입니다.`);
+      console.log(res[0].email);
+      await pb.collection('users').requestPasswordReset(res[0].email);
+
+      alert(`${res[0].email}메일로 비밀번호 재설정 링크를 발송했습니다.`);
       location.href = '/src/pages/login/';
     } else {
-      alert('일치하는 이메일이 없습니다.');
+      alert('일치하는 아이디가 없습니다.');
+
     }
   } catch (error) {
     console.error(error);
   }
 }
-
-// function validationEmail() {
-//   const regexEmail = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-//   const emailValue = inputUserId.value;
-
-//   if (regexEmail.test(emailValue) || emailValue === '') {
-//     emailErrorNotice.classList.remove('block');
-//     emailErrorNotice.classList.add('hidden');
-//   } else {
-//     emailErrorNotice.classList.remove('hidden');
-//     emailErrorNotice.classList.add('block');
-//   }
-// }
