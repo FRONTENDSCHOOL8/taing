@@ -1,25 +1,7 @@
 import { insertTemplate } from '/src/util/insertTemplate';
 import { getImageURL } from '/src/util/getImageURL';
-/*  
-? login 상황 테스트용
-import getAuthDataFromPb from '/src/util/getAuthDataFromPb';
-*/
 
 export default async function header() {
-  /* 
-  ? login 상황 테스트용
-  await getAuthDataFromPb('users', 'email@email.com', 'qwert12345!');
-
-  const userData = await JSON.parse(localStorage.getItem('pocketbase_auth'));
-
-  localStorage.setItem(
-    'auth',
-    JSON.stringify({
-      isAuth: !!userData.token,
-      model: userData.model,
-      token: userData.token,
-    })
-  ); */
   if (!localStorage.getItem('auth')) {
     return;
   } else {
