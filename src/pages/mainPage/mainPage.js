@@ -31,7 +31,7 @@ mainBannerArr.forEach(() => {
     </li>
   `;
 
-  insertTemplate(template, '.main-banner-swiper > ul');
+  insertTemplate('.main-banner-swiper > ul', template);
 });
 
 let [isLoading, setIsLoading, onChangeIsLoading] = await state(true);
