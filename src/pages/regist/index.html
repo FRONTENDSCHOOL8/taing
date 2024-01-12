@@ -1,0 +1,170 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/src/styles/tailwind.css" />
+    <script type="module" src="/src/js/include.js"></script>
+    <script type="module" src="/src/pages/regist/regist.js"></script>
+    
+ <!-- 자동완성 background 색상변경  -->
+    <!-- <style>
+      input:-webkit-autofill,
+      input:-webkit-autofill:hover,
+      input:-webkit-autofill:focus,
+      input:-webkit-autofill:active {
+        transition: background-color 5000s ease-in-out 0s;
+        -webkit-transition: background-color 9999s ease-out;
+        -webkit-box-shadow: 0 0 0px 1000px #212121 inset !important;
+        -webkit-text-fill-color: #fff !important;
+        caret-color: #fff !important;
+      }
+    </style> -->
+
+    <title>TAING - regist</title>
+  </head>
+  <body class="bg-black">
+    <header id="header" class=""></header>
+    <main class="tracking-tighter">
+      <h2 class="mb-5 mt-10 flex justify-center text-2xl font-bold text-white">
+        티빙 회원가입
+      </h2>
+      <div class="mb-10 flex justify-center text-[#898989]">
+        아이디와 이메일로 간편하게 티빙을 시작하세요!
+      </div>
+
+      <div class="flex justify-center">
+        <form id="form">
+          <input
+            type="text"
+            id="user-id"
+            name="user-id"
+            placeholder="아이디"
+            class="mb-1 w-96 rounded border-0 bg-[#212121] p-3 text-white focus:bg-[#212121] focus:outline-1"
+          />
+          <label
+            for="user-id"
+            class="mb-5 block text-sm font-medium text-[#6B6B6B]"
+            >아무거나 적으시오</label
+          >
+
+          <input
+            type="password"
+            id="password"
+            name="password"
+            placeholder="비밀번호"
+            class="mb-1 w-96 rounded border-0 bg-[#212121] p-3 text-white focus:bg-[#212121] focus:outline-1"
+            style="color: #565656"
+          />
+          <label
+            for="password"
+            class="mb-5 block text-sm font-medium text-[#6B6B6B]"
+            >영문, 숫자, 특수문자(~!@#$%^&*) 조합 6~16자리</label
+          >
+
+          <input
+            type="password"
+            id="confirm-password"
+            name="confirm-password"
+            placeholder="비밀번호 확인"
+            class="mb-5 w-96 rounded border-0 bg-[#212121] p-3 text-white focus:bg-[#212121] focus:outline-1"
+          /><br />
+          <label for="" class="sr-only">이메일</label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            placeholder="이메일"
+            class="mb-5 w-96 rounded border-0 bg-[#212121] p-3 text-white focus:bg-[#212121] focus:outline-1"
+          /><br />
+
+          <!-- 전체 동의 체크박스 -->
+          <div class="mb-4">
+            <input type="checkbox" id="allAgreeCheckbox" class="mr-2" />
+            <label
+              for="allAgreeCheckbox"
+              class="text-base font-bold text-[#A6A6A6]"
+              >모두 동의합니다.</label
+            >
+          </div>
+
+          <!-- 개별 동의 체크박스들 -->
+          <div class="mb-1">
+            <input type="checkbox" id="ageCheckbox" class="mr-2 " />
+            <label for="ageCheckbox" class="text-sm font-bold text-[#6B6B6B]"
+              >만 14세 이상입니다.</label
+            >
+          </div>
+
+          <div class="mb-1">
+            <input type="checkbox" id="termsCheckbox" class="mr-2 essential" />
+            <label for="termsCheckbox" class="text-sm font-bold text-[#6B6B6B]"
+              >[필수] 서비스 이용약관 동의</label
+            >
+          </div>
+
+          <div class="mb-1">
+            <input type="checkbox" id="privacyCheckbox" class="mr-2 essential" />
+            <label
+              for="privacyCheckbox"
+              class="text-sm font-bold text-[#6B6B6B]"
+              >[필수] 개인정보 수집 및 서비스 활용 동의</label
+            >
+          </div>
+          <div class="mb-1">
+            <input type="checkbox" id="privacyCheckbox" class="mr-2 essential" />
+            <label
+              for="privacyCheckbox"
+              class="text-sm font-bold text-[#6B6B6B]"
+              >[필수] 채널 홈페이지 개인정보 제 3자 제공동의</label
+            >
+          </div>
+          <div class="mb-1">
+            <input type="checkbox" id="privacyCheckbox" class="mr-2" />
+            <label
+              for="privacyCheckbox"
+              class="text-sm font-bold text-[#6B6B6B]"
+              >[선택] 개인정보 제3자 제공동의</label
+            >
+          </div>
+          <div class="mb-1">
+            <input type="checkbox" id="privacyCheckbox" class="mr-2" />
+            <label
+              for="privacyCheckbox"
+              class="text-sm font-bold text-[#6B6B6B]"
+              >[선택] 개인정보 수집 및 서비스 활용 동의</label
+            >
+          </div>
+          <div class="mb-1 ml-7">
+            <input type="checkbox" id="privacyCheckbox" class="mr-2" />
+            <label
+              for="privacyCheckbox"
+              class="text-sm font-bold text-[#6B6B6B]"
+              >[선택] 마케팅 정보 SMS 수신동의</label
+            >
+          </div>
+          <div class="mb-1 ml-7">
+            <input type="checkbox" id="privacyCheckbox" class="mr-2" />
+            <label
+              for="privacyCheckbox"
+              class="text-sm font-bold text-[#6B6B6B]"
+              >[선택] 마케팅 정보 dlapdlf 수신동의</label
+            >
+          </div>
+
+          <!-- 기타 동의 체크박스들... -->
+
+          <!-- 전체 동의 체크박스 상태에 따라 하위 체크박스들 변경 -->
+
+          <button
+            href="/"
+            class="mb-5 mt-5 w-96 rounded bg-[#404040] p-3 text-center font-bold text-[#898989] hover:bg-white hover:text-black active:bg-[#E1E1E1]"
+          >
+            가입하기
+          </button>
+        </form>
+      </div>
+    </main>
+    <footer id="footer"></footer>
+  </body>
+</html>

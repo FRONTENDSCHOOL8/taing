@@ -21,5 +21,10 @@ export default function footer() {
           this.slides[this.activeIndex].scrollHeight + 'px';
       },
     },
+    breakpoints: {
+      1024: {
+        height: 32,
+      },
+    },
   });
 }
