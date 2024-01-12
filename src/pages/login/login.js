@@ -1,15 +1,28 @@
-import { getData } from '/src/util/crud';
+import getAuthDataFromPb from '/src/util/getAuthDataFromPb';
 
-document
-  .getElementById('loginForm')
-  .addEventListener('submit', function (event) {
-    event.preventDefault(); // 폼 기본 동작 방지
+const loginForm = document.querySelector('#login-form');
 
-    // 입력값 가져오기
-    const username = document.getElementById('username').value;
-    const password = document.getElementById('password').value;
+loginForm.addEventListener('submit', async (e) => {
+  e.preventDefault(); // 폼 기본 동작 방지
 
-    // 가져온 값 확인 (실제로는 서버에 전송하거나 다른 작업을 수행)
-    console.log('Username:', username);
-    console.log('Password:', password);
-  });
+  // 입력값 가져오기
+  const username = document.querySelector('#username').value;
+  const password = document.querySelector('#password').value;
+
+  await getAuthDataFromPb('users', username, password);
+
+  const userData = await JSON.parse(localStorage.getItem('pocketbase_auth'));
+
+  localStorage.setItem(
+    'auth',
+    JSON.stringify({
+      isAuth: !!userData.token,
+      model: userData.model,
+      token: userData.token,
+    })
+  );
+
+  location.href = '/src/pages/mainPage/index.html';
+});
+
+//로그인 폼에 서브밋 이벤트가 발생하면...

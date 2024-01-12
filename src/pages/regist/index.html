@@ -34,16 +34,16 @@
       </div>
 
       <div class="flex justify-center">
-        <form action="">
+        <form id="form">
           <input
             type="text"
-            id="username"
-            name="username"
+            id="user-id"
+            name="user-id"
             placeholder="아이디"
             class="mb-1 w-96 rounded border-0 bg-[#212121] p-3 text-white focus:bg-[#212121] focus:outline-1"
           />
           <label
-            for="username"
+            for="user-id"
             class="mb-5 block text-sm font-medium text-[#6B6B6B]"
             >영문 또는 영문, 숫자 조합 6~12자리</label
           >
@@ -69,6 +69,7 @@
             placeholder="비밀번호 확인"
             class="mb-5 w-96 rounded border-0 bg-[#212121] p-3 text-white focus:bg-[#212121] focus:outline-1"
           /><br />
+          <label for="" class="sr-only">이메일</label>
           <input
             type="email"
             id="email"
@@ -89,21 +90,21 @@
 
           <!-- 개별 동의 체크박스들 -->
           <div class="mb-1">
-            <input type="checkbox" id="ageCheckbox" class="mr-2" />
+            <input type="checkbox" id="ageCheckbox" class="mr-2 " />
             <label for="ageCheckbox" class="text-sm font-bold text-[#6B6B6B]"
               >만 14세 이상입니다.</label
             >
           </div>
 
           <div class="mb-1">
-            <input type="checkbox" id="termsCheckbox" class="mr-2" />
+            <input type="checkbox" id="termsCheckbox" class="mr-2 essential" />
             <label for="termsCheckbox" class="text-sm font-bold text-[#6B6B6B]"
               >[필수] 서비스 이용약관 동의</label
             >
           </div>
 
           <div class="mb-1">
-            <input type="checkbox" id="privacyCheckbox" class="mr-2" />
+            <input type="checkbox" id="privacyCheckbox" class="mr-2 essential" />
             <label
               for="privacyCheckbox"
               class="text-sm font-bold text-[#6B6B6B]"
@@ -111,7 +112,7 @@
             >
           </div>
           <div class="mb-1">
-            <input type="checkbox" id="privacyCheckbox" class="mr-2" />
+            <input type="checkbox" id="privacyCheckbox" class="mr-2 essential" />
             <label
               for="privacyCheckbox"
               class="text-sm font-bold text-[#6B6B6B]"
@@ -155,12 +156,12 @@
 
           <!-- 전체 동의 체크박스 상태에 따라 하위 체크박스들 변경 -->
 
-          <a
+          <button
             href="/"
-            class="mb-5 mt-5 block rounded bg-[#404040] p-3 text-center font-bold text-[#898989] hover:bg-white hover:text-black active:bg-[#E1E1E1]"
+            class="mb-5 mt-5 w-96 rounded bg-[#404040] p-3 text-center font-bold text-[#898989] hover:bg-white hover:text-black active:bg-[#E1E1E1]"
           >
             가입하기
-          </a>
+          </button>
         </form>
       </div>
     </main>
