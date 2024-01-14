@@ -24,5 +24,3 @@ loginForm.addEventListener('submit', async (e) => {
 
   location.href = '/src/pages/mainPage/index.html';
 });
-
-//로그인 폼에 서브밋 이벤트가 발생하면...

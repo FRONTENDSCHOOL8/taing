@@ -7,22 +7,6 @@
     <script type="module" src="/src/js/include.js"></script>
     <script type="module" src="/src/pages/login/login.js"></script>
 
-    <!-- 주석 -->
-    
-    <!-- 자동완성 background 색상변경  -->
-    <!-- <style>
-      input:-webkit-autofill,
-      input:-webkit-autofill:hover,
-      input:-webkit-autofill:focus,
-      input:-webkit-autofill:active {
-        transition: background-color 5000s ease-in-out 0s;
-        -webkit-transition: background-color 9999s ease-out;
-        -webkit-box-shadow: 0 0 0px 1000px #212121 inset !important;
-        -webkit-text-fill-color: #fff !important;
-        caret-color: #fff !important;
-      }
-    </style> -->
-
     <title>TAING - login</title>
   </head>
   <body class="bg-black">
@@ -32,49 +16,56 @@
         TVING ID 로그인
       </h2>
 
-      
-        <div class="flex justify-center">
-          <form id="login-form">
-            <input
-              type="text"
-              id="username"
-              name="username"
-              placeholder="아이디"
-              class="mb-2 w-96 max-w-416pxr rounded border-0 bg-[#212121] p-16pxr text-white focus:bg-[#212121] focus:outline-1"
-            /><br />
-            <input
-              type="password"
-              id="password"
-              name="password"
-              placeholder="비밀번호"
-              class="mb-3 w-96 rounded border-0 bg-[#212121] p-16pxr text-white focus:bg-[#212121] focus:outline-1"
-            /><br />
-            <input type="checkbox" />
-            <label class="ml-1 text-white">자동로그인</label><br />
-
-             <button type="submit" class="text-center w-96 mt-3 mb-5 rounded bg-[#FF153C] p-16pxr text-white hover:bg-[#CC1030]" >
-               로그인하기
-             </button>
-
-          </form>
-        </div>
-      
       <div class="flex justify-center">
-        <a href="/src/pages/findId/" class="tracking-tighter text-[#A6A6A6] hover:text-white"
+        <form id="login-form">
+          <label class="sr-only">아이디</label>
+          <input
+            type="text"
+            id="username"
+            name="username"
+            placeholder="아이디"
+            class="mb-2 w-96 max-w-416pxr rounded border-0 bg-input p-16pxr text-white focus:bg-input focus:outline-1"
+          /><br />
+          <label class="sr-only">패스워드</label>
+          <input
+            type="password"
+            id="password"
+            name="password"
+            placeholder="비밀번호"
+            class="mb-3 w-96 rounded border-0 bg-input p-16pxr text-white focus:bg-input focus:outline-1"
+          /><br />
+          <input type="checkbox" />
+          <label class="ml-1 text-white">자동로그인</label><br />
+
+          <button
+            type="submit"
+            class="mb-5 mt-3 w-96 rounded bg-button-default p-16pxr text-center text-white hover:bg-button-hover"
+          >
+            로그인하기
+          </button>
+        </form>
+      </div>
+
+      <div class="flex justify-center">
+        <a
+          href="/src/pages/findId/"
+          class="tracking-tighter text-taing-2 hover:text-white"
           >아이디 찾기</a
         >
-        <p class="ml-5 text-[#A6A6A6]">|</p>
+        <p class="ml-5 text-taing-2">|</p>
         <a
           href="/src/pages/findPassword/"
-          class="ml-5 tracking-tighter text-[#A6A6A6] hover:text-white"
+          class="ml-5 tracking-tighter text-taing-2 hover:text-white"
           >비밀번호 찾기</a
         >
       </div>
       <div>
-        <p class="mt-5 flex justify-center tracking-tighter text-[#6B6B6B]">
+        <p class="mt-5 flex justify-center tracking-tighter text-taing-4">
           아직 계정이 없으신가요?
 
-          <a href="/src/pages/regist/" class="ml-3 text-[#A6A6A6] hover:text-white"
+          <a
+            href="/src/pages/regist/"
+            class="ml-3 text-taing-2 hover:text-white"
             >회원가입하기</a
           >
         </p>

@@ -1,57 +1,42 @@
 <!doctype html>
-<html lang="en">
+<html lang="ko">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="/src/styles/tailwind.css" />
-    <script src="/src/pages/modal/logoutModal/logoutModal.js"></script>
-    <title>Tailwind CSS Modal with Grid</title>
+    <link rel="stylesheet" href="/src/pages/modal/logoutModal/style.css" />
+    <script
+      type="module"
+      src="/src/pages/modal/logoutModal/logoutModal.js"
+    ></script>
+    <title>Taing - Logout Modal</title>
   </head>
-  <body class="bg-gray-200 p-8">
-    <!-- 버튼을 클릭하면 모달을 열기 -->
-    <button
-      onclick="openModal()"
-      class="rounded bg-gray-400 px-4 py-2 text-white"
-    >
-      로그아웃
-    </button>
-
-    <!-- 모달 창 요소 -->
+  <body>
+    <button class="open-button">열기</button>
     <div
-      id="myModal"
-      class="modal grid grid-cols-1 items-center justify-items-center"
+      class="modal-container fixed left-1/2 top-1/2 z-20 hidden -translate-x-1/2 -translate-y-1/2 items-center justify-center"
     >
       <div
-        class="modal-overlay absolute h-full w-full bg-gray-800 opacity-50"
-      ></div>
-
-      <div
-        class="modal-container z-50 grid w-11/12 grid-cols-1 gap-4 overflow-y-auto rounded bg-white p-4 shadow-lg md:max-w-md"
+        class="modal-content bg-taing-2 relative flex h-91pxr w-196pxr flex-col items-center rounded bg-[#212121] tablet:h-110pxr tablet:w-295pxr desktop:h-192pxr desktop:w-526pxr"
       >
-        <span
-          onclick="closeModal()"
-          class="modal-close cursor-pointer self-end text-sm text-white"
-          >&times; 닫기</span
+        <h2
+          class="modal-title desktop:36pxr pb-12pxr pt-20pxr text-center text-12pxr leading-[160%] text-white tablet:pb-16pxr tablet:pt-28pxr desktop:py-36pxr desktop:text-21pxr"
         >
-
-        <div class="modal-header col-span-1">
-          <h2 class="text-2xl font-bold">로그아웃 하시겠습니까?</h2>
-        </div>
-
-        <div class="modal-body col-span-1">
-          <!-- 모달 본문 내용 -->
-        </div>
-
-        <div class="modal-footer col-span-1 grid grid-cols-2 gap-4">
+          로그아웃 하시겠습니까?
+        </h2>
+        <div class="button-area relative flex flex-row text-taing-2">
           <button
-            onclick="confirmLogout()"
-            class="rounded bg-blue-500 px-4 py-2 font-bold text-white hover:bg-blue-700"
+            class="confirm-button button-space text-12pxr leading-[160%] desktop:text-21pxr"
           >
             확인
           </button>
+          <p
+            class="py-[10.5px] text-[#A6A6A6] tablet:py-10pxr desktop:my-8pxr desktop:py-16pxr desktop:text-21pxr"
+          >
+            |
+          </p>
           <button
-            onclick="closeModal()"
-            class="rounded bg-gray-500 px-4 py-2 font-bold text-white hover:bg-gray-700"
+            class="cancel-button line button-space text-12pxr leading-[160%] desktop:text-21pxr"
           >
             취소
           </button>

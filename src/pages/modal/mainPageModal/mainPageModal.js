@@ -1,44 +1,49 @@
-const modal = document.querySelector('.modal-container');
+const modalContainer = document.querySelector('.modal-container');
+const closeButton = document.querySelector('.closeButton');
+const closeTodayButton = document.querySelector('.closeTodayButton');
+let closeFor24Hours = false;
 
 // 모달 창 열기
 function openModal() {
-  // modal.style.display = 'block';
+  modalContainer.classList.remove('hidden');
+  modalContainer.classList.add('flex');
 }
 
 // 모달 창 닫기
 function closeModal() {
-  modal.style.display = 'none';
+  modalContainer.classList.remove('flex');
+  modalContainer.classList.add('hidden');
 }
 
-// 모달 창 닫기 (24시간 동안 열리지 않음)
-function closeFor24Hours() {
-  closeModal(); // 모달 창 닫기
-  const now = new Date();
-  const tomorrow = new Date(now);
-  tomorrow.setDate(now.getDate() + 1);
+// 클릭 이벤트 실행
 
-  // 24시간 동안 모달 창이 열리지 않도록 localStorage에 저장
-  localStorage.setItem('modalClosed', 'true');
-  localStorage.setItem('modalClosedUntil', JSON.stringify(tomorrow));
-}
+// 닫기
+closeButton.addEventListener('click', closeModal);
 
-// 페이지 로드 시 모달 창 상태 초기화
-function initializeModal() {
-  const modalClosed = localStorage.getItem('modalClosed');
-  const modalClosedUntil = localStorage.getItem('modalClosedUntil');
+// 24시간 동안 보지 않기
+closeTodayButton.addEventListener('click', () => {
+  const closeClickedDate = new Date().getDate();
+  localStorage.setItem('closeClickedDate', JSON.stringify(closeClickedDate)); // js 객체 > json 형으로 변환
+  closeFor24Hours = true;
+  closeModal();
+});
 
-  if (modalClosed === 'true' && new Date() < new Date(modalClosedUntil)) {
+// 페이지 로드 시 모달 초기화 함수 실행
+window.addEventListener('load', () => {
+  const now = new Date().getDate();
+  const closeDateFromStorage = JSON.parse(
+    localStorage.getItem('closeClickedDate')
+  );
+
+  if (now !== Number(closeDateFromStorage)) {
+    closeFor24Hours = false;
+  } else {
+    closeFor24Hours = true;
+  }
+
+  if (closeFor24Hours) {
     closeModal();
   } else {
     openModal();
   }
-}
-
-// 페이지 로드 시 모달 초기화 함수 실행
-window.addEventListener('load', initializeModal);
-
-// 버튼 클릭 이벤트 처리
-document
-  .querySelector('.button_today_close')
-  .addEventListener('click', closeFor24Hours);
-document.querySelector('.button_close').addEventListener('click', closeModal);
+});
