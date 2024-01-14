@@ -48,6 +48,7 @@ async function duplicateData(e) {
       email: formData.get('email'),
       password: formData.get('password'),
       passwordConfirm: formData.get('confirm-password'),
+      profile_1: formData.get('/assets/profile/content/profile_1.png'),
     };
 
     console.log(data);
