@@ -3,7 +3,6 @@ import footer from '/src/js/footer';
 import searchPage from '/src/pages/searchPage/searchPage.js';
 import userMenuModal from '/src/pages/modal/userMenuModal/userMenuModal';
 
-
 const authData = JSON.parse(localStorage.getItem('auth'));
 const path = location.pathname;
 

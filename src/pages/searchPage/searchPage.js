@@ -1,5 +1,4 @@
 import { insertTemplate } from '/src/util/insertTemplate';
-import gsap from 'gsap';
 
 export default async function searchPage() {
   renderRecentHistory(); // 최근 검색어 렌더링
@@ -23,6 +22,8 @@ export default async function searchPage() {
       icon.alt = '검색 버튼';
     }
   }
+  // 헤더가 생기는 시점보다 먼저 저 버튼을 찾아서 오류 발생,,
+  // button.addEventListener('click', clickSearchButton);
 
   button.addEventListener('click', clickSearchButton);
 
