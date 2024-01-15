@@ -37,6 +37,10 @@ mainBannerArr.forEach(() => {
 let [isLoading, setIsLoading, onChangeIsLoading] = await state(true);
 const loadingSpinner = document.querySelectorAll('.loading');
 
+const modal = document.querySelector('#mainPageModal');
+const isCloseDay = JSON.parse(localStorage.getItem('closeClickedDate'));
+const currentDay = new Date().getDate();
+
 //! 로딩 상태변화가 감지됐을 때 실행 되는 함수
 onChangeIsLoading((newState) => {
   if (newState) {
@@ -46,6 +50,13 @@ onChangeIsLoading((newState) => {
   } else {
     loadingSpinner.forEach((spinner) => {
       spinner.classList.add('hidden');
+      if (isCloseDay === currentDay) {
+        modal.classList.add('hidden');
+        modal.classList.remove('flex');
+      } else {
+        modal.classList.remove('hidden');
+        modal.classList.add('flex');
+      }
     });
   }
 });

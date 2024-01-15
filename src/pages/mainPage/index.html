@@ -2,14 +2,8 @@
 <html lang="ko">
   <head>
     <meta charset="UTF-8" />
-    <meta id="_csrf" name="_csrf" th:content="${_csrf.token}" />
-    <meta
-      id="_csrf_header"
-      name="_csrf_header"
-      th:content="${_csrf.headerName}"
-    />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="shortcut icon" href="/public/favicon.ico" type="image/x-icon" />
+    <link rel="shortcut icon" href="/assets/favicon.ico" type="image/x-icon" />
     <link rel="stylesheet" href="/src/styles/tailwind.css" />
     <script type="module" src="/src/js/include.js"></script>
     <script type="module" src="/src/pages/mainPage/mainPage.js"></script>
@@ -17,6 +11,16 @@
   </head>
   <body class="flow-root overflow-x-hidden bg-black">
     <header id="header" class="fixed z-20 w-full bg-header"></header>
+
+    <div
+      id="logoutModal"
+      class="fixed z-20 hidden h-screen w-screen bg-black/[0.6]"
+    ></div>
+
+    <div
+      id="mainPageModal"
+      class="fixed left-1/2 top-1/2 z-20 hidden -translate-x-1/2 -translate-y-1/2"
+    ></div>
 
     <div
       id="search"
