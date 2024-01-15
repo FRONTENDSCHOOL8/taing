@@ -17,7 +17,7 @@ export default async function header() {
         <a href="/src/pages/selectProfile/">
           <img src="${getImageURL(
             model,
-            'profile'
+            'profile_1'
           )}" alt="사용자 프로필 이미지" class="w-18pxr rounded-sm tablet:w-24pxr desktop:w-40pxr" />
         </a>
       </div>
