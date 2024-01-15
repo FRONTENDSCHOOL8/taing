@@ -6,7 +6,7 @@ export default async function searchPage() {
   /* 모달 */
   const modalSection = document.querySelector('#search');
   const header = document.querySelector('#header');
-  const button = document.querySelector('#search-button');
+  const button = document.querySelector('#search');
   const icon = header.querySelector('button > img');
 
   function clickSearchButton() {

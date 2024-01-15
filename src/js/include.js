@@ -43,21 +43,21 @@ await fetch('/src/components/footer.html')
     console.error(error);
   });
 
-// footer.html 파일을 가져와서 footer 요소에 삽입
-fetch('/src/pages/modal/userMenuModal/index.html')
-  .then((response) => response.text())
-  .then((html) => {
-    const menuElement = document.querySelector('#user-menu');
-    menuElement.innerHTML = html;
-
-    userMenuModal();
-  })
-  .catch((error) => {
-    console.error(error);
-  });
-
 // 메인 페이지에서만 실행
 if (window.location.pathname === '/src/pages/mainPage/') {
+  // footer.html 파일을 가져와서 footer 요소에 삽입
+  await fetch('/src/pages/modal/userMenuModal/index.html')
+    .then((response) => response.text())
+    .then((html) => {
+      const menuElement = document.querySelector('#user-menu');
+      menuElement.innerHTML = html;
+
+      userMenuModal();
+    })
+    .catch((error) => {
+      console.error(error);
+    });
+
   // footer.html 파일을 가져와서 footer 요소에 삽입
   await fetch('/src/pages/searchPage/index.html')
     .then((response) => response.text())
@@ -66,6 +66,32 @@ if (window.location.pathname === '/src/pages/mainPage/') {
       searchElement.innerHTML = html;
 
       searchPage();
+    })
+    .catch((error) => {
+      console.error(error);
+    });
+
+  // mainPage modal
+  await fetch('/src/pages/modal/mainPageModal/index.html')
+    .then((response) => response.text())
+    .then((html) => {
+      const modalElement = document.querySelector('#mainPageModal');
+      modalElement.innerHTML = html;
+
+      mainPageModal();
+    })
+    .catch((error) => {
+      console.error(error);
+    });
+
+  // logout modal
+  await fetch('/src/pages/modal/logoutModal/index.html')
+    .then((response) => response.text())
+    .then((html) => {
+      const modalElement = document.querySelector('#logoutModal');
+      modalElement.innerHTML = html;
+
+      logoutModal();
     })
     .catch((error) => {
       console.error(error);
