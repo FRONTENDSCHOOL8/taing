@@ -1,16 +1,16 @@
 import { insertTemplate } from '/src/util/insertTemplate';
 import { getImageURL } from '/src/util/getImageURL';
+import gsap from 'gsap';
 
 export default async function header() {
+  const auth = await JSON.parse(localStorage.getItem('auth'));
+  const currentPage = window.location.pathname;
+  const { isAuth, model } = auth;
+
   if (!localStorage.getItem('auth')) {
     return;
   } else {
-    const auth = await JSON.parse(localStorage.getItem('auth'));
-
-    const { isAuth, model } = auth;
-
     const template = /* html */ `
-
       <div class="hidden justify-between items-center w-full tablet:flex desktop:flex">
         <nav
         class="text-12pxr text-taing-1 desktop:text-21pxr"
@@ -44,25 +44,56 @@ export default async function header() {
           </li>
         </ul>
       </nav>
-        <div class="flex gap-16pxr tablet:gap-24pxr desktop:40pxr">
-          <button type="button" id="search-button">
-            <img src="/assets/header/search_icon.svg" alt="검색 버튼" class="w-18pxr tablet:w-24pxr desktop:w-40pxr"/>
-          </button>
-          <a href="/src/pages/selectProfile/">
-            <img src="${getImageURL(
-              model,
-              'profile_1'
-            )}" alt="사용자 프로필 이미지" class="w-18pxr rounded-sm tablet:w-24pxr desktop:w-40pxr" />
-          </a>
-        </div>
 
-      </div>
-    `;
+      <div class="flex gap-16pxr tablet:gap-24pxr desktop:40pxr">
+        <button type="button">
+          <img src="/assets/header/search_icon.svg" alt="검색 버튼" class="w-18pxr tablet:w-24pxr desktop:w-40pxr"/>
+        </button>
+        <button type="button" id="userMenu-button">
+          <img src="${getImageURL(
+            model,
+            'profile_1'
+          )}" alt="사용자 프로필 이미지" class="w-18pxr rounded-sm tablet:w-24pxr desktop:w-40pxr" />
+        </button>
+        <div id="user-menu" class="absolute top-full right-40pxr desktop:right-70pxr z-20 hidden"></div>
+      </div>`;
 
-    if (isAuth) {
+
+    if (currentPage === '/src/pages/mainPage/' && isAuth) {
       insertTemplate('#header-wrapper', template);
-    } else {
-      return;
     }
+  }
+
+  const headerLogo = document.querySelector('#header .logo');
+
+  if (isAuth) {
+    headerLogo.href = '/src/pages/mainPage/';
+  } else {
+    headerLogo.href = 'index.html';
+  }
+
+  // const currentPage = window.location.pathname;
+
+  if (currentPage === '/src/pages/mainPage/') {
+    let lastScroll = 0;
+
+    window.addEventListener('scroll', () => {
+      const header = document.querySelector('#header');
+      const currentScroll = window.scrollY;
+
+      if (window.scrollY > lastScroll) {
+        gsap.to(header, {
+          y: -header.offsetHeight,
+          duration: 0.5,
+        });
+      } else if (currentScroll < lastScroll) {
+        gsap.to(header, {
+          y: 0,
+          duration: 0.5,
+        });
+      }
+
+      lastScroll = currentScroll <= 0 ? 0 : currentScroll;
+    });
   }
 }
