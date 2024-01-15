@@ -2,8 +2,6 @@ import header from '/src/js/header';
 import footer from '/src/js/footer';
 import searchPage from '/src/pages/searchPage/searchPage.js';
 import userMenuModal from '/src/pages/modal/userMenuModal/userMenuModal';
-import mainPageModal from '/src/pages/modal/mainPageModal/mainPageModal';
-import logoutModal from '/src/pages/modal/logoutModal/logoutModal';
 
 const authData = JSON.parse(localStorage.getItem('auth'));
 const path = location.pathname;
