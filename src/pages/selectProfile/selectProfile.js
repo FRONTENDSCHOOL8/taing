@@ -43,7 +43,7 @@ const renderProfile = (profileData) => {
             class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 transform desktop:w-60pxr"
           />
         </button>
-        <p class="text-center text-12pxr text-taing-2">${
+        <p class="text-center text-12pxr desktop:text-28pxr text-taing-2">${
           item.profileNickname
         }</p>
       </li>`;

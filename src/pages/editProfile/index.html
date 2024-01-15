@@ -9,13 +9,15 @@
     <script src="/src/pages/editProfile/editProfile.js" type="module"></script>
     <title>프로필편집</title>
   </head>
-  <body class="bg-black">
-    <div class="wrap flex flex-col">
+  <body class="min-w-screen max-w-screen w-full bg-black">
+    <div
+      class="min-w-screen max-w-screen h-[calc(100vh-100px-355px) w-full overflow-auto"
+    >
       <header id="header" class=""></header>
       <main>
         <section class="flex items-center justify-center">
-          <div class="content-wrap desktop:my-130pxr">
-            <div class="title-wrap pt-72pxr tablet:mt-74pxr">
+          <div class="content-wrap pt-72pxr tablet:pt-74pxr desktop:py-130pxr">
+            <div class="title-wrap">
               <h2
                 class="text-center text-base font-bold leading-[140%] text-white tablet:text-28pxr desktop:text-50pxr"
               >
@@ -31,77 +33,8 @@
               class="profile-photo my-32pxr tablet:mb-44pxr tablet:mt-28pxr desktop:mb-66pxr desktop:mt-44pxr"
             >
               <ul
-                class="profile-photo-container grid grid-cols-2 grid-rows-2 gap-6 tablet:grid-cols-4 tablet:grid-rows-1 tablet:gap-32pxr desktop:gap-52pxr"
-              >
-                <!-- <li class="profile">
-                  <button
-                    class="relative mb-12pxr max-w-114pxr tablet:max-w-132pxr desktop:max-w-234pxr"
-                  >
-                    <img
-                      src="/public/assets/profile/content/profile_1.png"
-                      alt="프로필 사진"
-                      class="rounded opacity-50"
-                    />
-                    <img
-                      src="/public/assets/profile/Icon/pencil.svg"
-                      alt="pencil"
-                      class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 transform desktop:w-60pxr"
-                    />
-                  </button>
-                  <p class="text-center text-12pxr text-taing-2">슬비님</p>
-                </li>
-                <li class="profile">
-                  <button
-                    class="relative mb-12pxr max-w-114pxr tablet:max-w-132pxr desktop:max-w-234pxr"
-                  >
-                    <img
-                      src="/public/assets/profile/content/profile_1.png"
-                      alt="프로필 사진"
-                      class="rounded opacity-50"
-                    />
-                    <img
-                      src="/public/assets/profile/Icon/pencil.svg"
-                      alt="pencil"
-                      class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 transform desktop:w-60pxr"
-                    />
-                  </button>
-                  <p class="text-center text-12pxr text-taing-2">야무</p>
-                </li>
-                <li class="profile">
-                  <button
-                    class="relative mb-12pxr max-w-114pxr tablet:max-w-132pxr desktop:max-w-234pxr"
-                  >
-                    <img
-                      src="/public/assets/profile/content/profile_1.png"
-                      alt="프로필 사진"
-                      class="rounded opacity-50"
-                    />
-                    <img
-                      src="/public/assets/profile/Icon/pencil.svg"
-                      alt="pencil"
-                      class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 transform desktop:w-60pxr"
-                    />
-                  </button>
-                  <p class="text-center text-12pxr text-taing-2">범쌤</p>
-                </li>
-                <li class="profile">
-                  <button
-                    class="relative mb-12pxr max-w-114pxr tablet:max-w-132pxr desktop:max-w-234pxr"
-                  >
-                    <img
-                      src="/public/assets/profile/content/profile_1.png"
-                      alt="프로필 사진"
-                      class="rounded opacity-50 desktop:opacity-100"
-                    />
-                    <img
-                      src="/public/assets/profile/Icon/pencil.svg"
-                      alt="pencil"
-                      class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 transform desktop:w-60pxr"
-                    />
-                  </button>
-                  <p class="text-center text-12pxr text-taing-2">이듬</p>
-                </li> -->
-              </ul>
+                class="profile-photo-container flex flex-wrap items-center justify-center gap-x-6 gap-y-6 tablet:gap-32pxr desktop:gap-52pxr"
+              ></ul>
             </div>
             <div class="button-wrap flex items-center justify-center">
               <a
