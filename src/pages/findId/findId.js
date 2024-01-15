@@ -21,7 +21,7 @@ async function findId(e) {
     console.log(res);
 
     if (res.length > 0) {
-      alert(`아이디는 ${res[0].userId} 입니다.`);
+      alert(`아이디는 ${res[0].username} 입니다.`);
       location.href = '/src/pages/login/';
     } else {
       alert('일치하는 이메일이 없습니다.');

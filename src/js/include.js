@@ -1,9 +1,10 @@
 import header from '/src/js/header';
 import footer from '/src/js/footer';
-import searchPage from '/src/pages/searchPage/searchPage.js';
+import searchPage from '/src/pages/searchPage/searchPage';
 import userMenuModal from '/src/pages/modal/userMenuModal/userMenuModal';
 import mainPageModal from '/src/pages/modal/mainPageModal/mainPageModal';
 import logoutModal from '/src/pages/modal/logoutModal/logoutModal';
+import withdrawalModal from '/src/pages/modal/withdrawalModal/withdrawalModal';
 
 const authData = JSON.parse(localStorage.getItem('auth'));
 const path = location.pathname;
@@ -47,8 +48,7 @@ await fetch('/src/components/footer.html')
 
 // 메인 페이지에서만 실행
 if (window.location.pathname === '/src/pages/mainPage/') {
-  // footer.html 파일을 가져와서 footer 요소에 삽입
-  await fetch('/src/pages/modal/userMenuModal/index.html')
+  fetch('/src/pages/modal/userMenuModal/')
     .then((response) => response.text())
     .then((html) => {
       const menuElement = document.querySelector('#user-menu');
@@ -60,8 +60,7 @@ if (window.location.pathname === '/src/pages/mainPage/') {
       console.error(error);
     });
 
-  // footer.html 파일을 가져와서 footer 요소에 삽입
-  await fetch('/src/pages/searchPage/index.html')
+  fetch('/src/pages/searchPage/')
     .then((response) => response.text())
     .then((html) => {
       const searchElement = document.querySelector('#search');
@@ -74,7 +73,7 @@ if (window.location.pathname === '/src/pages/mainPage/') {
     });
 
   // mainPage modal
-  await fetch('/src/pages/modal/mainPageModal/index.html')
+  fetch('/src/pages/modal/mainPageModal/')
     .then((response) => response.text())
     .then((html) => {
       const modalElement = document.querySelector('#mainPageModal');
@@ -87,13 +86,26 @@ if (window.location.pathname === '/src/pages/mainPage/') {
     });
 
   // logout modal
-  await fetch('/src/pages/modal/logoutModal/index.html')
+  fetch('/src/pages/modal/logoutModal/')
     .then((response) => response.text())
     .then((html) => {
       const modalElement = document.querySelector('#logoutModal');
       modalElement.innerHTML = html;
 
       logoutModal();
+    })
+    .catch((error) => {
+      console.error(error);
+    });
+
+  // withdrawal modal
+  fetch('/src/pages/modal/withdrawalModal/')
+    .then((response) => response.text())
+    .then((html) => {
+      const modalElement = document.querySelector('#withdrawalModal');
+      modalElement.innerHTML = html;
+
+      withdrawalModal();
     })
     .catch((error) => {
       console.error(error);

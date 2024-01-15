@@ -26,7 +26,7 @@ const extractProfileData = (userData) => {
 
 // 프로필 렌더링
 const renderProfile = (profileData) => {
-  profileData.forEach((item) => {
+  profileData.forEach((item, index) => {
     const template = `
       <li class="profileList">
         <button
@@ -35,13 +35,14 @@ const renderProfile = (profileData) => {
           <img
             src="${getImage(item, item.profileImage)}"
             alt="${item.profileNickname} 프로필 사진"
-            class="rounded opacity-50"
+            class="rounded ${index > 0 ? 'opacity-50' : ''}"
           />
-          <img
-            src="/public/assets/profile/Icon/lock.svg"
-            alt="lock"
-            class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 transform desktop:w-60pxr"
-          />
+          ${
+            index > 0
+              ? '<img src="/public/assets/profile/Icon/lock.svg" alt="lock" class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 transform desktop:w-60pxr" />'
+              : ''
+          }
+          
         </button>
         <p class="text-center text-12pxr desktop:text-28pxr text-taing-2">${
           item.profileNickname
