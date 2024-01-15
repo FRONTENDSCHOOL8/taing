@@ -22,5 +22,5 @@ loginForm.addEventListener('submit', async (e) => {
   //   })
   // );
 
-  location.href = '/src/pages/mainPage/index.html';
+  location.href = '/src/pages/mainPage/';
 });

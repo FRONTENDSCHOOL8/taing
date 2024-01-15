@@ -1,4 +1,3 @@
-// import getAuthDataFromPb from '/src/util/getAuthDataFromPb';
 import { postData, getData } from '/src/util/crud';
 
 const form = document.querySelector('#form');
@@ -37,18 +36,12 @@ async function duplicateData(e) {
       }
     });
 
-    formData.append(
-      'image',
-      '/assets/profile/content/profile_1.png',
-      'profile'
-    );
-
     const data = {
       userId: formData.get('user-id'),
       email: formData.get('email'),
       password: formData.get('password'),
       passwordConfirm: formData.get('confirm-password'),
-      profile_1: formData.get('/assets/profile/content/profile_1.png'),
+      profile_1_nickname: 'user',
     };
 
     console.log(data);
@@ -76,12 +69,23 @@ async function duplicateData(e) {
   }
 }
 
-const allAgreeCheckbox = document.getElementById('allAgreeCheckbox');
+const allAgreeCheckbox = document.querySelector('#allAgreeCheckbox');
 const individualCheckboxes = document.querySelectorAll(
   'input[type="checkbox"]:not(#allAgreeCheckbox)'
 );
 
-allAgreeCheckbox.addEventListener('change', function () {
+const marketingCheckbox = document.querySelector('#marketingCheckbox');
+const marketingSmsCheckbox = document.querySelector('#marketingSmsCheckbox');
+const marketingEmailCheckbox = document.querySelector(
+  '#marketingEmailCheckbox'
+);
+
+marketingCheckbox.addEventListener('change', () => {
+  marketingSmsCheckbox.checked = marketingCheckbox.checked;
+  marketingEmailCheckbox.checked = marketingCheckbox.checked;
+});
+
+allAgreeCheckbox.addEventListener('change', () => {
   individualCheckboxes.forEach((checkbox) => {
     checkbox.checked = allAgreeCheckbox.checked;
   });
@@ -89,7 +93,7 @@ allAgreeCheckbox.addEventListener('change', function () {
 
 // 하위 체크박스 상태에 따라 전체 동의 체크박스 변경
 individualCheckboxes.forEach((checkbox) => {
-  checkbox.addEventListener('change', function () {
+  checkbox.addEventListener('change', () => {
     allAgreeCheckbox.checked = Array.from(individualCheckboxes).every(
       (checkbox) => checkbox.checked
     );
