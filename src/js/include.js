@@ -3,7 +3,6 @@ import footer from '/src/js/footer';
 import searchPage from '/src/pages/searchPage/searchPage.js';
 import userMenuModal from '/src/pages/modal/userMenuModal/userMenuModal';
 
-
 const authData = JSON.parse(localStorage.getItem('auth'));
 const path = location.pathname;
 
@@ -44,21 +43,21 @@ await fetch('/src/components/footer.html')
     console.error(error);
   });
 
-// footer.html 파일을 가져와서 footer 요소에 삽입
-fetch('/src/pages/modal/userMenuModal/index.html')
-  .then((response) => response.text())
-  .then((html) => {
-    const menuElement = document.querySelector('#user-menu');
-    menuElement.innerHTML = html;
-
-    userMenuModal();
-  })
-  .catch((error) => {
-    console.error(error);
-  });
-
 // 메인 페이지에서만 실행
 if (window.location.pathname === '/src/pages/mainPage/') {
+  // footer.html 파일을 가져와서 footer 요소에 삽입
+  await fetch('/src/pages/modal/userMenuModal/index.html')
+    .then((response) => response.text())
+    .then((html) => {
+      const menuElement = document.querySelector('#user-menu');
+      menuElement.innerHTML = html;
+
+      userMenuModal();
+    })
+    .catch((error) => {
+      console.error(error);
+    });
+
   // footer.html 파일을 가져와서 footer 요소에 삽입
   await fetch('/src/pages/searchPage/index.html')
     .then((response) => response.text())

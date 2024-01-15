@@ -46,7 +46,7 @@ export default async function header() {
       </nav>
 
       <div class="flex gap-16pxr tablet:gap-24pxr desktop:40pxr">
-        <button type="button">
+        <button type="button" id="search-button">
           <img src="/assets/header/search_icon.svg" alt="검색 버튼" class="w-18pxr tablet:w-24pxr desktop:w-40pxr"/>
         </button>
         <button type="button" id="userMenu-button">
@@ -58,7 +58,6 @@ export default async function header() {
         <div id="user-menu" class="absolute top-full right-40pxr desktop:right-70pxr z-20 hidden"></div>
       </div>`;
 
-
     if (currentPage === '/src/pages/mainPage/' && isAuth) {
       insertTemplate('#header-wrapper', template);
     }
@@ -69,7 +68,7 @@ export default async function header() {
   if (isAuth) {
     headerLogo.href = '/src/pages/mainPage/';
   } else {
-    headerLogo.href = 'index.html';
+    headerLogo.href = '/';
   }
 
   // const currentPage = window.location.pathname;
