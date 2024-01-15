@@ -45,7 +45,7 @@ export default async function header() {
         </ul>
       </nav>
         <div class="flex gap-16pxr tablet:gap-24pxr desktop:40pxr">
-          <button type="button">
+          <button type="button" id="search-button">
             <img src="/assets/header/search_icon.svg" alt="검색 버튼" class="w-18pxr tablet:w-24pxr desktop:w-40pxr"/>
           </button>
           <a href="/src/pages/selectProfile/">

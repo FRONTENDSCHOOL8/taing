@@ -26,3 +26,7 @@
   color: #6b6b6b;
   white-space: nowrap;
 }
+
+.no-clear-button::-webkit-search-cancel-button {
+  @apply hidden;
+}

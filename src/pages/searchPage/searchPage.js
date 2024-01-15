@@ -1,15 +1,27 @@
 import { insertTemplate } from '/src/util/insertTemplate';
+import gsap from 'gsap';
 
-export default function searchPage() {
+export default async function searchPage() {
+  renderRecentHistory(); // 최근 검색어 렌더링
+
   /* 모달 */
-  const modalSection = document.querySelector('.modal-section');
-  const button = document.querySelector('.search-modal-button'); // html에 클래스 추가해야 하나,,
-  let isModal = false;
+  const modalSection = document.querySelector('#search');
+  const header = document.querySelector('#header');
+  const button = document.querySelector('#search-button');
+  const icon = header.querySelector('button > img');
 
   function clickSearchButton() {
-    isModal = !isModal;
-    if (isModal) modalSection.style.display = 'block';
-    else modalSection.style.display = 'none';
+    modalSection.classList.toggle('hidden');
+    modalSection.classList.toggle('block');
+    header.classList.toggle('bg-[#191919]');
+
+    if (modalSection.classList.contains('block')) {
+      icon.src = '/assets/searchPage/Cancel.png';
+      icon.alt = '닫기 버튼';
+    } else {
+      icon.src = '/assets/header/search_icon.svg';
+      icon.alt = '검색 버튼';
+    }
   }
 
   button.addEventListener('click', clickSearchButton);
@@ -36,9 +48,8 @@ export default function searchPage() {
   }
 
   // 최근 검색어 출력
-  function renderRecentHistory() {
-    const searchHistory = getSearchHistory(); // 검색어 불러오기
-
+  async function renderRecentHistory() {
+    const searchHistory = await getSearchHistory(); // 검색어 불러오기
     let searchList = document.querySelector('.default');
     if (searchList) searchList.remove();
 
@@ -78,9 +89,6 @@ export default function searchPage() {
     }
   }
 
-  // 페이지 새로고침 시 최근 검색어 삭제 방지
-  window.addEventListener('DOMContentLoaded', renderRecentHistory);
-
   // 검색어 입력
   function clickButton(e) {
     e.preventDefault();
@@ -94,8 +102,15 @@ export default function searchPage() {
       savedSearchHistory(searchHistory);
       searchInput.value = '';
 
-      // 모ㄹ
-      modalSection.style.display = 'none';
+      // 검색어 입력 시 모달 닫기
+      modalSection.classList.toggle('hidden');
+      modalSection.classList.toggle('block');
+
+      // 모달 창 열렸을 때 헤더
+      header.classList.toggle('bg-[#191919]');
+
+      icon.src = '/assets/header/search_icon.svg';
+      icon.alt = '검색 버튼';
     }
   }
 
