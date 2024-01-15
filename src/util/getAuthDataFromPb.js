@@ -1,4 +1,4 @@
-import { pb } from '/src/api/pocketbase';
+import { pb } from '/src/api/pocketBase';
 
 export default async function getAuthDataFromPb(
   collectionName,
