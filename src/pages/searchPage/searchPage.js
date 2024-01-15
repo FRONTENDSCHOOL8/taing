@@ -1,168 +1,185 @@
 import { insertTemplate } from '/src/util/insertTemplate';
 
-/* 검색 */
+export default function searchPage() {
+  /* 모달 */
+  const modalSection = document.querySelector('.modal-section');
+  const button = document.querySelector('.search-modal-button'); // html에 클래스 추가해야 하나,,
+  let isModal = false;
 
-const searchInput = document.querySelector('.search-text');
-const searchButton = document.querySelector('.search-button');
-const historyList = document.querySelector('.history-list');
-const searchHistoryList = document.querySelector('.search-history-list');
-let deleteAllButton = null; // 모두 지우기 버튼
+  function clickSearchButton() {
+    isModal = !isModal;
+    if (isModal) modalSection.style.display = 'block';
+    else modalSection.style.display = 'none';
+  }
 
-// localStorage에서 검색어 불러오기
-function getSearchHistory() {
-  const searchHistory = localStorage.getItem('searchHistory');
+  button.addEventListener('click', clickSearchButton);
 
-  return searchHistory ? JSON.parse(searchHistory) : [];
-}
+  /* 검색 */
+  const searchInput = document.querySelector('.search-text');
+  const searchButton = document.querySelector('.search-button');
+  const historyList = document.querySelector('.history-list');
+  const searchHistoryList = document.querySelector('.search-history-list');
+  let deleteAllButton = null; // 모두 지우기 버튼
 
-// localStorage에 검색어 저장
-function savedSearchHistory(val) {
-  localStorage.setItem('searchHistory', JSON.stringify(val));
+  // localStorage에서 검색어 불러오기
+  function getSearchHistory() {
+    const searchHistory = localStorage.getItem('searchHistory');
 
-  renderRecentHistory();
-}
+    return searchHistory ? JSON.parse(searchHistory) : [];
+  }
 
-// 최근 검색어 출력
-function renderRecentHistory() {
-  const searchHistory = getSearchHistory(); // 검색어 불러오기
+  // localStorage에 검색어 저장
+  function savedSearchHistory(val) {
+    localStorage.setItem('searchHistory', JSON.stringify(val));
 
-  let searchList = document.querySelector('.default');
-  if (searchList) searchList.remove();
+    renderRecentHistory();
+  }
 
-  historyList.innerHTML = ''; // 중복 제거 (초기화)
+  // 최근 검색어 출력
+  function renderRecentHistory() {
+    const searchHistory = getSearchHistory(); // 검색어 불러오기
 
-  if (searchHistory.length === 0) {
-    const template = /* html */ `
-    <li class="flex items-center">
-      <p class="default inline-block">검색된 내용이 없습니다</p>
-    </li>
-    `;
+    let searchList = document.querySelector('.default');
+    if (searchList) searchList.remove();
 
-    // historyList.insertAdjacentHTML('beforeend', template);
-    insertTemplate('.history-list', template);
+    historyList.innerHTML = ''; // 중복 제거 (초기화)
 
-    deleteAllButton.style.display = 'none';
-  } else {
-    searchHistory.forEach((item) => {
+    if (searchHistory.length === 0) {
       const template = /* html */ `
-        <li class="flex items-center desktop:mt-16pxr mt-8pxr">
-          <p class="inline-block">${item}</p>
-          <button class="delete-button">
-            <img
-              class="ml-16pxr h-10pxr w-10pxr bg-center desktop:ml-20pxr desktop:h-13pxr desktop:w-13pxr"
-              src="/assets/searchPage/X.png"
-              alt="삭제 버튼"
-            />
-          </button>
-        </li>
+      <li class="flex items-center">
+        <p class="default inline-block">검색된 내용이 없습니다</p>
+      </li>
       `;
 
       // historyList.insertAdjacentHTML('beforeend', template);
       insertTemplate('.history-list', template);
 
-      deleteAllButton.style.display = 'block';
-    });
+      deleteAllButton.style.display = 'none';
+    } else {
+      searchHistory.forEach((item) => {
+        const template = /* html */ `
+          <li class="flex items-center desktop:mt-16pxr mt-8pxr">
+            <p class="inline-block">${item}</p>
+            <button class="delete-button">
+              <img
+                class="ml-16pxr h-10pxr w-10pxr bg-center desktop:ml-20pxr desktop:h-13pxr desktop:w-13pxr"
+                src="/assets/searchPage/X.png"
+                alt="삭제 버튼"
+              />
+            </button>
+          </li>
+        `;
+
+        // historyList.insertAdjacentHTML('beforeend', template);
+        insertTemplate('.history-list', template);
+
+        deleteAllButton.style.display = 'block';
+      });
+    }
   }
-}
 
-// 페이지 새로고침 시 최근 검색어 삭제 방지
-window.addEventListener('DOMContentLoaded', renderRecentHistory);
+  // 페이지 새로고침 시 최근 검색어 삭제 방지
+  window.addEventListener('DOMContentLoaded', renderRecentHistory);
 
-// 검색어 입력
-function clickButton(e) {
-  e.preventDefault();
+  // 검색어 입력
+  function clickButton(e) {
+    e.preventDefault();
 
-  const val = searchInput.value;
+    const val = searchInput.value;
 
-  if (val) {
-    const searchHistory = getSearchHistory();
-    searchHistory.unshift(val);
+    if (val) {
+      const searchHistory = getSearchHistory();
+      searchHistory.unshift(val);
 
-    savedSearchHistory(searchHistory);
-    searchInput.value = '';
+      savedSearchHistory(searchHistory);
+      searchInput.value = '';
+
+      // 모ㄹ
+      modalSection.style.display = 'none';
+    }
   }
-}
 
-// 개별 삭제
-function clickDeleteButton(e) {
-  const deleteButton = e.target.closest('button');
+  // 개별 삭제
+  function clickDeleteButton(e) {
+    const deleteButton = e.target.closest('button');
 
-  if (deleteButton) {
-    const li = deleteButton.closest('li');
-    const text = li.querySelector('p').innerText;
-    const searchHistory = getSearchHistory();
-    const updateHistory = searchHistory.filter((item) => item !== text);
-    savedSearchHistory(updateHistory);
+    if (deleteButton) {
+      const li = deleteButton.closest('li');
+      const text = li.querySelector('p').innerText;
+      const searchHistory = getSearchHistory();
+      const updateHistory = searchHistory.filter((item) => item !== text);
+      savedSearchHistory(updateHistory);
 
-    li.remove();
+      li.remove();
+    }
   }
-}
 
-// 모두 지우기 버튼 생성
-function createDeleteAllButton() {
-  const template = /* html */ `
-    <button
-    class="deleteAll-button text-taing-5 tablet:text-15pxr desktop:text-21pxr"
-  >
-      모두 지우기
-      <span
-        class="ml-8pxr inline-block h-12pxr w-12pxr bg-[url('/assets/searchPage/Delete.png')] bg-contain bg-center desktop:h-20pxr desktop:w-20pxr"
-      ></span>
-    </button>
-  `;
+  // 모두 지우기 버튼 생성
+  function createDeleteAllButton() {
+    const template = /* html */ `
+      <button
+      class="deleteAll-button text-taing-5 tablet:text-15pxr desktop:text-21pxr"
+    >
+        모두 지우기
+        <span
+          class="ml-8pxr inline-block h-12pxr w-12pxr bg-[url('/assets/searchPage/Delete.png')] bg-contain bg-center desktop:h-20pxr desktop:w-20pxr"
+        ></span>
+      </button>
+    `;
 
-  // searchHistoryList.insertAdjacentHTML('beforeend', template);
-  insertTemplate('.search-history-list', template);
+    // searchHistoryList.insertAdjacentHTML('beforeend', template);
+    insertTemplate('.search-history-list', template);
 
-  deleteAllButton = document.querySelector('.deleteAll-button');
-}
-createDeleteAllButton();
-
-// 모두 삭제
-function clickDeleteAllButton(e) {
-  const deleteAllButton = e.target.closest('.deleteAll-button');
-  if (deleteAllButton) {
-    localStorage.removeItem('searchHistory');
-    renderRecentHistory();
-    deleteAllButton.style.display = 'none';
+    deleteAllButton = document.querySelector('.deleteAll-button');
   }
-}
-searchButton.addEventListener('click', clickButton);
-historyList.addEventListener('click', clickDeleteButton);
-searchHistoryList.addEventListener('click', clickDeleteAllButton);
+  createDeleteAllButton();
 
-/* placeholder 반응형 */
-function setPlaceholder() {
-  const width = window.innerWidth;
-
-  if (width >= 768) {
-    searchInput.setAttribute(
-      'placeholder',
-      'TV 프로그램, 영화 제목 및 출연진으로 검색해보세요'
-    );
-  } else {
-    searchInput.setAttribute('placeholder', '검색');
+  // 모두 삭제
+  function clickDeleteAllButton(e) {
+    const deleteAllButton = e.target.closest('.deleteAll-button');
+    if (deleteAllButton) {
+      localStorage.removeItem('searchHistory');
+      renderRecentHistory();
+      deleteAllButton.style.display = 'none';
+    }
   }
+  searchButton.addEventListener('click', clickButton);
+  historyList.addEventListener('click', clickDeleteButton);
+  searchHistoryList.addEventListener('click', clickDeleteAllButton);
+
+  /* placeholder 반응형 */
+  function setPlaceholder() {
+    const width = window.innerWidth;
+
+    if (width >= 768) {
+      searchInput.setAttribute(
+        'placeholder',
+        'TV 프로그램, 영화 제목 및 출연진으로 검색해보세요'
+      );
+    } else {
+      searchInput.setAttribute('placeholder', '검색');
+    }
+  }
+
+  window.addEventListener('DOMContentLoaded', setPlaceholder);
+  window.addEventListener('resize', setPlaceholder);
+
+  /* 현재 시간 */
+  const time = document.querySelector('.time');
+
+  function updateTime() {
+    const now = new Date();
+    const year = now.getFullYear();
+    const month = (now.getMonth() + 1).toString().padStart(2, '0');
+    const day = now.getDate().toString().padStart(2, '0');
+    const hour = now.getHours().toString().padStart(2, '0');
+    const minute = now.getMinutes().toString().padStart(2, '0');
+    const amPm = hour >= 12 ? '오후' : '오전';
+
+    const currentTime = `${year}.${month}.${day} ${amPm} ${hour}:${minute} 기준`;
+
+    return currentTime;
+  }
+
+  time.textContent = updateTime();
 }
-
-window.addEventListener('DOMContentLoaded', setPlaceholder);
-window.addEventListener('resize', setPlaceholder);
-
-/* 현재 시간 */
-const time = document.querySelector('.time');
-
-function updateTime() {
-  const now = new Date();
-  const year = now.getFullYear();
-  const month = (now.getMonth() + 1).toString().padStart(2, '0');
-  const day = now.getDate().toString().padStart(2, '0');
-  const hour = now.getHours().toString().padStart(2, '0');
-  const minute = now.getMinutes().toString().padStart(2, '0');
-  const amPm = hour >= 12 ? '오후' : '오전';
-
-  const currentTime = `${year}.${month}.${day} ${amPm} ${hour}:${minute} 기준`;
-
-  return currentTime;
-}
-
-time.textContent = updateTime();
