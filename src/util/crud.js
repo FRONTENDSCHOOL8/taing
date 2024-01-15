@@ -1,4 +1,4 @@
-import { pb } from '/src/api/pocketbase';
+import { pb } from '/src/api/pocketBase';
 
 // 데이터를 가져오는 함수
 async function getData(collectionName, options = {}) {

@@ -7,32 +7,34 @@
     <script type="module" src="/src/js/include.js"></script>
     <script type="module" src="/src/pages/regist/regist.js"></script>
 
-    <title>TAING - regist</title>
+    <title>TAING - register</title>
   </head>
   <body class="bg-black">
-    <header id="header" class=""></header>
-    <main class="tracking-tighter">
-      <h2 class="mb-5 mt-10 flex justify-center text-2xl font-bold text-white">
+    <header id="header"></header>
+    <main>
+      <h2
+        class="mb-20pxr mt-10 flex justify-center text-16pxr font-bold text-white tablet:text-28pxr desktop:text-38pxr"
+      >
         티빙 회원가입
       </h2>
-      <div class="mb-10 flex justify-center text-taing-3">
+      <div class="mb-4pxr flex justify-center text-12pxr text-taing-3">
         아이디와 이메일로 간편하게 티빙을 시작하세요!
       </div>
 
-      <div class="flex justify-center">
-        <form id="form">
+      <div class="flex flex-col items-center">
+        <form id="form" class="w-10/12 max-w-288pxr tablet:max-w-416pxr">
           <label class="sr-only">아이디</label>
           <input
             type="text"
             id="user-id"
             name="user-id"
             placeholder="아이디"
-            class="mb-1 w-96 rounded border-0 bg-input p-3 text-white focus:bg-input focus:outline-1"
+            class="mb-4pxr w-full rounded border-0 bg-input p-12pxr text-12pxr text-white focus:bg-input"
           />
           <label
             for="user-id"
-            class="mb-5 block text-sm font-medium text-taing-4"
-            >아무거나 적으시오</label
+            class="mb-20pxr block text-12pxr font-medium text-taing-4"
+            >아무거나</label
           >
 
           <label class="sr-only">패스워드</label>
@@ -41,11 +43,11 @@
             id="password"
             name="password"
             placeholder="비밀번호"
-            class="mb-1 w-96 rounded border-0 bg-input p-3 text-white focus:bg-input focus:outline-1"
+            class="mb-4pxr w-full rounded border-0 bg-input p-12pxr text-12pxr text-white focus:bg-input"
           />
           <label
             for="password"
-            class="mb-5 block text-sm font-medium text-taing-4"
+            class="mb-20pxr block text-12pxr font-medium text-taing-4"
             >영문, 숫자, 특수문자(~!@#$%^&*) 조합 6~16자리</label
           >
 
@@ -54,7 +56,7 @@
             id="confirm-password"
             name="confirm-password"
             placeholder="비밀번호 확인"
-            class="mb-5 w-96 rounded border-0 bg-input p-3 text-white focus:bg-input focus:outline-1"
+            class="mb-20pxr w-full rounded border-0 bg-input p-12pxr text-12pxr text-white focus:bg-input"
           /><br />
           <label for="" class="sr-only">이메일</label>
           <input
@@ -62,80 +64,92 @@
             id="email"
             name="email"
             placeholder="이메일"
-            class="mb-5 w-96 rounded border-0 bg-input p-3 text-white focus:bg-input focus:outline-1"
+            class="mb-20pxr w-full rounded border-0 bg-input p-12pxr text-12pxr text-white focus:bg-input"
           /><br />
 
-          <div class="mb-4">
-            <input type="checkbox" id="allAgreeCheckbox" class="mr-2" />
+          <div class="mb-4pxr">
+            <input type="checkbox" id="allAgreeCheckbox" class="mr-8pxr" />
             <label
               for="allAgreeCheckbox"
-              class="text-base font-bold text-taing-2"
+              class="text-12pxr font-bold text-taing-2"
               >모두 동의합니다.</label
             >
           </div>
 
-          <div class="mb-1">
-            <input type="checkbox" id="ageCheckbox" class="mr-2" />
-            <label for="ageCheckbox" class="text-sm font-bold text-taing-4"
+          <div class="mb-4pxr">
+            <input type="checkbox" id="ageCheckbox" class="mr-8pxr" />
+            <label for="ageCheckbox" class="text-12pxr font-bold text-taing-4"
               >만 14세 이상입니다.</label
             >
           </div>
 
-          <div class="mb-1">
-            <input type="checkbox" id="termsCheckbox" class="essential mr-2" />
-            <label for="termsCheckbox" class="text-sm font-bold text-taing-4"
+          <div class="mb-4pxr">
+            <input
+              type="checkbox"
+              id="termsCheckbox"
+              class="essential mr-8pxr"
+            />
+            <label for="termsCheckbox" class="text-12pxr font-bold text-taing-4"
               >[필수] 서비스 이용약관 동의</label
             >
           </div>
 
-          <div class="mb-1">
+          <div class="mb-4pxr">
             <input
               type="checkbox"
               id="privacyCheckbox"
-              class="essential mr-2"
+              class="essential mr-8pxr"
             />
-            <label for="privacyCheckbox" class="text-sm font-bold text-taing-4"
+            <label
+              for="privacyCheckbox"
+              class="text-12pxr font-bold text-taing-4"
               >[필수] 개인정보 수집 및 서비스 활용 동의</label
             >
           </div>
-          <div class="mb-1">
+          <div class="mb-4pxr">
             <input
               type="checkbox"
-              id="privacyCheckbox"
-              class="essential mr-2"
+              id="channelThirdpartyUseCheckbox"
+              class="essential mr-8pxr"
             />
-            <label for="privacyCheckbox" class="text-sm font-bold text-taing-4"
+            <label
+              for="channelThirdpartyUseCheckbox"
+              class="text-12pxr font-bold text-taing-4"
               >[필수] 채널 홈페이지 개인정보 제 3자 제공동의</label
             >
           </div>
-          <div class="mb-1">
-            <input type="checkbox" id="privacyCheckbox" class="mr-2" />
-            <label for="privacyCheckbox" class="text-sm font-bold text-taing-4"
-              >[선택] 개인정보 제3자 제공동의</label
+          <div class="mb-4pxr">
+            <input type="checkbox" id="marketingCheckbox" class="mr-8pxr" />
+            <label
+              for="marketingCheckbox"
+              class="text-12pxr font-bold text-taing-4"
+              >[선택] 마케팅 정보 모두 동의</label
             >
           </div>
-          <div class="mb-1">
-            <input type="checkbox" id="privacyCheckbox" class="mr-2" />
-            <label for="privacyCheckbox" class="text-sm font-bold text-taing-4"
-              >[선택] 개인정보 수집 및 서비스 활용 동의</label
-            >
-          </div>
-          <div class="mb-1 ml-7">
-            <input type="checkbox" id="privacyCheckbox" class="mr-2" />
-            <label for="privacyCheckbox" class="text-sm font-bold text-taing-4"
+          <div class="mb-4pxr ms-16pxr">
+            <input type="checkbox" id="marketingSmsCheckbox" class="mr-8pxr" />
+            <label
+              for="marketingSmsCheckbox"
+              class="text-12pxr font-bold text-taing-4"
               >[선택] 마케팅 정보 SMS 수신동의</label
             >
           </div>
-          <div class="mb-1 ml-7">
-            <input type="checkbox" id="privacyCheckbox" class="mr-2" />
-            <label for="privacyCheckbox" class="text-sm font-bold text-taing-4"
-              >[선택] 마케팅 정보 dlapdlf 수신동의</label
+          <div class="mb-4pxr ms-16pxr">
+            <input
+              type="checkbox"
+              id="marketingEmailCheckbox"
+              class="mr-8pxr"
+            />
+            <label
+              for="marketingEmailCheckbox"
+              class="text-12pxr font-bold text-taing-4"
+              >[선택] 마케팅 정보 email 수신동의</label
             >
           </div>
 
           <button
             href="/"
-            class="mb-5 mt-5 w-96 rounded bg-button-submit-default p-3 text-center font-bold text-taing-3 hover:bg-white hover:text-black active:bg-button-submit-active"
+            class="mb-20pxr mt-20pxr w-full rounded bg-button-submit-default p-12pxr text-center text-12pxr font-bold text-taing-3 active:bg-button-submit-active"
           >
             가입하기
           </button>

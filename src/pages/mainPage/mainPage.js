@@ -62,12 +62,16 @@ const popularProgram = await getData('popular_program', {
   sort: 'rank',
 });
 
+console.log(suggestionContents);
+
 setIsLoading(!isLoading);
 
 suggestionContents.forEach((item) => {
   const template = /* html */ `
   <li class="swiper-slide">
-    <a href="/">
+    <a href="/src/pages/detailPage/?collectionName=${item.collectionName}&id=${
+      item.id
+    }">
       <figure>
         <div class="relative">
           <img src="${getImageURL(item)}" alt="${
@@ -97,7 +101,9 @@ suggestionContents.forEach((item) => {
 quickVod.forEach((item) => {
   const template = /* html */ `
     <li class="swiper-slide">
-      <a href="/">
+      <a href="/src/pages/detailPage/?collectionName=${
+        item.collectionName
+      }&id=${item.id}">
         <figure>
           <div relative>
             <img
@@ -124,7 +130,9 @@ quickVod.forEach((item) => {
 popularProgram.forEach((item) => {
   const template = /* html */ `
     <li class="swiper-slide">
-      <a href="/">
+      <a href="/src/pages/detailPage/?collectionName=${
+        item.collectionName
+      }&id=${item.id}">
         <figure>
           <div class="relative">
             ${
@@ -157,7 +165,9 @@ popularProgram.forEach((item) => {
 popularLive.forEach((item) => {
   const template = /* html */ `
   <li class="swiper-slide relative">
-    <a href="/">
+    <a href="/src/pages/detailPage/?collectionName=${item.collectionName}&id=${
+      item.id
+    }">
       <figure>
         <img
           src="${getImageURL(item)}"
@@ -202,7 +212,9 @@ originalContents.forEach((item) => {
 eventContents.forEach((item) => {
   const template = /* html */ `
   <li class="swiper-slide">
-    <a href="/">
+    <a href="/src/pages/detailPage/?collectionName=${item.collectionName}&id=${
+      item.id
+    }">
       <figure>
         <img
           src="${getImageURL(item)}"

@@ -6,7 +6,6 @@
     <link rel="stylesheet" href="/src/styles/tailwind.css" />
     <script type="module" src="/src/js/include.js"></script>
     <script type="module" src="/src/pages/login/login.js"></script>
-
     <title>TAING - login</title>
   </head>
   <body class="bg-black">
@@ -15,10 +14,9 @@
       <h2 class="mb-10 mt-20 flex justify-center text-3xl font-bold text-white">
         TVING ID 로그인
       </h2>
-
       <div class="flex justify-center">
         <form id="login-form">
-          <label class="sr-only">아이디</label>
+          <label for="username" class="sr-only">아이디</label>
           <input
             type="text"
             id="username"
@@ -26,7 +24,7 @@
             placeholder="아이디"
             class="mb-2 w-96 max-w-416pxr rounded border-0 bg-input p-16pxr text-white focus:bg-input focus:outline-1"
           /><br />
-          <label class="sr-only">패스워드</label>
+          <label for="password" class="sr-only">패스워드</label>
           <input
             type="password"
             id="password"
@@ -34,9 +32,10 @@
             placeholder="비밀번호"
             class="mb-3 w-96 rounded border-0 bg-input p-16pxr text-white focus:bg-input focus:outline-1"
           /><br />
-          <input type="checkbox" />
-          <label class="ml-1 text-white">자동로그인</label><br />
-
+          <input type="checkbox" id="auto-login" />
+          <label class="ml-1 select-none text-white" for="auto-login"
+            >자동로그인</label
+          ><br />
           <button
             type="submit"
             class="mb-5 mt-3 w-96 rounded bg-button-default p-16pxr text-center text-white hover:bg-button-hover"
@@ -45,7 +44,6 @@
           </button>
         </form>
       </div>
-
       <div class="flex justify-center">
         <a
           href="/src/pages/findId/"
@@ -62,7 +60,6 @@
       <div>
         <p class="mt-5 flex justify-center tracking-tighter text-taing-4">
           아직 계정이 없으신가요?
-
           <a
             href="/src/pages/regist/"
             class="ml-3 text-taing-2 hover:text-white"

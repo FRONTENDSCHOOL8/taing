@@ -1,5 +1,20 @@
 import header from '/src/js/header';
 import footer from '/src/js/footer';
+import searchPage from '/src/pages/searchPage/searchPage.js';
+
+const authData = JSON.parse(localStorage.getItem('auth'));
+const path = location.pathname;
+
+if (
+  path === '/src/pages/mainPage/' ||
+  path === '/src/pages/selectProfile/' ||
+  path === '/src/pages/editProfile/'
+) {
+  if (!authData || !authData.isAuth) {
+    alert('로그인 후 이용해주세요.');
+    location.href = '/src/pages/login/';
+  }
+}
 
 // header.html 파일을 가져와서 header 요소에 삽입
 fetch('/src/components/header.html')
@@ -26,3 +41,19 @@ fetch('/src/components/footer.html')
   .catch((error) => {
     console.error(error);
   });
+
+// 메인 페이지에서만 실행
+if (window.location.pathname === '/src/pages/mainPage/index.html') {
+  // footer.html 파일을 가져와서 footer 요소에 삽입
+  fetch('/src/pages/searchPage/index.html')
+    .then((response) => response.text())
+    .then((html) => {
+      const searchElement = document.querySelector('#search');
+      searchElement.innerHTML = html;
+
+      searchPage();
+    })
+    .catch((error) => {
+      console.error(error);
+    });
+}
