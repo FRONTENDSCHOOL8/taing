@@ -44,6 +44,7 @@ export default async function header() {
           </li>
         </ul>
       </nav>
+
       <div class="flex gap-16pxr tablet:gap-24pxr desktop:40pxr">
         <button type="button">
           <img src="/assets/header/search_icon.svg" alt="검색 버튼" class="w-18pxr tablet:w-24pxr desktop:w-40pxr"/>
@@ -56,6 +57,7 @@ export default async function header() {
         </button>
         <div id="user-menu" class="absolute top-full right-40pxr desktop:right-70pxr z-20 hidden"></div>
       </div>`;
+
 
     if (currentPage === '/src/pages/mainPage/' && isAuth) {
       insertTemplate('#header-wrapper', template);

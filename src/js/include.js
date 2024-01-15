@@ -3,6 +3,7 @@ import footer from '/src/js/footer';
 import searchPage from '/src/pages/searchPage/searchPage.js';
 import userMenuModal from '/src/pages/modal/userMenuModal/userMenuModal';
 
+
 const authData = JSON.parse(localStorage.getItem('auth'));
 const path = location.pathname;
 
@@ -18,7 +19,7 @@ if (
 }
 
 // header.html 파일을 가져와서 header 요소에 삽입
-fetch('/src/components/header.html')
+await fetch('/src/components/header.html')
   .then((response) => response.text())
   .then((html) => {
     const headerElement = document.querySelector('#header');
@@ -31,7 +32,7 @@ fetch('/src/components/header.html')
   });
 
 // footer.html 파일을 가져와서 footer 요소에 삽입
-fetch('/src/components/footer.html')
+await fetch('/src/components/footer.html')
   .then((response) => response.text())
   .then((html) => {
     const footerElement = document.querySelector('#footer');
@@ -57,9 +58,9 @@ fetch('/src/pages/modal/userMenuModal/index.html')
   });
 
 // 메인 페이지에서만 실행
-if (window.location.pathname === '/src/pages/mainPage/index.html') {
+if (window.location.pathname === '/src/pages/mainPage/') {
   // footer.html 파일을 가져와서 footer 요소에 삽입
-  fetch('/src/pages/searchPage/index.html')
+  await fetch('/src/pages/searchPage/index.html')
     .then((response) => response.text())
     .then((html) => {
       const searchElement = document.querySelector('#search');
