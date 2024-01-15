@@ -10,6 +10,7 @@ export default async function header() {
     const { isAuth, model } = auth;
 
     const template = /* html */ `
+
       <div class="hidden justify-between items-center w-full tablet:flex desktop:flex">
         <nav
         class="text-12pxr text-taing-1 desktop:text-21pxr"
@@ -54,6 +55,7 @@ export default async function header() {
             )}" alt="사용자 프로필 이미지" class="w-18pxr rounded-sm tablet:w-24pxr desktop:w-40pxr" />
           </a>
         </div>
+
       </div>
     `;
 

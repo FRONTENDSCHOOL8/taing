@@ -2,6 +2,12 @@
 <html lang="ko">
   <head>
     <meta charset="UTF-8" />
+    <meta id="_csrf" name="_csrf" th:content="${_csrf.token}" />
+    <meta
+      id="_csrf_header"
+      name="_csrf_header"
+      th:content="${_csrf.headerName}"
+    />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="shortcut icon" href="/public/favicon.ico" type="image/x-icon" />
     <link rel="stylesheet" href="/src/styles/tailwind.css" />
@@ -10,7 +16,9 @@
     <title>TAING - Main</title>
   </head>
   <body class="flow-root overflow-x-hidden bg-black">
+
     <header id="header" class="fixed z-20 w-full bg-header"></header>
+
     <div id="search"></div>
     <div
       class="loading fixed z-20 flex h-screen w-screen items-center justify-center bg-black/[0.64]"

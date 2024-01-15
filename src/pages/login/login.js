@@ -9,18 +9,18 @@ loginForm.addEventListener('submit', async (e) => {
   const username = document.querySelector('#username').value;
   const password = document.querySelector('#password').value;
 
-  await getAuthDataFromPb('users', username, password);
+  await getAuthDataFromPb('users', 'users34635', 'qwert12345!');
 
   const userData = await JSON.parse(localStorage.getItem('pocketbase_auth'));
 
-  localStorage.setItem(
-    'auth',
-    JSON.stringify({
-      isAuth: !!userData.token,
-      model: userData.model,
-      token: userData.token,
-    })
-  );
+  // localStorage.setItem(
+  //   'auth',
+  //   JSON.stringify({
+  //     isAuth: !!userData.token,
+  //     model: userData.model,
+  //     token: userData.token,
+  //   })
+  // );
 
   location.href = '/src/pages/mainPage/';
 });
