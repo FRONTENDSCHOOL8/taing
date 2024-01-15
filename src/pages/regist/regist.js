@@ -1,4 +1,5 @@
 import { postData, getData } from '/src/util/crud';
+import { getImageURL } from '/src/util/getImageURL';
 
 const form = document.querySelector('#form');
 const emailInput = document.querySelector('#email');
@@ -6,6 +7,7 @@ const userId = document.querySelector('#user-id');
 const password = document.querySelector('#password');
 const confirmPassword = document.querySelector('#confirm-password');
 const checkbox = document.querySelectorAll('.essential');
+const submitButton = document.querySelector('#submit-button');
 
 const emailValidation = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 const passwordValidation =
@@ -36,18 +38,36 @@ async function duplicateData(e) {
       }
     });
 
+    const defaultData = await getData('default_data');
+    const profileImage = getImageURL(defaultData[0], 'default_profile');
+
+    console.log(profileImage);
+    console.log(defaultData[0]['default_profile_nickname']);
+
+    await fetch(profileImage)
+      .then((res) => res.blob())
+      .then((blob) => {
+        formData.append('profile_1', blob, 'default_profile');
+      });
+
+    formData.append(
+      'profile_1_nickname',
+      defaultData[0]['default_profile_nickname']
+    );
+
     const data = {
-      userId: formData.get('user-id'),
+      username: formData.get('user-id'),
       email: formData.get('email'),
       password: formData.get('password'),
       passwordConfirm: formData.get('confirm-password'),
-      profile_1_nickname: 'user',
+      profile_1: formData.get('profile_1'),
+      profile_1_nickname: formData.get('profile_1_nickname'),
     };
 
     console.log(data);
 
     const res = await getData('users', {
-      filter: `email='${emailValue}' || userId='${userIdValue}'`,
+      filter: `email='${emailValue}' || username='${userIdValue}'`,
     });
 
     if (!passEmail || !passPassword) {
@@ -62,7 +82,7 @@ async function duplicateData(e) {
       const record = await postData('users', data);
       console.log(record);
       alert('회원가입이 완료되었습니다.');
-      // location.href = '/src/pages/login/';
+      location.href = '/src/pages/login/';
     }
   } catch (error) {
     console.error(error);

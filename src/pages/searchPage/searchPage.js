@@ -1,4 +1,5 @@
 import { insertTemplate } from '/src/util/insertTemplate';
+import gsap from 'gsap';
 
 export default async function searchPage() {
   renderRecentHistory(); // 최근 검색어 렌더링
@@ -6,13 +7,15 @@ export default async function searchPage() {
   /* 모달 */
   const modalSection = document.querySelector('#search');
   const header = document.querySelector('#header');
-  const button = document.querySelector('#search');
+  const button = document.querySelector('#search-button');
   const icon = header.querySelector('button > img');
 
   function clickSearchButton() {
     modalSection.classList.toggle('hidden');
     modalSection.classList.toggle('block');
-    header.classList.toggle('bg-[#191919]');
+    gsap.to(header, {
+      backgroundColor: '#191919',
+    });
 
     if (modalSection.classList.contains('block')) {
       icon.src = '/assets/searchPage/Cancel.png';

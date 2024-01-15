@@ -1,5 +1,4 @@
 import 'swiper/bundle';
-// import 'swiper/css';
 import Swiper from 'swiper';
 
 // original content swiper

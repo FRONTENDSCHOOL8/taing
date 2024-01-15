@@ -11,31 +11,34 @@
   </head>
   <body class="flow-root overflow-x-hidden bg-black">
     <header id="header" class="fixed z-20 w-full bg-header"></header>
-
-    <div
-      id="logoutModal"
-      class="fixed z-20 hidden h-screen w-screen bg-black/[0.6]"
-    ></div>
-
-    <div
-      id="mainPageModal"
-      class="fixed left-1/2 top-1/2 z-20 hidden -translate-x-1/2 -translate-y-1/2"
-    ></div>
-
-    <div
-      id="search"
-      class="fixed top-38pxr z-20 hidden w-screen tablet:top-56pxr desktop:top-100pxr"
-    ></div>
-
-    <div
-      class="loading fixed z-20 flex h-screen w-screen items-center justify-center bg-black/[0.64]"
-    >
-      <img
-        src="/assets/mainPage/loading.svg"
-        alt="로딩 중 아이콘"
-        class="pb-250pxr"
-      />
+    <div id="modal-wrapper">
+      <div
+        id="withdrawalModal"
+        class="fixed z-20 hidden h-screen w-screen bg-black/[0.6]"
+      ></div>
+      <div
+        id="logoutModal"
+        class="fixed z-20 hidden h-screen w-screen bg-black/[0.6]"
+      ></div>
+      <div
+        id="mainPageModal"
+        class="fixed left-1/2 top-1/2 z-20 hidden -translate-x-1/2 -translate-y-1/2"
+      ></div>
+      <div
+        id="search"
+        class="fixed top-38pxr z-20 hidden w-screen tablet:top-56pxr desktop:top-100pxr"
+      ></div>
+      <div
+        class="loading fixed z-20 flex h-screen w-screen items-center justify-center bg-black/[0.64]"
+      >
+        <img
+          src="/assets/mainPage/loading.svg"
+          alt="로딩 중 아이콘"
+          class="pb-250pxr"
+        />
+      </div>
     </div>
+
     <main>
       <section id="main-banner">
         <h2 class="sr-only">main banner</h2>

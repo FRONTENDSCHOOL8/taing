@@ -5,12 +5,28 @@ import gsap from 'gsap';
 export default async function header() {
   const auth = await JSON.parse(localStorage.getItem('auth'));
   const currentPage = window.location.pathname;
-  const { isAuth, model } = auth;
+  const headerLogo = document.querySelector('#header a');
+  console.log(headerLogo);
 
-  if (!localStorage.getItem('auth')) {
-    return;
+  let isAuth;
+  let model;
+
+  if (auth !== null && auth !== undefined) {
+    isAuth = auth.isAuth;
+    model = auth.model;
+  }
+
+  if (!isAuth) {
+    headerLogo.href = '/index.html';
   } else {
-    const template = /* html */ `
+    headerLogo.href = '/src/pages/mainPage/';
+  }
+
+  if (currentPage === '/src/pages/mainPage/') {
+    if (!localStorage.getItem('auth')) {
+      return;
+    } else {
+      const template = /* html */ `
       <div class="hidden justify-between items-center w-full tablet:flex desktop:flex">
         <nav
         class="text-12pxr text-taing-1 desktop:text-21pxr"
@@ -58,37 +74,55 @@ export default async function header() {
         <div id="user-menu" class="absolute top-full right-40pxr desktop:right-70pxr z-20 hidden"></div>
       </div>`;
 
-    if (currentPage === '/src/pages/mainPage/' && isAuth) {
-      insertTemplate('#header-wrapper', template);
+      if (
+        currentPage === '/src/pages/mainPage/' ||
+        (currentPage === '/src/pages/detailPage/' && isAuth)
+      ) {
+        insertTemplate('#header-wrapper', template);
+      }
     }
   }
-
-  const headerLogo = document.querySelector('#header .logo');
-
-  if (isAuth) {
-    headerLogo.href = '/src/pages/mainPage/';
-  } else {
-    headerLogo.href = 'index.html';
-  }
-
   // const currentPage = window.location.pathname;
+  const searchModal = document.querySelector('#search');
 
+  // 스크롤 이벤트(메인 페이지에서만 실행)
   if (currentPage === '/src/pages/mainPage/') {
     let lastScroll = 0;
 
     window.addEventListener('scroll', () => {
       const header = document.querySelector('#header');
       const currentScroll = window.scrollY;
+      const isSearchHidden = searchModal.classList.contains('hidden');
 
-      if (window.scrollY > lastScroll) {
+      if (currentScroll > 20 && isSearchHidden) {
+        gsap.to(header, {
+          backgroundColor: 'rgba(0, 0, 0, 0.9)',
+        });
+      }
+
+      if (currentScroll < 20 && isSearchHidden) {
+        gsap.to(header, {
+          backgroundColor: 'transparent',
+        });
+      }
+
+      if (window.scrollY > lastScroll && isSearchHidden) {
         gsap.to(header, {
           y: -header.offsetHeight,
           duration: 0.5,
         });
-      } else if (currentScroll < lastScroll) {
+      }
+
+      if (currentScroll < lastScroll && isSearchHidden) {
         gsap.to(header, {
           y: 0,
           duration: 0.5,
+        });
+      }
+
+      if (!isSearchHidden) {
+        gsap.to(header, {
+          backgroundColor: '#191919',
         });
       }
 
