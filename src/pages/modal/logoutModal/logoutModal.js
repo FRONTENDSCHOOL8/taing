@@ -18,7 +18,7 @@ export default async function logoutModal() {
     closeModal();
     pb.authStore.clear();
     localStorage.removeItem('auth');
-    window.location.href = '/src/pages/landingPage/index.html';
+    window.location.href = '/src/pages/landingPage/';
   }
 
   // 버튼 클릭 이벤트 처리
