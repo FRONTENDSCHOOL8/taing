@@ -5,11 +5,12 @@ export default async function logoutModal() {
   // 확인 버튼 - 로그아웃
   // 취소 버튼 - 모달창 닫음
   const modalContainer = document.querySelector('#logoutModal');
-  const confirmButton = document.querySelector('.confirm-button');
-  const cancelButton = document.querySelector('.cancel-button');
+  const confirmButton = document.querySelector('#logoutModal .confirm-button');
+  const cancelButton = document.querySelector('#logoutModal .cancel-button');
 
   // 모달 창 닫기
   function closeModal() {
+    modalContainer.classList.remove('block');
     modalContainer.classList.add('hidden');
   }
 
