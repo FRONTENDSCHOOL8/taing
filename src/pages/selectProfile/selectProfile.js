@@ -5,7 +5,7 @@ import { insertTemplate } from '/src/util/insertTemplate';
 // 클릭한 프로필버튼의 alt.nickname과 서버의 nickname 을 연결
 
 // 프로필 데이터 추출
-const extractProfileData = (userData) => {
+function extractProfileData(userData) {
   let profileData = [];
   for (let i = 1; i <= 4; i++) {
     const profileImage = `profile_${i}`;
@@ -22,10 +22,10 @@ const extractProfileData = (userData) => {
   }
   console.log(profileData);
   return profileData;
-};
+}
 
 // 프로필 렌더링
-const renderProfile = (profileData) => {
+function renderProfile(profileData) {
   profileData.forEach((item, index) => {
     const template = `
       <li class="profileList">
@@ -39,7 +39,7 @@ const renderProfile = (profileData) => {
           />
           ${
             index > 0
-              ? '<img src="/public/assets/profile/Icon/lock.svg" alt="lock" class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 transform desktop:w-60pxr" />'
+              ? '<img src="/assets/profile/Icon/lock.svg" alt="lock" class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 transform desktop:w-60pxr" />'
               : ''
           }
           
@@ -50,10 +50,10 @@ const renderProfile = (profileData) => {
       </li>`;
     insertTemplate('.profile-photo > ul', template);
   });
-};
+}
 
 // 초기화
-const init = async () => {
+async function init() {
   const loginUser = await JSON.parse(localStorage.getItem('auth'));
   const userData = loginUser.model;
   const profileData = extractProfileData(userData);
@@ -65,7 +65,7 @@ const init = async () => {
       window.location.href = '/src/pages/mainPage/';
     });
   });
-};
+}
 
 init();
 

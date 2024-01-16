@@ -1,12 +1,10 @@
-import { getData } from '/src/util/crud';
-import { getImageURL } from '/src/util/getImageURL';
 import { insertTemplate } from '/src/util/insertTemplate';
 
 //! 프로필 클릭 시 닉네임 & 사진 수정
 // nickname 프로필 버튼에 할당
 
 // 프로필 데이터 추출
-const extractProfileData = (userData) => {
+function extractProfileData(userData) {
   let profileData = [];
   for (let i = 1; i <= 4; i++) {
     const profileImage = `profile_${i}`;
@@ -23,11 +21,11 @@ const extractProfileData = (userData) => {
   }
   console.log(profileData);
   return profileData;
-};
+}
 
 // 프로필 렌더링
-const renderProfile = (profileData) => {
-  profileData.forEach((item) => {
+function renderProfile(profileData) {
+  profileData.forEach((item, index) => {
     const template = `
         <li class="profileList">
           <button
@@ -36,13 +34,14 @@ const renderProfile = (profileData) => {
             <img
               src="${getImage(item, item.profileImage)}"
               alt="${item.profileNickname} 프로필 사진"
-              class="rounded opacity-50"
+              class="rounded ${index > 0 ? 'opacity-50' : ''}"
             />
-            <img
-              src="/public/assets/profile/Icon/pencil.svg"
-              alt="pencil"
-              class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 transform desktop:w-60pxr"
-            />
+            ${
+              index > 0
+                ? '<img src="/assets/profile/Icon/pencil.svg" alt="pencil" class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 transform desktop:w-60pxr" />'
+                : ''
+            }
+            
           </button>
           <p class="text-center text-12pxr text-taing-2">${
             item.profileNickname
@@ -50,10 +49,10 @@ const renderProfile = (profileData) => {
         </li>`;
     insertTemplate('.profile-photo > ul', template);
   });
-};
+}
 
 // 초기화
-const init = async () => {
+async function init() {
   const loginUser = await JSON.parse(localStorage.getItem('auth'));
   const userData = loginUser.model;
   const profileData = extractProfileData(userData);
@@ -65,7 +64,7 @@ const init = async () => {
       window.location.href = '/src/pages/editProfile/profileForEdit.html';
     });
   });
-};
+}
 
 init();
 
