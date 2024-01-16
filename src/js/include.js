@@ -47,7 +47,7 @@ await fetch('/src/components/footer.html')
   });
 
 // 메인 페이지에서만 실행
-if (window.location.pathname === '/src/pages/mainpage/') {
+if (location.pathname === '/src/pages/mainpage/') {
   fetch('/src/pages/modal/userMenuModal/')
     .then((response) => response.text())
     .then((html) => {

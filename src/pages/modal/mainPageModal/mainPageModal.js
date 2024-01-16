@@ -1,7 +1,9 @@
 export default function mainPageModal() {
-  const modalContainer = document.querySelector('.modal-container');
-  const closeButton = document.querySelector('.closeButton');
-  const closeTodayButton = document.querySelector('.closeTodayButton');
+  const modalContainer = document.querySelector('#mainPageModal');
+  const closeButton = document.querySelector('#mainPageModal .closeButton');
+  const closeTodayButton = document.querySelector(
+    '#mainPageModal .closeTodayButton'
+  );
   let closeFor24Hours = false;
 
   // 모달 창 열기
