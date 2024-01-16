@@ -1,5 +1,3 @@
-// import { getData } from '/src/util/crud';
-// import { getImageURL } from '/src/util/getImageURL';
 import { insertTemplate } from '/src/util/insertTemplate';
 
 // 클릭한 프로필버튼의 alt.nickname과 서버의 nickname 을 연결

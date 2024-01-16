@@ -47,8 +47,8 @@ await fetch('/src/components/footer.html')
   });
 
 // 메인 페이지에서만 실행
-if (window.location.pathname === '/src/pages/mainpage/') {
-  fetch('/src/pages/modal/usermenumodal/')
+if (window.location.pathname === '/src/pages/mainPage/') {
+  fetch('/src/pages/modal/userMenuModal/')
     .then((response) => response.text())
     .then((html) => {
       const menuElement = document.querySelector('#user-menu');
@@ -60,7 +60,7 @@ if (window.location.pathname === '/src/pages/mainpage/') {
       console.error(error);
     });
 
-  fetch('/src/pages/searchpage/')
+  fetch('/src/pages/searchPage/')
     .then((response) => response.text())
     .then((html) => {
       const searchElement = document.querySelector('#search');
@@ -73,10 +73,10 @@ if (window.location.pathname === '/src/pages/mainpage/') {
     });
 
   // mainPage modal
-  fetch('/src/pages/modal/mainpagemodal/')
+  fetch('/src/pages/modal/mainPageModal/')
     .then((response) => response.text())
     .then((html) => {
-      const modalElement = document.querySelector('#mainpagemodal');
+      const modalElement = document.querySelector('#mainPageModal');
       modalElement.innerHTML = html;
 
       mainPageModal();
@@ -86,10 +86,10 @@ if (window.location.pathname === '/src/pages/mainpage/') {
     });
 
   // logout modal
-  fetch('/src/pages/modal/logoutmodal/')
+  fetch('/src/pages/modal/logoutModal/')
     .then((response) => response.text())
     .then((html) => {
-      const modalElement = document.querySelector('#logoutmodal');
+      const modalElement = document.querySelector('#logoutModal');
       modalElement.innerHTML = html;
 
       logoutModal();
@@ -99,10 +99,10 @@ if (window.location.pathname === '/src/pages/mainpage/') {
     });
 
   // withdrawal modal
-  fetch('/src/pages/modal/withdrawalmodal/')
+  fetch('/src/pages/modal/withdrawalModal/')
     .then((response) => response.text())
     .then((html) => {
-      const modalElement = document.querySelector('#withdrawalmodal');
+      const modalElement = document.querySelector('#withdrawalModal');
       modalElement.innerHTML = html;
 
       withdrawalModal();
