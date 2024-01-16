@@ -26,7 +26,7 @@ async function findId(e) {
 
   try {
     const res = await getData('users', {
-      filter: `userId='${userIdValue}'`,
+      filter: `username='${userIdValue}'`,
     });
 
     if (res.length > 0) {
