@@ -19,10 +19,10 @@ export default async function header() {
   if (!isAuth) {
     headerLogo.href = '/index.html';
   } else {
-    headerLogo.href = '/src/pages/mainPage/';
+    headerLogo.href = '/src/pages/mainpage/';
   }
 
-  if (currentPage === '/src/pages/mainPage/') {
+  if (currentPage === '/src/pages/mainpage/') {
     if (!localStorage.getItem('auth')) {
       return;
     } else {
@@ -33,7 +33,7 @@ export default async function header() {
             >
         <ul class="flex gap-28pxr desktop:gap-52pxr">
           <li>
-            <a href="/src/pages/mainPage/">
+            <a href="/src/pages/mainpage/">
               <figure class="flex items-center gap-4pxr desktop:gap-10pxr">
                 <img
                   src="/assets/header/navbar_live.svg"
@@ -44,10 +44,10 @@ export default async function header() {
               </figure>
             </a>
           </li>
-          <li><a href="/src/pages/mainPage/">TV프로그램</a></li>
-          <li><a href="/src/pages/mainPage/">영화</a></li>
+          <li><a href="/src/pages/mainpage/">TV프로그램</a></li>
+          <li><a href="/src/pages/mainpage/">영화</a></li>
           <li>
-            <a href="/src/pages/mainPage/">
+            <a href="/src/pages/mainpage/">
               <figure>
                 <img
                   src="/assets/header/paramount_logo.svg"
@@ -75,7 +75,7 @@ export default async function header() {
       </div>`;
 
       if (
-        currentPage === '/src/pages/mainPage/' ||
+        currentPage === '/src/pages/mainpage/' ||
         (currentPage === '/src/pages/detailPage/' && isAuth)
       ) {
         insertTemplate('#header-wrapper', template);
@@ -86,7 +86,7 @@ export default async function header() {
   const searchModal = document.querySelector('#search');
 
   // 스크롤 이벤트(메인 페이지에서만 실행)
-  if (currentPage === '/src/pages/mainPage/') {
+  if (currentPage === '/src/pages/mainpage/') {
     let lastScroll = 0;
 
     window.addEventListener('scroll', () => {
