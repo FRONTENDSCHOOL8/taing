@@ -10,9 +10,9 @@ const authData = JSON.parse(localStorage.getItem('auth'));
 const path = location.pathname;
 
 if (
-  path === '/src/pages/mainPage/' ||
-  path === '/src/pages/selectProfile/' ||
-  path === '/src/pages/editProfile/'
+  path === '/src/pages/mainpage/' ||
+  path === '/src/pages/selectprofile/' ||
+  path === '/src/pages/editprofile/'
 ) {
   if (!authData || !authData.isAuth) {
     alert('로그인 후 이용해주세요.');
@@ -47,8 +47,8 @@ await fetch('/src/components/footer.html')
   });
 
 // 메인 페이지에서만 실행
-if (window.location.pathname === '/src/pages/mainPage/') {
-  fetch('/src/pages/modal/userMenuModal/')
+if (window.location.pathname === '/src/pages/mainpage/') {
+  fetch('/src/pages/modal/usermenumodal/')
     .then((response) => response.text())
     .then((html) => {
       const menuElement = document.querySelector('#user-menu');
@@ -60,7 +60,7 @@ if (window.location.pathname === '/src/pages/mainPage/') {
       console.error(error);
     });
 
-  fetch('/src/pages/searchPage/')
+  fetch('/src/pages/searchpage/')
     .then((response) => response.text())
     .then((html) => {
       const searchElement = document.querySelector('#search');
@@ -73,10 +73,10 @@ if (window.location.pathname === '/src/pages/mainPage/') {
     });
 
   // mainPage modal
-  fetch('/src/pages/modal/mainPageModal/')
+  fetch('/src/pages/modal/mainpagemodal/')
     .then((response) => response.text())
     .then((html) => {
-      const modalElement = document.querySelector('#mainPageModal');
+      const modalElement = document.querySelector('#mainpagemodal');
       modalElement.innerHTML = html;
 
       mainPageModal();
@@ -86,10 +86,10 @@ if (window.location.pathname === '/src/pages/mainPage/') {
     });
 
   // logout modal
-  fetch('/src/pages/modal/logoutModal/')
+  fetch('/src/pages/modal/logoutmodal/')
     .then((response) => response.text())
     .then((html) => {
-      const modalElement = document.querySelector('#logoutModal');
+      const modalElement = document.querySelector('#logoutmodal');
       modalElement.innerHTML = html;
 
       logoutModal();
@@ -99,10 +99,10 @@ if (window.location.pathname === '/src/pages/mainPage/') {
     });
 
   // withdrawal modal
-  fetch('/src/pages/modal/withdrawalModal/')
+  fetch('/src/pages/modal/withdrawalmodal/')
     .then((response) => response.text())
     .then((html) => {
-      const modalElement = document.querySelector('#withdrawalModal');
+      const modalElement = document.querySelector('#withdrawalmodal');
       modalElement.innerHTML = html;
 
       withdrawalModal();
