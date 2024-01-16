@@ -19,7 +19,7 @@ export default async function header() {
   if (!isAuth) {
     headerLogo.href = '/index.html';
   } else {
-    headerLogo.href = '/src/pages/mainpage/';
+    headerLogo.href = '/src/pages/mainPage/';
   }
 
   if (currentPage === '/src/pages/mainpage/') {
@@ -33,7 +33,7 @@ export default async function header() {
             >
         <ul class="flex gap-28pxr desktop:gap-52pxr">
           <li>
-            <a href="/src/pages/mainpage/">
+            <a href="/src/pages/mainPage/">
               <figure class="flex items-center gap-4pxr desktop:gap-10pxr">
                 <img
                   src="/assets/header/navbar_live.svg"
@@ -44,10 +44,10 @@ export default async function header() {
               </figure>
             </a>
           </li>
-          <li><a href="/src/pages/mainpage/">TV프로그램</a></li>
-          <li><a href="/src/pages/mainpage/">영화</a></li>
+          <li><a href="/src/pages/mainPage/">TV프로그램</a></li>
+          <li><a href="/src/pages/mainPage/">영화</a></li>
           <li>
-            <a href="/src/pages/mainpage/">
+            <a href="/src/pages/mainPage/">
               <figure>
                 <img
                   src="/assets/header/paramount_logo.svg"
@@ -76,7 +76,7 @@ export default async function header() {
 
       if (
         currentPage === '/src/pages/mainpage/' ||
-        (currentPage === '/src/pages/detailPage/' && isAuth)
+        (currentPage === '/src/pages/detailpage/' && isAuth)
       ) {
         insertTemplate('#header-wrapper', template);
       }
