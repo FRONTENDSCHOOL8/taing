@@ -19,14 +19,19 @@ inputUserId.addEventListener('input', (e) => {
 
 form.addEventListener('submit', findId);
 
+/**
+ * TODO: 함수는 입력값에 따라 츨력값이 정해지는 순수함수로 구성하는 것이 가장 좋습니다.
+ * @param e
+ * @returns {Promise<void>}
+ */
 async function findId(e) {
   e.preventDefault();
-
-  const userIdValue = inputUserId.value;
+  const formData = new FormData(e.currentTarget);
+  const { userId } = Object.fromEntries(formData.entries());
 
   try {
     const res = await getData('users', {
-      filter: `username='${userIdValue}'`,
+      filter: `username='${userId}'`,
     });
 
     if (res.length > 0) {
