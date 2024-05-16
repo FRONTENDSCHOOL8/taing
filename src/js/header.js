@@ -22,8 +22,9 @@ export default async function header() {
     headerLogo.href = '/src/pages/mainPage/';
   }
 
-  if (currentPage === '/src/pages/mainpage/') {
+  if (currentPage === '/src/pages/mainPage/') {
     if (!localStorage.getItem('auth')) {
+      console.log('로그인이 필요합니다.');
       return;
     } else {
       const template = /* html */ `
@@ -37,7 +38,7 @@ export default async function header() {
               <figure class="flex items-center gap-4pxr desktop:gap-10pxr">
                 <img
                   src="/assets/header/navbar_live.svg"
-                  alt=""
+                  alt="실시간 로고"
                   class="h-20pxr w-20pxr desktop:h-34pxr desktop:w-34pxr"
                 />
                 <figcaption>실시간</figcaption>
@@ -75,8 +76,8 @@ export default async function header() {
       </div>`;
 
       if (
-        currentPage === '/src/pages/mainpage/' ||
-        (currentPage === '/src/pages/detailpage/' && isAuth)
+        currentPage === '/src/pages/mainPage/' ||
+        (currentPage === '/src/pages/detailPage/' && isAuth)
       ) {
         insertTemplate('#header-wrapper', template);
       }
@@ -86,7 +87,7 @@ export default async function header() {
   const searchModal = document.querySelector('#search');
 
   // 스크롤 이벤트(메인 페이지에서만 실행)
-  if (currentPage === '/src/pages/mainpage/') {
+  if (currentPage === '/src/pages/mainPage/') {
     let lastScroll = 0;
 
     window.addEventListener('scroll', () => {
