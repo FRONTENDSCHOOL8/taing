@@ -25,7 +25,7 @@ mainBannerArr.forEach(() => {
         </figcaption>
       </figure>
       <a
-        href="/"
+        href="/src/pages/mainpage"
         class="absolute bottom-[12%] right-12pxr flex h-27pxr w-64pxr items-center justify-center rounded-md border border-[#a6a6a6] text-12pxr text-white tablet:right-38pxr tablet:h-44pxr tablet:w-128pxr desktop:right-70pxr desktop:h-78pxr desktop:w-220pxr desktop:text-22pxr"
         >자세히보기</a
       >
