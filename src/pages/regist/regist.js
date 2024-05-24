@@ -1,5 +1,6 @@
 import { postData, getData } from '/src/util/crud';
 import { getImageURL } from '/src/util/getImageURL';
+import { emailVisibility } from '/src/util/certification';
 
 const form = document.querySelector('#form');
 const emailInput = document.querySelector('#email');
@@ -7,7 +8,7 @@ const userId = document.querySelector('#user-id');
 const password = document.querySelector('#password');
 const confirmPassword = document.querySelector('#confirm-password');
 const checkbox = document.querySelectorAll('.essential');
-const submitButton = document.querySelector('#submit-button');
+// const submitButton = document.querySelector('#submit-button');
 
 const emailValidation = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 const passwordValidation =
@@ -80,8 +81,13 @@ async function duplicateData(e) {
       alert('필수 약관에 동의해주세요.');
     } else {
       const record = await postData('users', data);
+
+      await emailVisibility(data.username);
+
       console.log(record);
+
       alert('회원가입이 완료되었습니다.');
+
       location.href = '/src/pages/login/';
     }
   } catch (error) {
