@@ -5,10 +5,10 @@ const loginForm = document.querySelector('#login-form');
 loginForm.addEventListener('submit', async (e) => {
   try {
     e.preventDefault(); // 폼 기본 동작 방지
+    const formData = new FormData(e.currentTarget);
 
     // 입력값 가져오기
-    const username = document.querySelector('#username').value;
-    const password = document.querySelector('#password').value;
+    const { username, password } = Object.fromEntries(formData.entries());
 
     if (!username || !password) {
       alert('아이디 또는 비밀번호를 입력해주세요.');

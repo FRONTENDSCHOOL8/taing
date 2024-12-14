@@ -1,4 +1,4 @@
-function insertTemplate(target, template) {
+export function insertTemplate(target, template) {
   if (typeof target !== 'string')
     throw new Error('target은 문자열이어야 합니다.');
 
@@ -8,5 +8,3 @@ function insertTemplate(target, template) {
 
   targetElement.insertAdjacentHTML('beforeend', template);
 }
-
-export { insertTemplate };
